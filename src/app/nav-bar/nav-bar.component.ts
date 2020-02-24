@@ -213,11 +213,24 @@ export class NavBarComponent implements OnInit {
   //show navbarBackground on specifip pages
 
   public checkRoute(){
+
     var currentRoute = window.location.pathname;
 
     if(currentRoute == "/userRegistration"){
       this.mustAppearNavBackground = false;
     }
+
+    else{
+      this.mustAppearNavBackground = true;
+    }
+
+  }
+
+  public ifRouteChanged(){
+
+    this.router.events.subscribe( data => {
+      this.checkRoute();
+    })
 
   }
 
@@ -265,7 +278,7 @@ export class NavBarComponent implements OnInit {
 
     this.isAuthenticated();
 
-    this.checkRoute();
+    this.ifRouteChanged();
 
   }
 

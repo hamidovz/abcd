@@ -36,33 +36,49 @@
                 <p class="col-12 col-lg-6">
                     <span>Ad</span> 
                     <br>
-                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="name" [(ngModel)]="message.name">
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" [class.inputError]="hasError.name" name="name" [(ngModel)]="message.name">
+
+                    <br>
+                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.name">{{validationMessages.name}}</span> 
                 </p>
 
                 <p class="col-12 col-lg-6">
                     <span >Soyad</span> 
                     <br>
-                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="surname" [(ngModel)]="message.surname">
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2"  [class.inputError]="hasError.surname" name="surname" [(ngModel)]="message.surname">
+
+                    <br>
+
+                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.surname">{{validationMessages.surname}}</span>  
                 </p>
 
                 <p class="col-12 col-lg-6">
                     <span >Email</span> 
                     <br>
-                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="email" [(ngModel)]="message.email">
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" [class.inputError]="hasError.email" name="email" [(ngModel)]="message.email">
+
+                    <br>
+                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.email">{{validationMessages.email}}</span>  
                 </p>
 
                 <p class="col-12 col-lg-6">
                     <span >Əlaqə nömrəsi
                     </span> 
                     <br>
-                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="number" [(ngModel)]="message.number">
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" [class.inputError]="hasError.phoneNumber" name="number" [(ngModel)]="message.number">
+
+                    <br>
+                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.phoneNumber">{{validationMessages.phoneNumber}}</span>  
                 </p>
 
                 <p class="col-12">
                     <span >Fikirləriniz:
                     </span> 
                     <br>
-                    <textarea class="col-12 py-2 mt-2" name="text" [(ngModel)]="message.description"></textarea>
+                    <textarea class="col-12 py-2 mt-2" [class.inputError]="hasError.description"  name="text" [(ngModel)]="message.description"></textarea>
+
+                    <br>
+                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.description">{{validationMessages.description}}</span>  
                 </p>
 
                 <p class="col-12">

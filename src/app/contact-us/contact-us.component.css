@@ -41,6 +41,25 @@ agm-map {
     height:100%;
   }
 
+  
+.validationError{
+    color:red;
+    opacity:0;
+    font-size:12px;
+}
+
+.showError{
+    opacity:1;
+}
+
+input[type="text"] , textarea{
+    border:2px solid transparent;
+}
+
+.inputError{
+    border:2px solid red !important;
+}
+
   @media screen and (max-width:800px){
       textarea{
           width:100%;

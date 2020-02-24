@@ -199,7 +199,7 @@ export class UserRegistrationComponent implements OnInit {
 
   }
 
-  public verifySmsCode(){
+  public verifySmsCode(birthday){
 
     this.verifyData.phoneNumber = this.userData.phoneNumber;
 
@@ -212,7 +212,7 @@ export class UserRegistrationComponent implements OnInit {
 
       if( retreivedData.isSuccess ){
 
-        this.registrationSuccessfull = true;
+        this.registerUser(birthday);
 
       }
 
@@ -237,7 +237,16 @@ export class UserRegistrationComponent implements OnInit {
 
       this.userNumberCheckData.phoneNumber = this.userData.phoneNumber;
 
-      this.userService.checkIfNumberExists(this.userNumberCheckData).subscribe( data => console.log(data) );
+      this.userService.checkIfNumberExists(this.userNumberCheckData).subscribe( data => {
+
+        var retreivedData : any = data;
+
+        if( retreivedData.isSuccess ){//if number doesn't exists on database
+
+          this.sendSms();
+        }
+
+      } );
 
     }
 

@@ -344,7 +344,7 @@
 
 
 
-            <div class="col-md-9 px-0 row">
+            <div class="col-md-9 px-0 row addImageslabelWeb">
 
                 <p class="col-md-4 px-0">Tur şəkilləri</p>
 
@@ -510,11 +510,14 @@
 
 
 
-            <div class="col-md-6 col-11 my-4 px-1" style="text-align: right;" *ngFor="let type of programType">
+            <div class="col-md-6 col-11 my-4 px-1" style="text-align: right;">
                 <p class="col-8 px-0">Fəaliyyət növü</p>
 
-                <select class="col-12 col-md-8 py-3" #programType>
-                    <option>{{type.name}}</option>
+                <select class="col-12 col-md-8 py-3" #programTypeSelect >
+                    <option *ngFor="let type of programType" value={{type.id}}>
+                        {{type.name}}
+                    </option> 
+
                     </select>
 
             </div> 
@@ -535,7 +538,7 @@
             </div>
 
             <div class="col-12 text-center">
-                <button class="col-5" (click)="toggleStep('vendorTourAddActivity' , 'vendorTourActivities' , 2, [programType.value , programName.value , programDescription.value , programStartTime.value])">Əlavə Et</button>
+                <button class="col-5" (click)="toggleStep('vendorTourAddActivity' , 'vendorTourActivities' , 2, [programTypeSelect.value , programName.value , programDescription.value , programStartTime.value])">Əlavə Et</button>
             </div>
 
 
@@ -560,7 +563,7 @@
             <div class="col-12 col-md-6 my-3" *ngFor="let service of tourServices">
 
                 <label class="customCheckbox px-0 py-0 mr-2 my-0">
-                    <input type="checkbox" class="p-3 custom-control-checkbox" (click)="addService(service.name)">
+                    <input type="checkbox" class="p-3 custom-control-checkbox" (click)="addService(service.id)">
                     <span class="checkSymbol"></span>
                 </label>
                 {{service.name}}

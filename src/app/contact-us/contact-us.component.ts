@@ -36,16 +36,110 @@ export class ContactUsComponent implements OnInit {
 
   public sendMessage() {
 
+    if( this.validateForm() ){
+      return;
+    }
+
     this.contactUsService.contactPost(this.message).subscribe(data => console.log(data));
 
   }
 
-  //this for test
-  // public test() {
+  
 
-  //   console.log(this.message);
 
-  // }
+  //form validation
+
+
+  public formFields = [ "name", "surname", "email", "phoneNumber", "description" ];
+  
+
+  public hasError : any = {
+
+    "name": false,
+
+    "surname": false,
+
+    "email": false,
+
+    "phoneNumber": false,
+
+    "description": false
+
+  }
+
+
+
+  public validationMessages = {
+
+    "name": "Boş buraxmaq olmaz",
+
+    "surname": "Boş buraxmaq olmaz",
+
+    "email": "Boş buraxmaq olmaz",
+
+    "phoneNumber": "Boş buraxmaq olmaz",
+
+    "description": "Boş buraxmaq olmaz"
+  }
+
+  public contactData ={
+
+    "name": "",
+
+    "surname": "",
+
+    "email": "",
+
+    "phoneNumber": "",
+
+    "description": ""
+
+  }
+
+  public validateForm(){
+
+    var hasError = false;
+
+    this.formFields.map( field => {
+
+      if( this.contactData[field].length < 1){
+        
+        this.hasError[field] = true;
+
+        hasError = true;
+
+      }
+
+    })
+
+    return hasError;
+
+  }
+
+
+  public resetValidation(){
+
+    this.hasError  = {
+
+      "name": false,
+  
+      "surname": false,
+  
+      "email": false,
+  
+      "phoneNumber": false,
+  
+      "password": false,
+  
+      "confirmPassword": false,
+  
+      "birthday": false,
+  
+      "gender": false
+  
+    }
+
+  }
 
 
   ngOnInit() { }

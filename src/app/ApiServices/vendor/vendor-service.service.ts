@@ -17,7 +17,9 @@ export class VendorServiceService {
 
     getTourProgramType : "http://ziqzaq.az/api/programType",
 
-    vendorAddTour : "http://ziqzaq.az/api/tour"
+    vendorAddTour : "http://ziqzaq.az/api/tour",
+
+    sendPrograms : "http://ziqzaq.az/api/tourProgram"
 
   }
 
@@ -41,6 +43,10 @@ export class VendorServiceService {
     
     vendorAddTour : {
       headers: new HttpHeaders({ 'Access-Control-Allow-Origin' : '*',"Authorization":"Bearer " + localStorage.getItem("vendorToken")})
+    },
+
+    sendPrograms : {
+      headers: new HttpHeaders({ 'Content-Type' : 'application/json' , 'Access-Control-Allow-Origin' : '*',"Authorization":"Bearer " + localStorage.getItem("vendorToken")})
     }
 
   }
@@ -101,7 +107,17 @@ public convertDateToString(date){
 //arrivalTime and departureTime are sent as object
 //we need to convert it to a string in order to send it to the server
 
+//services will be array need to be appended seperately
+
   public addTour( currentImgs , prevTourImgs , tourData) {
+
+    var services = tourData.Services;
+
+    var servicesLength = services.length;
+
+    //delete services from tourdata to append and send it as a array 
+
+    delete tourData.Services;
 
     var currentImg : any =  currentImgs.files;
 
@@ -155,12 +171,25 @@ public convertDateToString(date){
 
     }
 
+    for( let x = 0; x < servicesLength; x++ ){
+
+      sendData.append("Services" , services[x]);
+    }
+
     sendData.append("Image", currentImgs.files[0]);
 
     
 
     return this.http.post( this.apiUrl.vendorAddTour, sendData , this.sendHeader["vendorAddTour"] );
   
+  }
+
+  //programs are sent seperately but can be changed in the future
+
+  public sendPrograms(programs){
+
+    return this.http.post( this.apiUrl.sendPrograms , programs , this.sendHeader["sendPrograms"] );
+
   }
 
 

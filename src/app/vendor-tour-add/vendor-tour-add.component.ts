@@ -23,8 +23,6 @@ public validationRules = {
         
         "AdultPrice" , "ChildPrice" , "InfantPrice" , "Description" , "currentTourImgs"],
 
-        2 : ["Programs"],
-
         3 : ["Services"]
 
 
@@ -111,9 +109,26 @@ public resetValidationMessages(){
 
 public validateForm(step){
 
+        console.log(step);
+
         this.resetValidationMessages();
 
         var hasError = false;
+
+        if( step == 2 && this.programData.length < 1){
+                
+                hasError = true;
+
+                return hasError;
+                
+        }
+        
+        if( step == 2 && this.programData.length > 0){
+                
+
+                return hasError;
+                
+        }
 
         this.validationRules[step].map( data =>{
 
@@ -165,6 +180,10 @@ public steps = {
 
 }
 
+
+//programs will be sent seperately
+public programData : any = []
+
 public addPrograms(programs){
 
         if(programs.filter( data => data && data.length < 1).length > 0){
@@ -175,14 +194,15 @@ public addPrograms(programs){
 
         var formattedPrograms = {
 
-                type : programs[0],
-                name : programs[1],
-                description : programs[2],
-                startDate : programs[3]
+                "programTypeId": Number(programs[0]),
+                "name" : programs[1],
+                "description" : programs[2],
+                "startDate" : programs[3],
+                
 
         }
 
-        this.tourData.Programs.push(formattedPrograms);
+        this.programData.push(formattedPrograms);
 
         console.log(this.tourData.Programs);
 
@@ -207,6 +227,7 @@ public toggleStep( stepToDisable , stepToEnable , step? , programs?){
 
                 return;
         }
+
 
 
 
@@ -386,10 +407,29 @@ public addService(service){
 
 
 
+//programs need to be sent seperately
+
+public sendPrograms(tourid){
+
+        this.programData[0]["tourId"] = tourid;
+
+        this.VendorService.sendPrograms(this.programData).subscribe( data => console.log(data));
+
+}
+
 public addTour(currentImgs , prevTourImgs ){
 
 
-        this.VendorService.addTour( currentImgs , prevTourImgs , this.tourData ).subscribe( data => console.log(data) );
+        this.VendorService.addTour( currentImgs , prevTourImgs , this.tourData ).subscribe( data => {
+
+                var retreivedData : any = data;
+
+                var tourId = retreivedData.output;
+
+                if( retreivedData.isSuccess ){
+                        this.sendPrograms(tourId);
+                }
+        } );
         // .subscribe( data => console.log(data));
 
 }
