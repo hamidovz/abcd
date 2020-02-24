@@ -1,0 +1,34 @@
+<section id="vendorLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 title text-center mt-5">
+                <h2 class="vendorLoginTitle">
+                    Vendor panelinə giriş
+                </h2>
+            </div>
+            <div class=" col-md-8 col-sm-12 offset-md-2">
+                <!-- Form starts here -->
+                <form>
+                    <div class="vendorLoginForm">
+                        <div class="row">
+                            <!-- Phone number -->
+                            <div class="formElement col-12">
+                                <input type="text" name="phoneNumber" class="formInput"
+                                    placeholder="Telefon" [(ngModel)]="loginData.phoneNumber">
+                            </div>
+                            <!-- Password  -->
+                            <div class="formElement col-12">
+                                <input type="text" name="password" class="formInput"
+                                    placeholder="Şifrə" [(ngModel)]="loginData.password">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit -->
+                    <div class="col-12 submitting">
+                        <button (click)="vendorLogin()" class="btn btn-primary submitbutton btn-sm">daxİl ol</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+.contactContainer{
+    margin: auto;
+    justify-content: space-between;
+    font-size: 45px;
+}
+
+.contactContainer > p{
+    display:flex;
+    align-items: center;
+}
+
+.contactTitle{
+    font-size:20px;
+}
+
+input, textarea{
+    border-radius:5px;
+    outline:none;
+    border:none;
+    background:#DBDBDB;
+}
+
+textarea{
+    width:96%;
+}
+
+.feedbackLeft{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+button{
+    background:#0082FF;
+    color:white;
+    border:none;
+    outline:none;
+    border-radius:5px;
+}
+
+agm-map {
+    height:100%;
+  }
+
+  @media screen and (max-width:800px){
+      textarea{
+          width:100%;
+      }
+
+      .feedbackRight{
+          height:500px;
+      }
+  }

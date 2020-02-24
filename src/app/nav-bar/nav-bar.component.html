@@ -1,0 +1,282 @@
+<div *ngIf="mustAppear" class="container-fluid navbar" [class.navbkWhite]="navbarBackground" (scroll)="scrollHandler()">
+  
+
+
+
+<!-- userLogin Unsuccessfull notification popUp -->
+
+   <!-- desktop version container starts -->
+  
+  <div class="container desktop"> 
+
+    <div class="logo col-3 col-xl-5">
+      <img class="col-8 col-xl-4" src="/assets/img/logo.svg">
+    </div>
+
+    <div class="links col-9 col-xl-7">
+
+      <div class="col-12 row navRow">
+        <p class="col-auto navElement py-1" (click)="activateNavElement('home')" [class.active]="activeNavbarElement == 'home'" routerLink="/home">Əsas Səhifə</p>
+        <p class="col-auto navElement py-1" (click)="activateNavElement('localTour')" [class.active]="activeNavbarElement == 'localTour'" routerLink="/localTours">Daxili Turlar</p>
+        <p class="col-auto navElement py-1" (click)="activateNavElement('foreignTour')" [class.active]="activeNavbarElement == 'foreignTour'" routerLink="/externalTours">Xarici Turlar</p>
+        <p class="col-auto navElement py-1" (click)="activateNavElement('transfer')" [class.active]="activeNavbarElement == 'transfer'" routerLink="/transferPage">Transfer Xidməti</p>
+        <p class="col-auto navElement py-1" (click)="loginBox()" [class.active]="activeNavbarElement == 'login'" *ngIf="!userIsLogged">Daxil ol</p>
+        <p class="col-auto navElement py-1"  *ngIf="userIsLogged"><img src="assets/icon/avatar.svg" (click)="openProfileMenuWeb()"></p>
+
+        <div class="col-4 col-xl-5 py-2 loginContainer" [class.loginClosed]="loginModalClosed">
+
+          <input type="text" class="col-12 my-2" placeholder="Əlaqə nömrəsi" [(ngModel)]="userData.phoneNumber">
+
+          <br>
+
+          <input type="password" class="col-12 my-2" placeholder="Şifrə" [(ngModel)]="userData.password">
+
+          <p class="pl-3 errorMessage" *ngIf="!userCredentials">İstifadəçi məlumatları yanlışdır</p>
+          <div class="row col-12">
+
+            <p class="col-xl-7 col-6 signUp" routerLink="/userRegistration">
+              Qeydiyyat
+            </p>
+
+            <p class="col-xl-5 col-6 signIn" (click)="login()">
+              Daxil ol
+              <img src="assets/icon/login.svg">
+            </p>
+
+
+
+          </div>
+
+        </div>
+
+
+        <div class="col-4 profileMenuWeb px-0 pt-3" [class.profileMenuWebOpen]="profileMenuOpenedWeb">
+
+          <p class="col-12 px-0" routerLink="/userProfile"> <fa-icon [icon]="['fas','user']" class="mr-3 ml-4" ></fa-icon> Hesabım </p>
+          <p class="col-12 px-0" routerLink="/favoriteTours"> <fa-icon [icon]="['far','heart']" class="mr-3 ml-4"></fa-icon> İzlədiyim turlar </p>
+          <p class="col-12 px-0" routerLink="/bookedTours"> <fa-icon [icon]="['fas','list-ul']" class="mr-3 ml-4"></fa-icon> Gedəcəyim turlar </p>
+          <p class="col-12 px-0" routerLink="/attendedTours"> <fa-icon [icon]="['fas','clipboard-check']" class="mr-3 ml-4"></fa-icon> Getdiyim turlar </p>
+          <p class="col-12 px-0" (click)="logOut()"> <fa-icon [icon]="['fas','sign-out-alt']" class="mr-3 ml-4"></fa-icon> Çıxış </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>  
+  
+  
+  <!-- desktop version container ends -->
+
+
+
+  
+<!-- mobile version container starts -->
+
+<div class="container px-0 mobile">
+
+  <div class="col-12 row">
+    
+    <div class="col-3 hamburger" (click)="openMenu()">
+      <img src="assets/icon/hamburgerMenu.svg">
+    </div>
+
+
+    <div class="col-6 text-center">
+      <img src="assets/img/logoWhite.svg" class="col-8">
+    </div>
+
+
+    <div class="col-3 px-0 text-right" *ngIf="!userIsLogged" routerLink="/userLoginMobile">
+      <img src="assets/icon/avatarWhite.svg" class="col-3 px-0">
+    </div>
+
+
+    <div class="col-3 px-0 text-right" *ngIf="userIsLogged" (click)="openProfileMenu()">
+      <img src="assets/img/profilePic.svg" class="col-3 px-0">
+    </div>
+
+    
+
+
+  </div>
+
+</div>
+
+
+<div class="container-fluid menuFull pt-5" [class.menuOpen]="menuOpened">
+
+  <div class="col-12 menuItems" (click)="openMenu()">
+
+    <p class="col-12" routerLink="home"> ƏSAS SƏHİFƏ </p>
+
+    <p class="col-12" routerLink="localTours"> DAXİLİ TURLAR </p>
+
+    <p class="col-12" routerLink="externalTours"> XARİCİ TURLAR </p>
+
+    <p class="col-12" routerLink="transferPage"> TRANSFER XİDMƏTİ </p>
+
+    <p class="col-12" routerLink="aboutUs"> HAQQIMIZDA</p>
+
+    <p class="col-12" routerLink="contactUs"> ƏLAQƏ </p>
+
+  </div>
+
+
+  <div class='col-12 footerSection'>
+
+    <p class="col-12 mb-4"> AGENTLİK GİRİŞİ </p>
+
+    <p class="col-12 socialLinks mb-5">
+      <fa-icon class="mx-2" [icon]="['fab', 'facebook-f']" class="mr-3 ml-4"></fa-icon>
+      <fa-icon class="mx-2" [icon]="['fab', 'twitter']" class="mr-3 ml-4"></fa-icon>
+      <fa-icon class="mx-2" [icon]="['fab', 'instagram']" class="mr-3 ml-4"></fa-icon>
+      <fa-icon class="mx-2" [icon]="['fab', 'google-plus-g']" class="mr-3 ml-4"></fa-icon>
+    </p>
+  </div>
+</div>
+
+
+
+<!-- mobile version container ends -->
+
+
+</div>  <!-- container ends -->
+
+
+
+
+
+<!-- desktop version searchSection starts-->
+
+
+
+<div *ngIf="mustAppearNavBackground" class="container-fluid px-0 navBackground">
+
+  <img class="col-12 px-0" src="/assets/img/navbarBack.png">
+
+  <p class="col-12 slogan" *ngIf="isFrontPage">Dünyanı Ziqzaqla !</p>
+
+  <div class="col-11 searchSection pl-5" *ngIf="isFrontPage">
+
+    <div class="col-12 pl-5 row">
+
+      <input type="text" class="col-4 ml-xl-5 searchInput" placeholder="Açar sözü daxil edin" #keyword>
+
+      <input type="text" class="col-1  ml-3 px-4 date" placeholder="15/12/2019" ngbDatepicker #arrive="ngbDatepicker" #depart>
+
+      <button class="col-1 py-2 depart mr-2 px-0" (click)="arrive.toggle()"><img src="assets/icon/calendar.svg" class="calendar">gediş</button>
+
+      <input class="col-1  px-4 date " type="text" placeholder="15/12/2019" ngbDatepicker #departure="ngbDatepicker"  #return>
+
+      <button class="col-1 py-2 return mr-2 px-0" (click)="departure.toggle()"><img src="assets/icon/calendar.svg" class="calendar">dönüş</button>
+
+      <button (click)="searchTour([keyword.value,depart.value,return.value])" class="col-auto navElement search py-0 px-4"><fa-icon  [icon]="['fas','search']"></fa-icon></button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<!-- desktop version searchSection ends -->
+
+
+
+
+
+
+
+<!-- mobile version searchSection starts -->
+
+
+<div class="container-fluid px-0 navBackgroundMobile mt-5 py-5">
+
+
+  <p class="col-12 sloganMobile mb-4"> Dünyanı ziqzaqla ! </p>
+
+  <div class="col-12 searchSectionMobile">
+
+    <input type="text" class="col-10 py-2" placeholder="Açar sözü daxil edin">
+
+    <div class="col-12 direction px-0 mt-3">
+
+      <input type="text" class="col-4 py-2" placeholder="Gediş" ngbDatepicker #arriveMobile="ngbDatepicker">
+
+      <button class="col-1 px-0 py-2 px-2 mr-1" id="arrive"  (click)="arriveMobile.toggle()"></button>
+     
+      <input type="text" class="col-4 ml-1" id="return" placeholder="Gediş" ngbDatepicker #departureMobile="ngbDatepicker">
+
+      <button class="col-1 px-0 px-2 py-2" (click)="departureMobile.toggle()"></button>
+
+    </div>
+
+    <button class="col-10 py-1 mt-3 px-0 searchMobile">
+      <fa-icon routerLink="cart" [icon]="['fas','search']" class="mr-3 ml-4"></fa-icon>
+    </button>
+
+  </div>
+  
+</div>
+
+
+
+<!-- mobile version searchSection ends -->
+
+
+
+
+
+
+
+
+
+<!-- mobile version profile menu starts (when user logged in)-->
+
+
+<div class="container-fluid px-0 profileMenuContainer" [class.profileMenuOpen]="profileMenuOpened">
+
+  <div class="col-10 profileMenu">
+
+    <div class="col-2 closeButton mt-2" (click)="openProfileMenu()">
+      <img src="assets/icon/close.svg">
+    </div>
+
+
+    <div class="col-12 mt-4 profileMenuAvatar">
+      <img src="assets/img/profilePic.svg">
+      <br>
+      Leyla Kazımova
+    </div>
+
+    <div class="col-12 mt-5 pt-2 profileMenuLinks">
+
+      <p class="col-12 my-4"><img src="assets/icon/avatarSimple.svg" class="mr-3">Hesabım</p>
+      <p class="col-12 my-4"><img src="assets/icon/heartSimple.svg" class="mr-3">İzlədiyim turlar</p>
+      <p class="col-12 my-4"><img src="assets/icon/hamburgerSimple.svg" class="mr-3">Gedəcəyim turlar</p>
+      <p class="col-12 my-4"><img src="assets/icon/taskComplete.svg" class="mr-3">Getdiyim turlar</p>
+      <p class="col-12 my-4" (click)="logOut()"><img src="assets/icon/logout.svg" class="mr-3">Çıxış</p>
+      
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- mobile version profile menu ends (when user logged in)-->
+
+
+
+
+
+
+
+
+
+

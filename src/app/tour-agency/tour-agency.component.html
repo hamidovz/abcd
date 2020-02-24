@@ -1,0 +1,114 @@
+<section id="tourAgency">
+    <div class="tourOrganizer">
+        <div class="container">
+            <div class="row">
+                <div class="tourOrganizerLeft col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="tourOrganizerLeftTop">
+                        <h2>Təşkilatçı</h2>
+                    </div>
+                    <div class="tourOrganizerLeftLogo" routerLink="/agencyInformation">
+                        <img src="assets/img/goTravelLogo.png">
+                    </div>
+                    <div class="tourOrganizerLeftBody">
+                        <div class="tourConnection">
+                            <fa-icon [icon]="['fas','phone-alt']"></fa-icon>
+                            <p>+994 12 345 12 14</p>
+                        </div>
+                        <div class="tourConnection">
+                            <fa-icon [icon]="['fas','envelope']"></fa-icon>
+                            <p>info@gotravel.az</p>
+                        </div>
+                    </div>
+                    <div class="tourOrganizerLeftBottom">
+                        <fa-icon [icon]="['fab','facebook-f']"></fa-icon>
+                        <fa-icon [icon]="['fab','twitter']"></fa-icon>
+                        <fa-icon [icon]="['fab','instagram']"></fa-icon>
+                    </div>
+                </div>
+                <div class="tourOrganizerRight col-lg-6 col-md-6 col-sm-12 col-12 px-0">
+                    <agm-map [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="otherTours">
+        <div class="container">
+            <div class="localToursTop">
+                <div class="row">
+                    <div class="col-md-12 localToursCardTitle">
+                        <h2>İsitifadəçinin digər turları</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="localToursBody">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard">
+                                <div class="tourCard">
+                                    <div class="tourCardImg">
+                                        <!-- <img src="/assets/img/tourPic.png"> -->
+                                        <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
+                                        <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                                    </div>
+                                    <div class="tourCardContent">
+                                        <div class="tourCardTitleTime">
+                                            <h3>Zaqatala - Balaken turu</h3>
+                                            <p>22.05.2019 - 22.07.2019</p>
+                                        </div>
+                                        <div class="tourCardPrice">
+                                            <p>142.99 &#8380;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard">
+                                <div class="tourCard">
+                                    <div class="tourCardImg">
+                                        <!-- <img src="/assets/img/tourPic.png"> -->
+                                        <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
+                                        <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                                    </div>
+                                    <div class="tourCardContent">
+                                        <div class="tourCardTitleTime">
+                                            <h3>Zaqatala - Balaken turu</h3>
+                                            <p>22.05.2019 - 22.07.2019</p>
+                                        </div>
+                                        <div class="tourCardPrice">
+                                            <p>142.99 &#8380;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard">
+                                <div class="tourCard">
+                                    <div class="tourCardImg">
+                                        <!-- <img src="/assets/img/tourPic.png"> -->
+                                        <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
+                                        <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                                    </div>
+                                    <div class="tourCardContent">
+                                        <div class="tourCardTitleTime">
+                                            <h3>Zaqatala - Balaken turu</h3>
+                                            <p>22.05.2019 - 22.07.2019</p>
+                                        </div>
+                                        <div class="tourCardPrice">
+                                            <p>142.99 &#8380;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="localTourBottom">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="moreButton">
+                            <button>DAHA ÇOX</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

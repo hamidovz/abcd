@@ -1,0 +1,70 @@
+*{
+    font-family: Sarabun;
+}
+
+#adminLogin{
+}
+.loginBlock{
+    background-color: #f9f9f9;
+    box-shadow: 1px 1px 15px #000;
+    width: 350px;
+    height: 350px;
+    margin: 100px auto;
+    border: none;
+    border-radius: 3px;
+    padding: 20px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logiBlockTop{
+    width: 100%;
+}
+.logiBlockTop p{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.loginBlockBody{
+    width: 100%;
+    height: 100%;
+}
+.loginBlockBody form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+}
+.login-password{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.login-password label{
+    font-size: 18px;
+}
+.login-password input{
+    border: none;
+    border-radius: 3px;
+    background-color: #e8e8e8;
+    height: 35px;
+    outline: none;
+    padding: 10px 15px;
+}
+.login-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+}
+.login-button input{
+    width: 70%;
+    background-color: #a8a8a8;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 0px;
+    color: #fff;
+    outline: none;
+}

@@ -1,0 +1,96 @@
+<section id="vendorReservation">
+    <div class="vendorReservationMobile">
+        <div class="container">
+            <div class="vendorReservationMobileTop">
+                <img src="assets/img/reservation.png">
+                <h1>Reservation</h1>
+            </div>
+            <div class="vendorReservationMobileBody">
+                <div class="row bodyContainer">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="reservationCard row">
+                            <div class="reservationCardTop row col-lg-5 col-md-5 col-sm-12">
+                                <div class="reservationCardImg col-lg-2 col-md-3 col-sm-2 col-2">
+                                    <img src="assets/img/reservationImg.png">
+                                </div>
+                                <div class="reservationCardPassenger row col-lg-10 col-md-9 col-sm-10 col-10">
+                                    <div class="reservationCardPassengerName col-lg-6 col-md-12">
+                                        <h2>Alchin Haydarov</h2>
+                                    </div>
+                                    <div class="reservationCardPassengerDate col-lg-6 col-md-12">
+                                        <p>Zaqatala - Balakən turu</p>
+                                        <p>22.06.2019 - 02.07.2019</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reservationCardBottom row col-lg-7 col-md-7 col-sm-12">
+                                <div class="reservationCardStatus col-lg-8 col-md-8 col-sm-12 col-12">
+                                    <div class="row statusContainer">
+                                        <div class="col-4 statusItem">
+                                            <p>Məbləğ</p>
+                                            <p class="bold">120 &#8380;</p>
+                                        </div>
+                                        <div class="col-4 statusItem">
+                                            <p>Adam sayı</p>
+                                            <p class="bold">3 nəfər</p>
+                                        </div>
+                                        <div class="col-4 statusItem">
+                                            <p>Status</p>
+                                            <button (click)="confirmSectionOpen()">Təsdiq gözləyir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reservationCardButtons col-lg-4 col-md-4 col-sm-12 col-12" [class.reservationCardButtonsOpen]="reservationConfirmOpen">
+                                    <button>TƏSDİQLƏ</button>
+                                    <button class="grey" (click)="confirmSectionClose()">LƏĞV ET</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="reservationCard row">
+                            <div class="reservationCardTop row col-lg-5 col-md-5 col-sm-12">
+                                <div class="reservationCardImg col-lg-2 col-md-3 col-sm-2 col-2">
+                                    <img src="assets/img/reservationImg.png">
+                                </div>
+                                <div class="reservationCardPassenger row col-lg-10 col-md-9 col-sm-10 col-10">
+                                    <div class="reservationCardPassengerName col-lg-6 col-md-12">
+                                        <h2>Alchin Haydarov</h2>
+                                    </div>
+                                    <div class="reservationCardPassengerDate col-lg-6 col-md-12">
+                                        <p>Zaqatala - Balakən turu</p>
+                                        <p>22.06.2019 - 02.07.2019</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reservationCardBottom row col-lg-7 col-md-7 col-sm-12">
+                                <div class="reservationCardStatus col-lg-8 col-md-8 col-sm-12 col-12">
+                                    <div class="row statusContainer">
+                                        <div class="col-4 statusItem">
+                                            <p>Məbləğ</p>
+                                            <p class="bold">120 &#8380;</p>
+                                        </div>
+                                        <div class="col-4 statusItem">
+                                            <p>Adam sayı</p>
+                                            <p class="bold">3 nəfər</p>
+                                        </div>
+                                        <div class="col-4 statusItem">
+                                            <p>Status</p>
+                                            <button (click)="confirmSectionOpen()">Təsdiq gözləyir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reservationCardButtons col-lg-4 col-md-4 col-sm-12 col-12" [class.reservationCardButtonsOpen]="reservationConfirmOpen">
+                                    <button>TƏSDİQLƏ</button>
+                                    <button class="grey" (click)="confirmSectionClose()">LƏĞV ET</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,239 @@
+/* Internal Tours Page styling */
+*{
+    font-family: Sarabun;
+}
+
+#localTours{
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+.localToursTop{
+    color: #707070;
+    padding-bottom: 20px;
+}
+.localToursTop h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.sortingMenu{
+    padding-right: 0 !important;
+    max-height: 50px;
+}
+.sortingMenu .wholeMenu{
+    width: 180px;
+    background-color: #EFEFEF;
+    z-index: 110;
+    text-align: right;
+    font-family: "Regular";
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 15px;
+    position: relative;
+}
+.sortingMenu .allOptions{
+    width: 100%;
+    background-color: #EFEFEF;
+    position: absolute;
+    z-index: 100;
+}
+.sortingMenu a:hover{
+    cursor: pointer !important;
+    text-decoration: none;
+}
+.sortingMenu a{
+    color: #757575;
+    display: block;
+    user-select: none;
+}
+.sortingMenu .allOptions{
+    padding-right: 22px;
+    padding-bottom: 6%;
+}
+.sortingMenu .selectedOption{
+    padding-top: 10px;
+}
+.sortingMenu .selectedOption a{
+    display: inline !important;
+}
+
+.localToursTop .allTours{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.localTourCard{
+    padding-right: 5px;
+    padding-left: 5px;
+    cursor:pointer;
+}
+
+.tourCard:hover{
+    transform:translateY(-2%);
+}
+.localToursCardTitle{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.toursPagination nav{
+    height: 100%;
+}
+.toursPagination{
+    padding: 50px 0px 20px;
+}
+.toursPagination nav ul{
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+.toursPagination .page-link{
+    border: none;
+    font-size: 20px;
+}
+.moreButton{
+    display: flex;
+    justify-content: center;
+    padding: 25px 0px;
+}
+.moreButton button{
+    padding: 10px 30px;
+    background-color: #0082FF;
+    border: none;
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+/* Card Styling */
+.tourCard{
+    position:relative;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px 2px lightgrey;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.tourCardImg{
+    height: 137px;
+    background:url("/assets/img/navbarBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.tourCardContent{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    height: 70px;
+}
+.tourCardTitleTime{
+    padding-left: 15px;
+}
+.tourCardTitleTime h3{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.tourCardTitleTime p{
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #707070;
+}
+.tourCardPrice{
+    background-color: #FFCA00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.tourCardPrice p{
+    margin: 0px;
+}
+
+#heart{
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    left: 4%;
+    font-size: 28px;
+}
+
+#share{
+    left:initial;
+    right:4%;
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    font-size: 28px;
+}
+
+#heart:hover{
+    color:#FFCA00;
+}
+
+
+.layer{
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:99;
+}
+
+/* Internal Tours Responsive design */
+
+/* Media Queries start */
+@media(max-width: 768px){
+    .localToursTop{
+        padding-bottom: 25px;
+    }
+    .sortingMenu .selectedOption{
+        padding: 5px 5px;
+    }
+    .allTours{
+        display: none!important;
+    }
+    .localToursCardTitle h2{
+        margin-bottom: 0px;
+        font-size: 25px;
+    }
+    .tourCardImg{
+        height: 200px;
+    }
+}
+@media(max-width: 577px){
+    .cardContainer{
+        padding: 0px 15px;
+    }
+    .tourCardImg{
+        height: 180px;
+    }
+}
+@media(max-width: 400px){
+    .tourOrganizerLeftLogo img {
+        width: 100%;
+    }
+    .tourCardImg{
+        height: 150px;
+    }
+    .localToursCardTitle h2{
+        font-size: 22px;
+    }
+    .sortingMenu .allOptions{
+        padding-right: 5px;
+    }
+}
+@media(max-width: 350px){
+    .tourCardImg{
+        height: 120px;
+    }
+    .tourCardTitleTime{
+        padding-left: 5px;
+    }
+}

@@ -1,0 +1,364 @@
+.registerTitle {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Regular" !important;
+    margin-bottom: 30px;
+}
+
+.registerForm {
+    background-color: #e8e8e8;
+    padding: 5% 10%;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Regular";
+}
+
+.formElement {
+    margin-top: 5%;
+}
+
+.formInput {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #D1D0D0;
+    background-color: #D1D0D0;
+}
+
+#userRegistration{
+    position:relative;
+}
+
+/* Effect for input */
+
+.formInput:focus {
+    outline: none;
+}
+
+input[type='radio']:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #313131;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 5px solid #313131;
+}
+
+input[type='radio']:checked:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type="radio"] {
+    margin: 0 5px;
+}
+
+input[type="radio"]:nth-child(1) {
+    margin: 0 10px 0 20px;
+}
+
+.registerForm .gender {
+    display: flex;
+    justify-content: flex-start;
+    align-items: initial;
+}
+
+
+input[type="submit"] {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.acceptTerms {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submitting {
+    display: flex;
+    justify-content: center;
+    padding: 4% 0 7% 0;
+}
+
+.submitting .submitbutton {
+    font-size: 14px;
+    width: 22vh;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* MODAL */
+
+.modalKeeper {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #40404071;
+    z-index: 2222;
+    padding-bottom: 150px;
+}
+
+.termsAndConditions {
+    width: 100%;
+    height: 95vh;
+    border-radius: 5px;
+    position: relative;
+    background-color: white;
+    top: 20px;
+    left: 0;
+    z-index: 9999;
+    overflow-y: scroll;
+    margin-bottom: 5%;
+}
+
+.termsAndConditions::-webkit-scrollbar-track
+{
+	box-shadow: 0 0 6px rgba(158, 158, 158, 0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.termsAndConditions::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.termsAndConditions::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: 0 0 6px rgba(158, 158, 158, 0.3);
+	background-color: #555;
+}
+
+.termsAndConditionsTitle {
+    padding: 10px 0px 0 15px;
+    border-bottom: 1px solid grey;
+}
+
+.closebtn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.bodyTitles {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    word-wrap: break-word;
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+
+blockquote ol li {
+    font-weight: 400;
+}
+
+.termsAndConditionsFooter {
+    position: absolute;
+    top: 89.8vh;
+    left: -10px;
+    background-color: white;
+    z-index: 100000;
+    border-top: 1px solid #E3E3E3;
+}
+
+.notification{
+    position: fixed;
+    display: none;
+    top: 13%;
+    right: 1%;
+    background: white;
+    box-shadow: 0 0 3px 0 lightgrey;
+    border-radius: 100px;
+    font-size: 5px !important;
+    justify-content: center;
+}
+
+.notification > h2{
+    font-size: 14px;
+    position: relative;
+    margin: 0;
+}
+
+
+/* message after userRegistration is successfull */
+
+.success{
+    justify-content: center;
+    color: #707070;
+    text-align:center;
+    background-color:white !important;
+}
+
+.successTitle, .successMessage{
+    font-size:40px;
+}
+
+.addNewTour{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#0082FF;
+    color:white;
+    border:none;
+    border-radius: 5px;
+}
+
+.addNewTour > span{
+    font-size:40px;
+    line-height: 1;
+    
+}
+
+#addNewTourText{
+    font-size:22px;
+}
+
+
+/* sms verification panel */
+
+.smsContainer{
+    margin-top: 10% !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.smsContainer > h2{
+    font-size: 30px;
+}
+
+.smsLabel{
+    font-size: 14px;
+}
+
+.smsInput{
+    background: #D1D0D0;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+}
+
+.smsButton{
+    background: #0082FF;
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+
+.validationError{
+    color:red;
+    opacity:0;
+    font-size:12px;
+}
+
+.showError{
+    opacity:1;
+}
+
+input[type="text"] , textarea{
+    border:2px solid transparent;
+}
+
+.inputError{
+    border:2px solid red !important;
+}
+
+
+
+@media screen and (min-width:1024px){
+
+    .notification > h2{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width:767px) {
+    .registerForm {
+        background-color: white;
+        padding: 0% 5%;
+        border-radius: 5px;
+    }
+    .registerTitle {
+        margin-bottom: 0;
+    }
+    .submitbutton{
+        width: 89% !important;
+        height: 45px !important;
+    }
+    .termsAndConditionsBody{
+        padding-left: 30px;
+    }
+    .termsAndConditionsTitle{
+        padding-left: 30px;
+    }
+}
+
+
+
+@media screen and (min-width:320px )and (max-width:499px){
+    .successTitle{
+        font-size:23px;
+    }
+
+    .successMessage{
+        font-size: 18px;
+    }
+
+    #successIcon{
+        width:32%;
+    }
+}
+
+@media screen and (min-width:500px ) and ( max-width:599px){
+
+    #successIcon{
+        width:27%;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width:799px){
+    .successTitle{
+        font-size:30px;
+    }
+
+    .successMessage{
+        font-size:23px;
+    }
+}

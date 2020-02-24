@@ -1,0 +1,230 @@
+/* Tour Agency styling */
+*{
+    font-family: Sarabun;
+}
+
+.tourOrganizer{
+    display: flex;
+}
+.tourOrganizerLeft{
+    padding: 20px 0px;
+}
+.tourOrganizerRight{
+    padding: 20px 0px;
+}
+.tourOrganizerLeftTop h2{
+    color: #0082FF;
+    font-size: 30px;
+}
+.tourOrganizerLeftLogo{
+    padding: 20px 0px;
+}
+.tourOrganizerLeftLogo img{
+    height: 60px;
+}
+.tourConnection{
+    display: flex;
+}
+.tourConnection fa-icon{
+    margin-right: 10px;
+}
+.tourOrganizerLeftBottom fa-icon{
+    color: #0082FF;
+    font-size: 25px;
+    margin-right: 20px;
+}
+agm-map {
+    height: 300px;
+    border-radius: 5px;
+}
+
+
+.otherTours{
+    padding-top: 30px;
+    background-color: #E1E1E1;
+}
+.localToursTop{
+    font-family: Sarabun,sans-serif;
+    color: #707070;
+    padding-bottom: 20px;
+}
+.localToursTop h2{
+    font-size: 25px;
+    font-weight: bold;
+}
+.localToursTop h4{
+    font-size: 20px;
+    font-weight: bold;
+}
+.localToursTop .allTours{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.localTourCard{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.localToursCardTitle{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.moreButton{
+    display: flex;
+    justify-content: center;
+    padding: 25px 0px;
+}
+.moreButton button{
+    padding: 10px 30px;
+    background-color: #0082FF;
+    border: none;
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+
+.tourCard{
+    position:relative;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px 2px lightgrey;
+    border-radius: 5px;
+}
+
+.tourCardImg{
+    height: 137px;
+    background:url("/assets/img/navbarBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.tourCardContent{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    height: 70px;
+}
+.tourCardTitleTime{
+    padding-left: 15px;
+}
+.tourCardTitleTime h3{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.tourCardTitleTime p{
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #707070;
+}
+.tourCardPrice{
+    background-color: #FFCA00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.tourCardPrice p{
+    margin: 0px;
+}
+
+#heart{
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    left: 4%;
+    font-size: 28px;
+}
+
+#share{
+    left:initial;
+    right:4%;
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    font-size: 28px;
+}
+
+
+/* Media Queries start */
+@media(max-width: 768px){
+    .tourCardImg{
+        height: 200px;
+    }
+}
+@media(max-width: 577px){
+    .tourOrganizerLeft{
+        padding: 20px;
+    }
+    .tourOrganizerLeftTop h2 {
+        font-size: 25px;
+    }
+    .tourOrganizerLeftLogo {
+        padding: 20px 0px;
+    }
+    .tourOrganizerLeftLogo{
+        display: flex;
+        justify-content: center;
+    }
+    .tourOrganizerLeftLogo img {
+        width: 70%;
+    }
+    .tourOrganizerLeftBody{
+        padding: 20px 0px;
+    }
+    .tourConnection{
+        margin-bottom: 10px;
+    }
+    .tourConnection fa-icon{
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+    }
+    .tourConnection p{
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+    .tourOrganizerLeftBottom{
+        display: flex;
+        justify-content: space-between;
+    }
+    .tourOrganizerLeftBottom fa-icon{
+        margin: 0px 10px;
+        font-size: 40px;
+    }
+    .tourOrganizerRight{
+        padding: 0px;
+    } 
+    
+    .otherTours{
+        padding: 0px 20px;
+    }
+    .localToursCardTitle h2{
+        display: none;
+    }
+    .tourCardImg{
+        height: 180px;
+    }
+} 
+@media(max-width: 400px){
+    .tourOrganizerLeftLogo img {
+        width: 100%;
+    }
+    .tourCardImg{
+        height: 150px;
+    }
+}
+@media(max-width: 350px){
+    .tourCardImg{
+        height: 120px;
+    }
+    .tourCardTitleTime{
+        padding-left: 5px;
+    }
+}

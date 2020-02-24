@@ -1,0 +1,1014 @@
+/* Transfer Page Styling */
+*{
+    font-family: Sarabun;
+}
+
+
+#transferInfo{
+    padding: 50px 0px;
+}
+.tranferInfoTop{
+    text-align: center;
+}
+.tranferInfoTop h1{
+    font-size: 35px;
+    font-style: normal;
+    color: #0082FF;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+    margin-bottom: 0px;
+}
+.transferInfoBody{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.transferSteps{
+    padding-top: 70px;
+    padding-bottom: 30px;
+    width: 40%;
+}
+.transferStepsWords{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.transferStepsWord{
+   width: 85px;
+   margin: 0px 5px;
+}
+.transferStepsWordContainer{
+    text-align: center;
+}
+.transferStepsWord span{
+    font-size: 15px;
+    color: #707070;
+}
+.transferStepsİcons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transferStepsİcons p{
+    background-color: #0082FF;
+    border: none;
+    border-radius: 100%;
+    margin-bottom: 0px;
+    max-width: 2.3% !important;
+    padding: 0;
+    height: 10px;
+}
+.grey{
+    background-color: #A4A4A4!important;
+}
+
+.middleGrey > p{
+    background:grey;
+}
+
+.transferStepsİcon{
+    display: flex;
+    justify-content: center;
+    margin: 0px 5px;
+}
+.transferStepsİconContainer{
+    background-color: #0082FF;
+    padding: 15px;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Transfer Carousel Styling */
+.transferCarousel{
+    display: flex;
+    overflow: hidden;
+}
+.transferCarouselStage{
+    display: flex;
+    transform: translateX(-300%);
+}
+.transferCarouselItem{
+    padding: 0px 20px;
+}
+.greyBlock{
+    background-color: #E8E8E8;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.16);
+    padding: 50px 70px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.transferInfoInput{
+    margin-bottom: 20px;
+}
+.transferInfoInput input{
+    width: 100%;
+    border:none;
+    border-radius: 6px;
+    padding: 15px 20px;
+    background-color: #D1D0D0;
+    color: #000;
+}
+.transferInfoInput span{
+    margin-bottom: 10px;
+}
+.transferInfoTransportSpan{
+    margin-bottom: 5px;
+}
+.transferInfoTransportIcon{
+    padding: 10px;
+    border: 2px solid transparent;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.transferInfoTransportIcon:hover{
+    border: 2px solid #0082FF;
+}
+.transferInfoTransportIcon:hover .transferInfoTransportIconWORD{
+    color: #0082FF;
+}
+.transferInfoTransportIconIMG{
+    margin-bottom: 10px;
+}
+.transferInfoTransportIconWORD{
+    font-size: 13px;
+    color: #393939;
+}
+.transferInfoBottom{
+    display: flex;
+    justify-content: center;
+}
+.transferInfoBottom button{
+    background-color: #0082FF;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    border-radius: 8px;
+    margin: 0px 5px;
+}
+.transferInfoPrev{
+    background-color: #A4A4A4!important;
+}
+.transferOrderInfo{
+    margin-bottom: 40px;
+}
+.transferOrderInfo h4{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.transferOrderInfo p{
+    font-size: 15px;
+    font-weight: bold;
+}
+.orderConfirmCode{
+    display: flex;
+    justify-content: center;
+}
+.orderConfirmCode input{
+    padding: 10px 30px;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    width: 60%;
+    font-size: 20px;
+    letter-spacing: 10px;
+    background-color: #D1D0D0;
+}
+
+
+
+/* vendor tour page styles */
+
+.vendorTourSteps{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    background: #E8E8E8;
+    justify-content: center;
+    opacity:0;
+    position:absolute;
+    top:0;
+    left:0;
+    transform:translateY(-100%);
+
+}
+
+
+.date{
+    max-width:37% !important;
+}
+
+.price{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.images{
+    display:flex;
+}
+
+.images > p{
+    border:1px solid #D1D0D0;
+    text-align:center;
+    color:#707070;
+    background:#D1D0D0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.imagePreview > img{
+    width:100%;
+}
+
+#currentTourImgs , #prevTourImgs{
+    opacity:0;
+    width:0;
+    height:0;
+}
+.space{
+    margin-left: 4%;
+    margin-right: 4%;
+    border:none !important;
+    background: transparent !important;
+}
+
+.label{
+    margin: 2% 0;
+}
+
+.label-info{
+    margin-top:0;
+    margin-bottom:2%;
+}
+
+.info{
+    height:176px;
+}
+
+.info > textarea{
+    height: 76%;
+}
+
+input, textarea{
+    background:#D1D0D0;
+    border:none;
+    outline:none;
+    border-radius:5px;
+}
+
+.tourProgramLabel{
+    display: flex;
+    flex-wrap: nowrap !important;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #707070;
+}
+
+.editIcons > img{
+    width: 19% !important;
+}
+
+.tourProgramInfo{
+    display:flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: center;
+}
+
+.tourProgramInfo > p{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.element-center{
+    text-align:center;
+}
+
+.element-right{
+    text-align:right;
+}
+
+.add > button{
+    margin-left:2%;
+    background: #E7FBCA;
+    border: none;
+    color: #3C5026;
+    font-size:14px;
+}
+
+/* .activityList{
+    opacity:0;
+    position:absolute;
+} */
+
+.addActivity{
+    padding-top:10%;
+    padding-top: 10%;
+    opacity:0;
+}
+
+.addActivity > div > input{
+    padding-top: 3%;
+    padding-bottom:3%;
+
+}
+
+.addActivity > div > p{
+    text-align:left;
+    display:inline-block;
+}
+
+
+.tourServices{
+    display:flex;
+    justify-content: flex-start !important;
+}
+
+.tourServices > div{
+    padding-left: 19%;
+}
+
+.tourServices > div{
+    display:flex;
+    align-items:center;
+}
+
+.tourServices > p{
+    color:#707070;
+    font-size:22px;
+}
+
+label{
+    background: #C2C2C2;
+    border-radius: 4px;
+    height: 90%;
+    width: 8%;
+    position:relative;
+}
+
+label > input{
+    position:absolute;
+    height:0;
+    width:0;
+    opacity:0;
+}
+
+
+
+.checkSymbol{
+    display: none;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    margin: 0;
+    left: 50%;
+    position: absolute;
+    height: 18px;
+    border-bottom: 3px solid #000000;
+    border-right: 3px solid #000000;
+    padding: 0;
+}
+
+label > input:checked ~ .checkSymbol{
+    display:block;
+}
+
+.prevNext{
+    display:flex;
+    justify-content: center;
+}
+
+.prevNext > button{
+    border: none;
+    background: #A4A4A4;
+    border-radius: 5px;
+    color:white;
+    font-size: 14px;
+    padding:1% 0 !important;
+}
+
+#confirm{
+    background:#0082FF;
+}
+
+.acceptTerms{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+    opacity:0;
+}
+
+
+.acceptTermsCircle{
+    width:15px;
+    height:15px;
+    border-radius:100px;
+    background:#313131;
+}
+
+.success{
+    justify-content: center;
+    color: #707070;
+    text-align:center;
+    background-color:white !important;
+}
+
+
+
+.nextButton{
+    background: #0082FF !important;
+
+}
+
+.fade{
+    position:static;
+    opacity:1;
+    transform:translateY(0%);
+    height:initial !important;
+    transition: opacity 1s;
+}
+
+
+
+
+
+
+.addImgMobile > p{
+    border:1px solid #707070;
+    text-align: -webkit-center;
+    background:#D1D0D0;
+    max-width: 14.5% !important;
+    color:#707070;
+    border-radius:5px;
+    line-height: 1;
+    font-size: 40px;
+}
+
+.successTitle, .successMessage{
+    font-size:40px;
+}
+
+.addNewTour{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#0082FF;
+    color:white;
+    border:none;
+    border-radius: 5px;
+}
+
+.addNewTour > span{
+    font-size:40px;
+    line-height: 1;
+    
+}
+
+#addNewTourText{
+    font-size:22px;
+}
+
+
+.termsModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 999;
+    overflow:auto;
+    display:none;
+}
+
+.termsModalOpen{
+    display:block
+}
+
+.rules{
+    font-size:25px;
+    margin:auto;
+}
+
+.rules ~ p{
+    font-size: 22px;
+    margin: auto;
+}
+
+.agreeButton{
+    text-align:center;
+    color:white;
+    background:#0082FF;
+}
+
+.imagesMobile{
+    display:none;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pageLabel{
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* stepIcons styling */
+
+.stepIconContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 0;
+    margin: 10% auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconCircle{
+    width: 7%;
+    padding-top: 7%;
+    border-radius: 100px;
+    position:relative;
+    background: #007EFF;
+}
+
+.grey{
+    background: #a4a4a4;
+}
+
+.iconCircle > p{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align:center;
+}
+
+.iconCircle > p > img{
+    width:80%;
+}
+
+
+
+
+.middleCircleContainer{
+    width: 12%;
+    display: flex;
+    justify-content: center;
+}
+
+.middleCircleContainer > p{
+    background: #0082FF;
+    width: 8%;
+    padding-top: 8%;
+    border-radius: 100px;
+    margin: 0 5%;
+}
+
+.middleGrey > p{
+    background:#a4a4a4;
+}
+
+hr{
+    padding:0 !important;
+}
+
+.mobileTourCreate{
+    display:none;
+}
+
+
+#target{
+    width: 140%;
+    transform: translate(-7%,-5%);
+}
+
+
+/* stepIcons styling */
+
+
+
+
+
+
+/* validation error notification container */
+
+input[type="text"] , textarea{
+    border:2px solid transparent;
+}
+
+.validationError{
+    color:red !important;
+    opacity:0;
+    font-size:12px;
+}
+
+.showError{
+    opacity:1;
+}
+
+.inputError{
+    border:2px solid red !important;
+}
+
+
+
+/* error notification container */
+
+
+@media screen and (max-width:1366px){
+
+    .space{
+
+        margin-left: 5%;
+        margin-right: 5%;
+
+    }
+
+}
+
+@media screen and (max-width:1024px){
+
+    .space{
+
+        margin-left: 3%;
+        margin-right: 4%;
+    }
+
+
+    label{
+        width:10%;
+    }
+
+    .editIcons > img{
+        width:25% !important;
+    }
+
+    .tourServices > div{
+        padding-left:14%;
+    }
+
+    .transferStepsİcons p{
+        max-width:2.9% !important;
+    }
+}
+
+
+
+@media screen and (max-width:800px){
+    .space{
+        margin-left:0.5%;
+        margin-right:0.5%;
+    }
+
+    label{
+        width:14%;
+    }
+
+    .editIcons > img{
+        width:40% !important;
+    }
+
+    .transferStepsİcons p{
+        max-width:3.7% !important;
+    }
+
+    .iconCircle{
+        width: 10%;
+        padding-top: 10%;
+    }
+
+    .middleCircleContainer{
+        width:17%;
+    }
+
+
+
+}
+
+
+#addActivityLabel{
+    font-size: 25px;
+    text-align: center;
+    color: #707070;
+}
+
+
+
+
+
+/* Mobile Version Starts */
+
+
+
+@media screen and  (max-width:799px){
+
+    .webTourCreate{
+        display: none;
+    }
+
+    .mobileTourCreate{
+        display:block;
+    }
+
+    .addActivity > div > p{
+        display:none;
+    }
+
+    .images , .imgValidationContainerWeb{
+        display:none !important;
+    }
+
+
+    .imagesMobile{
+        display:flex;
+    }
+
+
+    .date{
+        max-width: initial !important;
+    }
+
+    .prevNext > button{
+        padding:2% 0 !important;
+    }
+
+    .tourProgramLabel{
+        font-size:13px;
+    }
+
+    /* .tourProgramInfo{
+        font-size:12px;
+    } */
+
+    .editIcons > img{
+        max-width: 27% !important;
+    }
+
+    .customCheckbox{
+        width:6% !important;
+    }
+
+    .tourServices > div{
+        padding-left:38%;
+    }
+
+
+
+    #transferInfo > .container{
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* .vendorTourSteps{
+        max-width:100%;
+    } */
+
+    .iconCircle{
+        width: 12%;
+        padding-top: 12%;
+    }
+
+    .middleCircleContainer{
+        width:20%;
+    }
+
+
+}
+
+@media screen and (max-width:645px){
+
+    .editIcons > img{
+        max-width:30%;
+    }
+
+}
+
+
+@media screen and (max-width:615px){
+    .customCheckbox{
+        width:7% !important;
+    }
+}
+
+
+@media screen and (max-width:580px){
+
+    .editIcons > img{
+        max-width:33% !important;
+    }
+
+}
+
+
+@media screen and (max-width:540px){
+
+    .customCheckbox{
+        width:8% !important;
+    }
+
+    .editIcons > img{
+        max-width:36% !important;
+    }
+
+}
+
+
+@media screen and (max-width:520px){
+    .tourProgramInfo{
+        font-size:11px;
+    }
+
+    .successMessage{
+        font-size:35px !important;
+    }
+
+}
+
+@media screen and (max-width:480px){
+    .editIcons > img{
+        max-width:40% !important;
+    }
+}
+
+@media screen and (max-width:470px){
+    .tourProgramInfo{
+        font-size:9px;
+    }
+
+    .editIcons > img{
+        max-width:40% !important;
+        width:40% !important;
+    }
+
+    .prevNext > button{
+        font-size:12px;
+    }
+
+    .customCheckbox{
+        width:10% !important;
+    }
+
+    .tourServices > div{
+        padding-left:37%;
+    }
+
+
+
+
+
+
+}
+
+
+@media screen and (max-width:450px){
+
+    .addImgMobile > p{
+        max-width:13.5% !important;
+        line-height: 0.8;
+    }
+
+    .editIcons > img{
+        max-width:42% !important;
+        width:42% !important;
+    }
+
+    .iconCircle{
+        width: 14%;
+        padding-top: 14%;
+    }
+
+    .middleCircleContainer{
+        width:23%;
+    }
+
+
+
+    
+}
+
+@media screen and (max-width:400px){
+
+    /* .tourProgramInfo > p{
+        padding-left:0;
+        padding-right:0;
+    } */
+
+    .editIcons > img{
+        max-width:50% !important;
+        width:50% !important;
+    }
+
+    .prevNext > button{
+        font-size:10px;
+    }
+
+    .successMessage{
+        font-size:30px !important;
+    }
+
+
+}
+
+
+@media screen and (max-width:370px){
+
+    .addImgMobile > p{
+        max-width:18% !important;
+        line-height:0.7
+    }
+
+    .prevNext > button{
+        font-size:9px;
+    }
+
+    .editIcons > img{
+        max-width:50% !important;
+        width:50% !important;
+        padding: 0 14%;
+    }
+
+    .customCheckbox{
+        width:12% !important;
+    }
+
+    .tourServices > div{
+        padding-left:33%;
+    }
+
+    #transferInfo > .container{
+        padding:0 !important;
+
+    }
+
+    /* .vendorTourSteps{
+        max-width:100% !important;
+    } */
+
+
+    .iconCircle{
+        width: 16%;
+        padding-top: 16%;
+    }
+
+    .middleCircleContainer{
+        width:25%;
+    }
+
+
+
+}
+
+@media screen and (max-width:340px){
+    .editIcons > img{
+        max-width: 46% !important;
+        width:46% !important;
+    }
+
+    .prevNext > button{
+        font-size:8px;
+    }
+
+    .customCheckbox{
+        width:13% !important;
+    }
+
+    .tourServices > div{
+        padding-left:29%;
+    }
+
+
+
+    .centerCircle{
+        display:none;
+    }
+
+    #addNewTourText{
+        font-size:20px !important;
+    }
+
+
+}
+
+
+
+
+

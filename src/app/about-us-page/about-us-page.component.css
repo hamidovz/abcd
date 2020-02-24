@@ -1,0 +1,131 @@
+/* About Us page styling */
+*{
+    font-family: Sarabun;
+}
+
+
+.aboutUsTop{
+    background-color: #80c7dd;
+}
+.aboutUsTopText{
+    color: #ffffff;
+    padding: 35px 0px;
+}
+.aboutUsTopText h2{
+    font-size: 45px;
+    margin-bottom: 0px;
+}
+.aboutUsTopText p{
+    font-size: 16px;
+    margin: 30px 0px;
+}
+.aboutUsTopText button{
+    background-color: #0082FF;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 8px 40px;
+}
+.aboutUsTopImgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aboutUsTopImg img{
+    width: 100%;
+}
+
+
+.aboutUsBody{
+    background-color: #F4F4F4;
+    text-align: center;
+    padding: 40px 0px;
+}
+.aboutUsBodyTextContainer{
+    display: flex;
+    justify-content: center;
+}
+.aboutUsBodyText{
+    width: 50%;
+}
+.aboutUsBodyText h2{
+    font-size: 45px;
+    margin-bottom: 0px;
+    color: #0082FF;
+}
+.aboutUsBodyText p{
+    font-size: 16px;
+    margin: 30px 0px;
+}
+
+
+.aboutUsBottom{
+    background-color: #ffffff;
+    padding: 50px 0px;
+}
+.aboutUsBottomImg img{
+    width: 100%;
+}
+.aboutUsBottomText{
+    text-align: right;
+}
+.aboutUsBottomText h2{
+    font-size: 45px;
+    margin-bottom: 0px;
+    color: #0082FF;
+}
+.aboutUsBottomText p{
+    font-size: 16px;
+    margin: 30px 0px;
+}
+.aboutUsBottomText button{
+    width: 150px;
+    background: transparent;
+    border: none;
+    padding: 0px;
+    margin: 0px 5px;
+}
+.aboutUsBottomText button img{
+    width: 100%;
+}
+
+
+/* Media Queries start */
+@media(max-width: 991px){
+    .aboutUsTopText h2{
+        font-size: 35px;
+    }
+    .aboutUsBodyText h2{
+        font-size: 35px;
+    }
+    .aboutUsBottomText h2{
+        font-size: 35px;
+    }
+    .aboutUsTopText p{
+        margin: 20px 0px;
+    }
+    .aboutUsBodyText p{
+        margin: 20px 0px;
+    }
+    .aboutUsBottomText p{
+        margin: 20px 0px;
+    }
+}
+@media(max-width: 767px){
+    .aboutUsTopText{
+        text-align: center;
+    }
+    .aboutUsBodyText{
+        width: 100%;
+    }
+    .aboutUsBottomText{
+        text-align: center;
+        padding: 30px 0px;
+    }
+}
+@media(max-width: 400px){
+    .aboutUsBottomButton button{
+        width: 120px;
+    }
+}

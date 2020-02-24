@@ -1,0 +1,99 @@
+/* general starts*/
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* general finishes */
+
+.imgSide .imgKeeper {
+    height: 100%;
+    width: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-height: 25vh;
+    max-width: 31vw
+}
+
+/* Different type of location style with this class */
+
+.imgSide {
+    position: relative;
+}
+
+.imgSide .imageEditIcon {
+    position: absolute;
+    right: 15px;
+    top: 60%;
+}
+
+.imgSide .imgKeeper img {
+    max-height: inherit;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.detailValues p {
+    overflow-wrap: break-word;
+    display: inline-block !important;
+}
+
+/* Responsive design */
+
+@media screen and (min-width:768px) {
+    .imgSide .imageEditIcon {
+        top: 45%;
+        right: 10px;
+    }
+    .imgSide .imgKeeper {
+        max-height: 15vh;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .imgSide .imageEditIcon {
+        top: 52%
+    }
+    .imgSide .imgKeeper {
+        max-height: 25vh;
+        max-width: 31vw
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .imgSide .imageEditIcon {
+        top: 70%;
+        right: 20px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    p {
+        font-size: 13px;
+    }
+    .imgSide .imgKeeper {
+        max-height: 70vh;
+        max-width: 50vw
+    }
+    .imgSide .imageEditIcon {
+        right: 10px;
+        top: 65%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    p {
+        font-size: 13px;
+    }
+    .imgSide .imgKeeper {
+        max-height: 18vh;
+        max-width: 25vw
+    }
+    .imgSide .imageEditIcon {
+        top: 70%;
+        right: 10px;
+    }
+}

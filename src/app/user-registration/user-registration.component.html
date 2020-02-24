@@ -1,0 +1,283 @@
+<section id="userRegistration" *ngIf="!registrationSuccessfull && !codeSent">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 title text-center mt-5 formTitle">
+                <h2 class="registerTitle">
+                    Qeydiyyat
+                </h2>
+            </div>
+            <div class=" col-md-12 col-sm-12 offset-md-0">
+                <!-- Form starts here -->
+                <form action="/">
+                    <div class="registerForm">
+
+                        <div class="row">
+                            <!-- Firstname -->
+                            <div class="formElement col-md-6 col-sm-12">
+
+                                <input type="text" [class.inputError]="hasError.name" name="firstname" class="formInput" placeholder="Ad" [(ngModel)]="userData.name">
+                            
+                                <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.name">{{validationMessages.name}}</p> 
+                            
+                            </div>
+                            <!-- Lastname -->
+                            <div class="formElement col-md-6 col-sm-12">
+                                
+                                <input type="text" [class.inputError]="hasError.surname" name="lastname" class="formInput" placeholder="Soyad" [(ngModel)]="userData.surname">
+                            
+                                <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.surname" >{{validationMessages.surname}}</p> 
+
+                            </div>
+                            <!-- Phone number -->
+                            <div class="formElement col-md-6 col-sm-12">
+
+                                <input type="text" [class.inputError]="hasError.phoneNumber" name="phoneNumber" class="formInput" placeholder="Mobil nömrə" [(ngModel)]="userData.phoneNumber">
+                           
+                                <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.phoneNumber" >{{validationMessages.phoneNumber}}</p> 
+                           
+                            </div>
+                            <!-- Email -->
+                            <div class="formElement col-md-6 col-sm-12">
+                               
+                                <input type="text" [class.inputError]="hasError.email" name="email" class="formInput" placeholder="Email" [(ngModel)]="userData.email">
+                            
+                                <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.email" >{{validationMessages.email}}</p> 
+                            
+                            </div>
+                            <!-- Password -->
+                            <div class="formElement col-md-6 col-sm-12">
+                                
+                                <input type="password" [class.inputError]="hasError.password" name="password" class="formInput" placeholder="Şifrə" [(ngModel)]="userData.password">
+                            
+                                <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.password">{{validationMessages.password}}</p> 
+                            
+                            </div>
+                            <!-- Password recheck -->
+                            <div class="formElement col-md-6 col-sm-12">
+
+                                
+                                <input type="password" [class.inputError]="hasError.confirmPassword" name="passwordrecheck" class="formInput"
+                                    placeholder="Şifrənin təkrarı" [(ngModel)]="userData.confirmPassword">
+
+                                    <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.confirmPassword">{{validationMessages.confirmPassword}}</p> 
+
+                            </div>
+                            <!-- Birthdate -->
+                            <div class="formElement col-md-6 col-sm-12">
+
+
+                                <input type="text" [class.inputError]="hasError.birthday" name="birthdate" class="formInput" placeholder="Doğum tarixi" [(ngModel)]="userData.birthday" #birthday ngbDatepicker [minDate]="{year: 1980, month: 1, day: 1}" #userBirthday="ngbDatepicker" (click)="userBirthday.toggle()">
+                            
+                                <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.birthday">{{validationMessages.birthday}}</p> 
+                            
+                            </div>
+                            <!-- Gender -->
+                            <div class="formElement col-md-6 col-sm-12 gender pt-3" >
+                                <div class="wholeelements col-6 mt-0 mb-0">
+                                    <label>Cins</label>
+                                    <input type="radio" name="radiobutton" value="0" checked class="ml-4" [(ngModel)]="userData.gender">Kişi
+                                    <input type="radio" name="radiobutton" value="1" [(ngModel)]="userData.gender">Qadın
+                                </div>
+
+                                <p class="col-8 validationError mt-0 mb-0" [class.showError]="hasError.gender">{{validationMessages.gender}}</p> 
+
+                            </div>
+                            <div class="acceptTerms formElement col-12">
+                                <input type="checkbox" #test name="terms" value="Terms" class="mr-1">
+                                <a  (click)="showModal()">Qaydalarla tanış oldum</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit -->
+                    <div class="col-12 submitting">
+                        <button type="submit" class="btn btn-primary submitbutton btn-sm" (click)="checkIfNumberExists()">Təsdİqlə</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 px-0 modalKeeper" *ngIf="modalOpen">
+                <div class="row">
+                    <div class="col-12 col-md-8 offset-md-2 offset-0 termsAndConditions ">
+                        <div class="row">
+                            <div class="col-12 termsAndConditionsTitle">
+                                <span>
+                                    Qaydalar
+                                </span>
+                                <a (click)="closeModal()" style="color: #3d3b3b;" class="closebtn">
+                                    ×
+                                </a>
+                            </div>
+                            <div class="col-12 termsAndConditionsBody">
+                                <div class="bodyTitles">
+                                    <p>Bu şərtlər Ziqzaq.az veb saytı vasitəsilə sifariş edilmiş xidmətlərə şamil
+                                        olunur,
+                                        lakin
+                                        bütünrezervasiyalar təyin olunmuş turizm agentlikləri (“Operator” və ya “Turizm
+                                        Agentikləri”)tərəfindən təqdim və idarə olunur.
+                                    </p>
+                                    <p>
+                                        Ziqzaq.az veb saytı hər bir təchizatçının veb səhifəsində qeyd olunan daxili
+                                        qayda
+                                        vəşərtlərindən əlavə özünün aşağıdakı qayda və şərtlərini birlikdə nəzərdə
+                                        tutur.
+                                    </p>
+                                    <blockquote>
+                                        <ol>
+                                            <li>Ziqzaq.az şirkəti (bundan sonra ziqzaq.az), Turizm Agentikləri
+                                                vəistifadəçilər
+                                                arasında vasitəçidir</li>
+                                            <li>Bütün tərəflərə münasibətdə tam şəffaflığın qorunub saxlanması və
+                                                bütüntərəflərin
+                                                təklif olunan xidmətlərə etibar etməsi Ziqzaq.az üçün sondərəcədə vacib
+                                                əhəmiyyət
+                                                kəsb edir. Bu məqsədlə, bu ümumi şərt vəmüddəalar istifadəçilər və
+                                                Ziqzaq.az
+                                                arasında bütün işgüzar münasibətlərüçün əsas kimi hesab olunur.
+                                            </li>
+                                            <li>Ziqzaq.az saytında istifadəçilərə yerləşdirilən transfer, sərnişindaşıma
+                                                və
+                                                turxidmətləri partnyor Turizm Agentikləri tərəfindən təşkil olunur.
+                                            </li>
+                                            <li>Ziqzaq.az saytı burada nəşr olunan/yerləşdirilən bütün
+                                                məlumatlarıyoxlamağı
+                                                və
+                                                yoxlamaq üçün lazımi diqqət və məsuliyyəti öz üzərinəgötürür, lakin
+                                                saytda
+                                                qeyd
+                                                olunan məlumatlar və ya səhv informasiyaTurizm/kruiz Agentikləri
+                                                tərəfindən
+                                                verildiyi üçün hər hansı bir uyğunsuzluqyaranması halında istifadəçi
+                                                qarşısında
+                                                məsuliyyət daşımır.
+                                            </li>
+                                            <li>Ziqzaq.az Turizm/kruiz Agentikləri tərəfindən müəyyən edilmiş
+                                                qiymətlərinvə
+                                                ya
+                                                xidmətlərin dəyişməsi üçün məsuliyyəti qəbul etmir.
+                                            </li>
+                                            <li>Qiymətlər göstərilən tarixlər üçün etibarlıdır və Turizm/kruiz
+                                                Agentikləritərəfindən
+                                                dəyişiklik olduğu təqdirdə yenilənə bilərlər.
+                                            </li>
+                                        </ol>
+                                    </blockquote>
+                                    <b>Maddi məsuliyyət, zərərin ödənilməsi
+                                    </b>
+                                    <blockquote>
+                                        <ol>
+                                            <li>Məhsulun keyfiyyət öhdəliyi haqqında qanun çərçivəsində maddiməsuliyyəti
+                                                Turizm/kruiz Agentikləri daşıyır.
+                                            </li>
+                                            <li>Ziqzaq.az hər hansı bir xəsarət, ziyan, itki, gecikmə, əlavə xərclər və
+                                                yabirbaşa və
+                                                ya dolayı yolla zərər və ya bir başa onun nəzarətində olmayan vəya
+                                                qarşısı
+                                                alına
+                                                bilməyən digər hadisələr üçün məsuliyyət daşımır. Eynizamanda, müharibə,
+                                                vətəndaş
+                                                iğtişaşları, yanğın, daşqınlar, qeyri-adi şiddətlihava, təbiət
+                                                hadisələriç
+                                                hökumət
+                                                və ya digər hakimiyyət orqanlarının aktları,maşın və ya avadanlıq və ya
+                                                qəza
+                                                hadisələri və ya qəzalar nəticəsindədəymiş zərərə görə məsuliyyət
+                                                daşımır.
+                                            </li>
+                                        </ol>
+                                    </blockquote>
+                                    <b>Ləğv siyasəti:
+                                    </b>
+                                    <blockquote>
+                                        <ol>
+                                            <li>Turizm agentliyi tərəfindən təqdim edilən, artıq razılaşdırılmış
+                                                tətilinizdə(turlarda) dəyişiklik və ya ləğv etmək zəruri sayıla bilər,
+                                                bu
+                                                halda
+                                                bütünşərtlər Turizm Agentliyi ilə razılaşdırılır və Ziqzaq.az heç bir
+                                                məsuliyyətdaşımır.
+                                            </li>
+                                        </ol>
+                                    </blockquote>
+                                    <b>Digər məsələlər
+                                    </b>
+                                    <blockquote>
+                                        <ol>
+                                            <li>Tərəflər arasında yaranmış mübahisələr Azərbaycan Respublikasınınqüvvədə
+                                                olan
+                                                qanunvericiliyinin normaları ilətənzimlənəcək və mübahisələrəAzərbaycan
+                                                Respublikasının
+                                                müvafiq məhkəmələrində baxılacaq.</li>
+                                        </ol>
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="termsAndConditionsFooter col-12 col-md-8 offset-md-2 offset-0 d-flex justify-content-end py-2 ">
+                        <button class="btn btn-secondary mr-2" (click)="closeModal()">Bağla</button>
+                        <button class="btn btn-primary" (click)="agreedTerms(test);closeModal()">Tanış
+                            oldum</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- <div class="col-2 py-lg-3 py-2 notification">
+        <h2>ugurlu !</h2>
+    </div> -->
+
+
+
+</section>
+
+
+
+<!-- sms verification -->
+
+<div *ngIf="codeSent && !registrationSuccessfull" class="container my-5 smsContainer">
+
+    <h2 class="col-7 col-lg-6 mb-5 text-center">Qeydiyyat</h2>
+
+    <div class="col-12 text-center">
+
+        <p class="col-12 text-center smsLabel"> *SMS vasitəsilə göndərilən 6 rəqəmli şifrəni daxil edin </p>
+
+        <input type="text" class="col-9 py-2 col-lg-5 py-lg-3 smsInput" [(ngModel)]="verifyData.code">
+
+    </div>
+
+    <br>
+
+    <div class="col-12 mt-5 text-center">
+
+        <button class="col-6 col-lg-2 py-2 smsButton" (click)="verifySmsCode()"> Təsdiqlə </button>
+    </div>
+</div>
+<!-- sms verification -->
+
+
+
+
+    <!-- notification on successfull registration -->
+
+    <div *ngIf="registrationSuccessfull" class="col-12  success py-5" >
+
+        <p class="col-12 mb-5 successTitle">İstifadəçi Qeydiyyatı</p>
+
+        <p class="col-12 mt-3">
+            <img src="assets/icon/success.svg" id="successIcon">
+        </p>
+
+        <p class="col-12 my-5 successMessage">
+            Təbriklər! Yeni istifadəçi uğurlu şəkildə yaradıldı.
+            <br><br>
+
+            Əsas Səhifəyə Yönləndirilir !
+        </p>
+
+       
+    </div>

@@ -1,0 +1,233 @@
+/* Vendor Reservation page Styling */
+*{
+    font-family: Sarabun;
+}
+
+
+/* Vendor Table mobile version design */
+.vendorReservationMobile{
+    padding: 20px 0px;
+}
+.vendorReservationMobileTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vendorReservationMobileTop img{
+    margin-right: 10px;
+    width: 40px;
+}
+.vendorReservationMobileTop h1{
+    margin-bottom: 0px;
+    font-size: 35px;
+}
+.vendorReservationMobileBody{
+    padding-top: 30px;
+}
+.bodyContainer{
+    margin: 0px;
+}
+
+
+
+.reservationCard{
+    color: #707070;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.16);
+    margin: 0px;
+    margin-bottom: 20px;
+    display: flex;
+}
+.reservationCardTop{
+    display: flex;
+    padding: 15px 10px;
+    margin: 0px;
+}
+.reservationCardImg{
+    width: 50px;
+    height: 100%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reservationCardImg img{
+    width: 100%;
+}
+.reservationCardPassenger{
+    display: flex;
+    margin: 0px;
+}
+.reservationCardImg,.reservationCardPassenger{
+    padding: 0px 5px;
+}
+.reservationCardPassengerName,.reservationCardPassengerDate{
+    padding: 0px;
+}
+.reservationCardPassenger h2{
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+.reservationCardPassenger p{
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+
+
+.reservationCardBottom{
+    background-color: #f4f4f4;
+    display: flex;
+    padding: 15px;
+    margin: 0;
+}
+.reservationCardStatus {
+    padding: 0px 5px;
+}
+.statusContainer{
+    padding: 0px 10px;
+}
+.statusItem{
+    padding: 0px;
+}
+.statusItem p{
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.bold{
+    font-size: 18px!important;
+}
+.statusItem button{
+    background-color: #FFCC00;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 12px;
+}
+.reservationCardButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+.reservationCardButtonsOpen{
+    display: flex!important;
+}
+.reservationCardButtons button{
+    background-color: #007EFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin: 0px 5px;
+    font-size: 12px;
+}
+.grey{
+    background-color: #757575!important;
+}
+
+
+
+/* Media Queries start */
+@media(max-width: 1200px){
+    .reservationCardPassengerDate p{
+        font-size: 13px;
+    }
+    .reservationCardButtons button{
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+@media(max-width: 991px){
+    .statusItem button{
+        padding: 2px 8px;
+        font-size: 10px;
+    }
+    .reservationCardButtons button{
+        padding: 5px;
+        margin: 0px 2px;
+        font-size: 10px;
+    }
+    .reservationCardBottom{
+        padding: 15px 10px;
+    }
+}
+@media(max-width: 767px){
+    .reservationCard{
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    .reservationCardTop{
+        justify-content: center;
+    }
+    .reservationCardImg {
+        /* height: 100%; */
+    }
+    .reservationCardImg img{
+        /* height: 100%; */
+        width: unset;
+    }
+    .reservationCardPassengerName h2{
+        font-size: 23px;
+        margin-bottom: 10px;
+    }
+    .reservationCardPassengerDate p{
+        font-size: 15px;
+    }
+    .reservationCardBottom{
+        margin: 0px;
+    }
+    .statusContainer{
+        padding: 0px;
+        padding-left: 50px;
+    }
+    .statusItem button{
+        padding: 2px 10px;
+        font-size: 13px;
+    }
+    .reservationCardButtons{
+        display: none;
+        justify-content: space-around;
+        padding: 15px 0px 5px;
+    }
+    .reservationCardButtons button{
+        padding: 8px 15px;
+        margin: 0px 5px;
+        font-size: 12px;
+    }
+}
+@media(max-width: 450px){
+    .vendorReservationMobileTop img{
+        width: 30px;
+    }
+    .vendorReservationMobileTop h1{
+        font-size: 28px;
+    }
+    .reservationCardTop{
+        justify-content: flex-start;
+    }
+    .statusContainer{
+        padding: 0px 15px;
+    }
+    .reservationCardButtons{
+        justify-content: space-around;
+    }
+}
+@media(max-width: 380px){
+    .statusItem button{
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+}
+@media(max-width: 350px){
+    .statusItem button{
+        padding: 2px 5px;
+    }
+}
+@media(max-width: 325px){
+    .statusItem button{
+        padding: 2px;
+    }
+}
+

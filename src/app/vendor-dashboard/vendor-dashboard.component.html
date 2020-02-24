@@ -1,0 +1,46 @@
+<div id="section">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-sm-10 col-12 functions">
+                <div class="row">
+                    <!-- User details -->
+                    <div class="col-sm-2 col-12 function " routerLink = "/vendorProfile">
+                        <fa-icon [icon]="['far','user']" size="2x"></fa-icon>
+                        <p>İstifadəçi
+                            məlumatları</p>
+                    </div>
+                    <!-- Reservations -->
+                    <div class="col-sm-2 col-12 function" routerLink = "/vendorReservation">
+                        <fa-icon [icon]="['far','calendar-check']" size="2x"></fa-icon>
+                        <p>Rezervasiyalar</p>
+                    </div>
+                    <!-- Past tours -->
+                    <div class="col-sm-2 col-12 function" routerLink = "/vendorPastTours">
+                        <fa-icon [icon]="['fas','history']" size="2x"></fa-icon>
+                        <p>Keçmiş turlar</p>
+                    </div>
+                    <!-- Agency info -->
+                    <div class="col-sm-2 col-12 function" routerLink = "/agencyInformation">
+                        <fa-icon [icon]="['fas','briefcase']" size="2x"></fa-icon>
+                        <p>Agentlik
+                            məlumatları</p>
+                    </div>
+                    <!-- Active tours -->
+                    <div class="col-sm-2 col-12 function" routerLink = "/vendorActiveTours">
+                        <fa-icon [icon]="['far','check-circle']" size="2x"></fa-icon>
+                        <p>Aktiv turlar</p>
+                    </div>
+                    <!-- Log out -->
+                    <div class="col-sm-2 col-12 function">
+                        <fa-icon [icon]="['fas','sign-out-alt']" size="2x"></fa-icon>
+                        <p>Çıxış</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add tour -->
+            <div class="col-sm-2 col-12 addTour">
+                <button class="btn btn-primary btn-lg py-3" style="font-size: 12px;" routerLink="/vendorTourAdd">&#43;YENİ TUR ƏLAVƏ ET</button>
+            </div>
+        </div>
+    </div>
+</div>

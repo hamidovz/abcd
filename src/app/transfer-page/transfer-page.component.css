@@ -1,0 +1,347 @@
+/* Transfer Page Styling */
+*{
+    font-family: Sarabun;
+}
+
+#transferInfo{
+    padding: 50px 0px;
+}
+.tranferInfoTop{
+    text-align: center;
+}
+.tranferInfoTop h1{
+    font-size: 35px;
+    font-style: normal;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+    margin-bottom: 0px;
+}
+.transferInfoBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.transferSteps{
+    width: 40%;
+    padding: 30px 0px;
+}
+.transferStepsWords{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.transferStepsWord{
+   width: 85px;
+   margin: 0px 5px;
+}
+.transferStepsWordContainer{
+    text-align: center;
+}
+.transferStepsWord span{
+    font-size: 15px;
+    color: #707070;
+}
+.transferStepsİcons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transferStepsİcons p{
+    background-color: #0082FF;
+    border: none;
+    border-radius: 100%;
+    margin-bottom: 0px;
+    width: 10px;
+    height: 10px;
+    margin: 0px 5px;
+}
+.grey{
+    background-color: #A4A4A4!important;
+}
+.transferStepsİcon{
+    display: flex;
+    justify-content: center;
+    margin: 0px 5px;
+}
+.transferStepsİconContainer{
+    background-color: #0082FF;
+    padding: 15px;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Transfer Carousel Styling */
+.transferCarousel{
+    display: flex;
+    overflow: hidden;
+}
+.transferCarouselStage{
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.3s;
+}
+.transferCarouselItem{
+    padding: 0px 20px;
+}
+.greyBlock{
+    background-color: #E8E8E8;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.16);
+    padding: 50px 70px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.transferInfoInput{
+    margin-bottom: 20px;
+}
+.transferInfoInput input{
+    width: 100%;
+    border:none;
+    border-radius: 6px;
+    padding: 15px 20px;
+    background-color: #D1D0D0;
+    color: #000;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.transferInfoInput span{
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.endInputLeft{
+    padding-right: 5px;
+}
+.endInputRight{
+    padding-left: 5px;
+}
+.transferInfoTransportSpan{
+    margin-bottom: 5px;
+}
+.transferInfoTransportIcon{
+    padding: 10px;
+    border: 2px solid transparent;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.transferInfoTransportIcon:hover{
+    border: 2px solid #0082FF;
+}
+.transferInfoTransportIcon:hover .transferInfoTransportIconWORD{
+    color: #0082FF;
+}
+
+.selectedIcon{
+    color: #0082FF !important;
+}
+
+.transferInfoTransportIconIMG{
+    margin-bottom: 10px;
+}
+.transferInfoTransportIconWORD{
+    font-size: 13px;
+    color: #393939;
+}
+.transferInfoBottom{
+    display: flex;
+    justify-content: center;
+}
+.transferInfoBottom button{
+    background-color: #0082FF;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    border-radius: 8px;
+    margin: 0px 5px;
+}
+.transferInfoPrev{
+    background-color: #A4A4A4!important;
+}
+.transferOrderInfo{
+    margin-bottom: 40px;
+}
+.transferOrderInfo h4{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.transferOrderInfo p{
+    font-size: 15px;
+    font-weight: bold;
+}
+.orderConfirmCode{
+   text-align: center;
+   margin: 50px 0px;
+}
+.orderConfirmCode input{
+    padding: 10px 30px;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    width: 60%;
+    font-size: 20px;
+    letter-spacing: 10px;
+    background-color: #D1D0D0;
+}
+
+
+/* Media Queries start */
+@media(max-width: 1200px){
+    .transferSteps{
+        width: 48%;
+    }
+    .stepTwo .greyBlock{
+        padding: 50px 30px;
+    }
+    .stepFour .greyBlock{
+        padding: 40px;
+    }
+}
+@media(max-width: 991px){
+    .transferSteps{
+        width: 66%;
+    }
+}
+@media(max-width: 767px){
+    .transferSteps{
+        width: 85%;
+    }
+    .transferStepsİconContainer{
+        width: 60px;
+        height: 60px;
+    }
+    .transferStepsİconContainer img{
+        width: 35px;
+    }
+    .stepOne .greyBlock{
+        padding: 30px 50px;
+    }
+    .endInputLeft{
+        padding-right: 15px;
+    }
+    .endInputLeft span{
+        display: none;
+    }
+    .endInputRight{
+        padding-left: 15px;
+    }
+    .endInputRight span{
+        display: none;
+    }
+    .stepFour .greyBlock{
+        padding: 30px;
+    }
+    .transferOrderInfo{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+@media(max-width: 575px){
+    .transferSteps{
+        width: 90%;
+    }
+    .endInputLeft{
+        margin-bottom: 20px;
+    }
+    .orderConfirmCode input{
+        width: 90%;
+    }
+}
+@media(max-width: 500px){
+    .mobileNone{
+        display: none;
+    }
+}
+@media(max-width: 450px){
+    .tranferInfoTop h1{
+        font-size: 30px;
+    }
+    .transferStepsİconContainer{
+        width: 55px;
+        height: 55px;
+    }
+    .transferStepsİconContainer img{
+        width: 30px;
+    }
+    .transferStepsWord{
+        margin: 0px;
+    }
+    .transferStepsİcons{
+        justify-content: space-between;
+        padding: 0px 12px;
+    }
+    .transferStepsİcon{
+        margin: 0px;
+    }
+    .transferStepsİcons p{
+        margin: 0px;
+    }
+}
+@media(max-width: 400px){
+    .stepOne .greyBlock{
+        padding: 25px;
+    }
+    .stepTwo .greyBlock{
+        padding: 25px;
+    }
+    .transferInfoInput input{
+        padding:15px;
+    }
+    .transferInfoTransportIconContainer{
+        padding: 0px;
+    }
+    .transferInfoTransportIcon{
+        padding: 0px;
+    }
+    .transferInfoTransportIconIMG img{
+        width: 85px;
+    }
+}
+@media(max-width: 380px){
+    .mobileNoneTwo{
+        display: none;
+    }
+    .transferStepsİconContainer{
+        width: 45px;
+        height: 45px;
+    }
+    .transferStepsİconContainer img{
+        width: 25px;
+    }
+    .stepTwo .transferInfoBottom button{
+        padding: 8px 30px;
+        font-size: 13px;
+    }
+    .orderConfirmCode{
+        margin: 35px 0px;
+    }
+    .orderConfirmCode input{
+        width: 100%;
+        padding: 10px 20px;
+    }
+    .stepFour .greyBlock{
+        padding: 15px;
+    }
+}

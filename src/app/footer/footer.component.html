@@ -1,0 +1,40 @@
+<section *ngIf="mustAppear"id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-12">
+                <div class="footerLogo">
+                    <img src="/assets/img/logoWhite.svg">
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-12">
+                <div class="footerMenu float-right">
+                    <ul class="nav nav2">
+                        <li class="nav-item" routerLink = "/localTours">Daxili turlar</li>
+                        <li class="nav-item" routerLink = "/externalTours">Xarici turlar</li>
+                        <li class="nav-item" routerLink = "/transferPage">Transfer xidməti</li>
+                        <li class="nav-item" routerLink = "/vendorLogin">Agentlik</li>
+                        <li class="nav-item" routerLink = "/aboutUs">Haqqımızda</li>
+                        <li class="nav-item">Xəbərlər</li>
+                        <li class="nav-item">Karyera</li>
+                        <li class="nav-item" routerLink="/contactUs">Əlaqə</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="footerSpan">
+                    <span>&copy; Bütün hüquqlar qorunur.</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="footerIcons float-right">
+                    <fa-icon class="mx-2" [icon]="['fab', 'facebook-f']"></fa-icon>
+                    <fa-icon class="mx-2" [icon]="['fab', 'twitter']"></fa-icon>
+                    <fa-icon class="mx-2" [icon]="['fab', 'instagram']"></fa-icon>
+                    <fa-icon class="mx-2" [icon]="['fab', 'google-plus-g']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

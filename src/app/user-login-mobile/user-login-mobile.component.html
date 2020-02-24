@@ -1,0 +1,38 @@
+<section id="user-login-mobile">
+    <div class="container px-4">
+        <div class="row">
+            <div class="col-12 imageKeeper pt-4 pb-2 d-flex justify-content-center">
+                <img src="../../assets/img/userloginmobile.png" alt="user image">
+            </div>
+            <form>
+                <div class="col-12 inputs">
+                    <div class="row">
+                        <div class=" col-12 formElement" >
+                            <label for="email" [class.blueColor]="labelColor">Email</label>
+                            <input type="email" name="email" placeholder="name.surname@gmail.com" class="formInput" 
+                            (focus)="changeColorToBlue()"
+                            (blur)="changeColorToDef()" [(ngModel)]="userData.phoneNumber">
+                        </div>
+                        <div class="col-12 formElement">
+                            <label for="password" [class.blueColor2]="labelColor2">Şifrə</label>
+                            <input type="password" name="password" placeholder="*********" class="formInput"
+                            (focus)="changeColorToBlue2()"
+                            (blur)="changeColorToDef2()"  [(ngModel)]="userData.password">
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="col-12 mt-3 mb-0 loginErrorMessage" [class.loginErrorMessageAppear]="loginError">İstifadəçi məlumatları yanlışdır</p>
+                <div class="col-12 submitting pt-3">
+                    <button class="submitbutton btn btn-primary btn-block" (click)="login()"><b>daxİl ol</b></button>
+                </div>
+                <div class="col-12 registerAndForgotPass text-center pb-4">
+                    <a  class="text-muted">Parolu unutmusan?</a>
+                    <a routerLink="/userRegistration">Qeydiyyatdan keç</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

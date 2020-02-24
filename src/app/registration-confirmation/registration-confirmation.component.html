@@ -1,0 +1,24 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 title text-center">
+                <h4>Qeydiyyat</h4>
+            </div>
+            <div class="col-12 col-md-4 formHolder offset-md-4">
+                <form action="/" [class.d-none]="registerSuccessful==true">
+                    <label for="confirmation">*SMS vasitəsilə göndərilən 6 rəqəmli şifrəni daxil edin</label>
+                    <input type="text" name="confirmation" required maxlength="6">
+                    <button class="btn btn-primary submitbutton" (click)="showDialog()">TƏSDİQLƏ</button>
+                </form>
+                <div class="row">
+                    <div class=" col-12 succesful pb-5 d-none" [class.d-block]="registerSuccessful == true">
+                        <img src="../../assets/icons/verified.png" alt="verified" style="margin-left: 50%;transform: translateX(-50%) ;
+                        width: 20%;">
+                        <p class="text-muted text-center">Təbriklər! Uğurla qeydiyyatdan keçdiniz.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>

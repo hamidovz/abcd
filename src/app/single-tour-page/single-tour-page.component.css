@@ -1,0 +1,943 @@
+/* Single Tour Page Styling */
+
+*{
+    font-family: Sarabun;
+}
+
+#singleTour{
+    padding-bottom: 100px;
+}
+
+/* Join Tour part */
+.joinTour{
+    padding: 20px 0px;
+}
+
+/* Join Tour part TOP */
+.returnLinks{
+    padding: 0px 5px;
+}
+.returnLinks a,fa-icon{
+    margin-right: 6px;
+}
+.returnLinks fa-icon{
+    font-size: 14px;
+    color: #0082FF;
+}
+.returnLinks a{
+    color: #757575;
+}
+.returnLinks a:hover{
+    text-decoration: none;
+}
+.blue{
+    color: #0082FF!important;
+}
+
+/* Join Tour part BODY */
+.joinTourBody{
+    padding: 5px 0px;
+}
+.prevToursCarouselStage{
+    transition: 0.5s ease;
+}
+.tourPicture img{
+    width: 100%;
+}
+
+/* Join Tour part BODY : Features */
+.tourFeatures{
+    padding-left: 50px;
+}
+.tourFeaturesTop h2{
+    color: #0082FF;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+.tourFeaturesBody{
+    padding: 30px 0px;
+}
+.tourFeaturesBody p{
+    margin-bottom: 0px;
+    padding: 10px 0px;
+}
+.bold{
+    font-weight: bold;
+}
+.tourFeaturesBottom{
+    display: flex;
+    justify-content: flex-start;
+}
+.joinTourIcon{
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+.joinTourIcon p{
+    margin-bottom: 0px;
+}
+/* .joinTourIcon p fa-icon{
+    margin-right: 0px;
+} */
+.joinTourIcon fa-icon{
+    font-size: 30px;
+    margin: 0px 10px;
+    color: #C9C9C9;
+}
+
+.tourFeaturesBottom button{
+    background-color: #0082FF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 30px;
+    transition: all 0.2s;
+}
+.tourFeaturesBottom button:hover{
+    background-color: rgb(0, 110, 255);
+}
+
+
+/* About Tour part */
+.tourAboutTop h2{
+    color: #0082FF;
+    font-size: 30px;
+}
+.tourAboutBody{
+    padding: 20px 0px;
+}
+.tourAboutBody p{
+    margin-bottom: 50px;
+}
+
+
+/* Tour Program part */
+.tourProgram{
+    background-color: #E1E1E1;
+    padding: 20px 0px;
+}
+.tourProgramTop h2{
+    color: #0082FF;
+    font-size: 30px;
+}
+.tourProgramBody{
+    padding: 20px 0px;
+}
+.tourProgramContainer{
+    padding: 0px 15px;
+}
+.tourProgramItem{
+    padding: 0px 5px;
+}
+.tourProgramParts{
+    display: flex;
+    margin-bottom: 20px;
+}
+.tourProgramBlueBall{
+    padding-top: 3px;
+}
+.tourProgramBlueBall p{
+    background-color: #0082FF;
+    padding: 8px;
+    border: none;
+    border-radius: 100%;
+    margin-bottom: 0px;
+}
+.tourProgramInfo{
+    padding: 0px 5px;
+}
+.tourProgramArrow{
+    padding-left: 5px;
+}
+.tourProgramArrow fa-icon{
+    font-size: 40px;
+    color: #D4D4D4;
+}
+.tourProgramEnd .tourProgramArrow{
+    opacity: 0;
+}
+
+
+/* Tour Organizer part */
+.tourOrganizer{
+    display: flex;
+}
+.tourOrganizerLeft{
+    padding: 30px 0px;
+}
+.tourOrganizerLeftContainer{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tourOrganizerLeftTop h2{
+    color: #0082FF;
+    font-size: 30px;
+}
+.tourOrganizerLeftLogo{
+    padding: 20px 0px;
+}
+.tourOrganizerLeftLogo img{
+    height: 60px;
+}
+.tourConnection{
+    display: flex;
+}
+.tourConnection fa-icon{
+    margin-right: 10px;
+}
+.tourOrganizerLeftBottom fa-icon{
+    color: #0082FF;
+    font-size: 25px;
+    margin-right: 20px;
+}
+agm-map {
+    height: 360px;
+}
+
+
+/* Tour Includes part */
+.tourIncludes{
+    background-color: #E1E1E1;
+    padding: 30px 0px;
+}
+.tourIncludesTop h2{
+    color: #0082FF;
+    font-size: 30px;
+}
+.tourIncludesBody{
+    padding: 30px 0px;
+}
+.tourIncludeItem{
+    display: flex;
+    margin-bottom: 50px;
+}
+.tourIncludeItemIMG{
+    border: 1px solid rgba(0, 132, 255,0.2);
+    border-radius: 5px;
+    padding: 5px;
+}
+.tourIncludeItemWord{
+    display: flex;
+    align-items: center;
+}
+.tourIncludeItemWord p{
+    font-size: 16px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+
+/* Tour Past part */
+.tourPast{
+    padding: 20px 0px;
+}
+.tourPastTop h2{
+    color: #0082FF;
+    font-size: 30px;
+}
+.tourPastBody{
+    padding: 20px 0px;
+}
+.joinTour .prevToursCarousel{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+.joinTour .prevToursCarouselStage{
+    display: flex;
+    /* transform: translateX(-300%); */
+}
+.joinTour .prevToursCarouselItem{
+    padding: 0px 5px;
+    width: 100%;
+    height: 100%;
+}
+.joinTour  .tourPastpicture{
+    width: 100%;
+    height: 100%;
+}
+.joinTour  .tourPastpicture img{
+    width: 100%;
+    height: 100%;
+}
+.modal.show{
+    display: block;
+    background-color: rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.zoomButton{
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+.zoomButton:focus{
+    outline: none;
+    box-shadow: none;
+}
+.zoomButton:not(:disabled):not(.disabled):active:focus{
+    box-shadow: none;
+}
+.zoomButton:not(:disabled):not(.disabled):active{
+    background-color: transparent;
+}
+.modal-dialog{
+    max-width: 600px;
+}
+.modal-content{
+    border: none;
+    background-color: transparent;
+}
+.modal-body{
+    padding: 0px;
+}
+.modal-body .close{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+/* Carousel buttons */
+.prevToursCarouselButtons{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.prevToursCarouselButtonLeft,.prevToursCarouselButtonRight{
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+.prevToursCarouselButtons button{
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 40px;
+}
+.prevToursCarouselButtons button:focus{
+    outline: none;
+}
+
+
+/* Tour Comments part */
+.tourCommentsTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.tourCommentsTop h2{
+    color: #0082FF;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.ratingPart{
+    display: flex;
+}
+.ratingPart p{
+    margin: 0px;
+    margin-right: 15px;
+}
+.tourCommentsCardStarMobile{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    margin-bottom: 0px!important;
+    position: absolute;
+    right: 0;
+}
+.tourCommentsCardStarMobile fa-icon{
+    margin-left: 5px;
+    margin-right: 0px;
+}
+.tourCommentsBody{
+    padding-right: 0px;
+}
+.tourCommentsCard{
+    display: flex;
+    margin: 35px 0px;
+}
+.tourCommentsCardIMG{
+    background-color: #0082FF;
+    border: none;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tourCommentsCardText{
+    padding-left: 30px;
+    width: 100%;
+}
+.tourCommentsCardTitle{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.tourCommentsCardTitle h3{
+    font-size: 18px;
+    color: #616161;
+}
+.tourCommentsCardTitle p{
+    font-size: 15px;
+    color: #616161;
+    margin-bottom: 0px;
+}
+.tourCommentsCardStar{
+    margin-bottom: 10px;
+}
+.tourCommentsCardStarMobile p{
+    margin-bottom: 0px;
+    margin-right: 20px;
+}
+.tourCommentsCardStar fa-icon{
+    color: #F9CE1D;
+    margin-right: 10px;
+}
+.tourCommentsCardWrites p{
+    font-size: 14px;
+    color: #616161;
+    margin-bottom: 0px;
+}
+
+.tourComments .rating-wrapper label::before{
+    top: -30px;
+    left: -5px;
+}
+
+.tourComments .rating-wrapper label::after{
+    top: -30px;
+    left: -5px;
+}
+.tourCommentsCardText .rating-wrapper{
+    margin-left: 15px;
+}
+
+.tourCommentsCardText  .rating-wrapper label::before{
+    top: -40px;
+    left: -5px;
+    font-size: 28px;
+}
+
+.tourCommentsCardText  .rating-wrapper label::after{
+    top: -40px;
+    left: -5px;
+    font-size: 28px;
+}
+
+/* Tour Feedback part */
+.tourFeedback{
+    padding-top: 20px 0px; 
+}
+.tourFeedbackTop{
+    display: flex;
+    justify-content: space-between;
+}
+.tourFeedbackTop h2{
+    color: #616161;
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+.tourFeedbackStars{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.tourFeedbackStars fa-icon{
+    margin-left: 5px;
+    margin-right: 0px;
+}
+
+/*  new feedback stars  */
+
+.rating-wrapper{
+    /* transform:  rotate(180deg); */
+    direction: rtl;
+}
+
+.rating-wrapper label{
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+.rating-wrapper input{
+    display: none;
+}
+
+.rating-wrapper label::before{
+    content: "\2605";
+    position: absolute;
+    font-size: 30px;
+    display: inline-block;
+    top: -20px;
+    left: -5px;
+}
+
+.rating-wrapper label::after{
+    content: "\2605";
+    position: absolute;
+    font-size: 30px;
+    display: inline-block;
+    top: -20px;
+    left: -5px;
+    color: yellow;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.tourCommentsCardStarMobile .rating-wrapper label::before{
+    content: "\2605";
+    position: absolute;
+    font-size: 30px;
+    display: inline-block;
+    top: -32px;
+    left: -10px;
+}
+
+.tourCommentsCardStarMobile .rating-wrapper label::after{
+    content: "\2605";
+    position: absolute;
+    font-size: 30px;
+    display: inline-block;
+    top: -32px;
+    left: -10px;
+    color: yellow;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.tourFeedback .rating-wrapper label:hover::after,
+.tourFeedback .rating-wrapper label:hover ~ label::after{
+    opacity: 1;
+}
+
+/* end */
+
+.tourFeedbackBody{
+    padding: 20px 0px;
+}
+.tourFeedbackBody textarea{
+    background-color: #E2E0E0;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    font-size: 15px;
+}
+.tourFeedbackBottom button{
+    background-color: #0082FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 15px;
+}
+
+
+
+/* Tour Booking Styling */
+
+.showModal{
+    top:0 !important;
+    opacity: 1 !important;
+}
+#joinTour{
+    padding: 15px 0px;
+    opacity: 0;
+    position: fixed;
+    top: 100%;
+    background: rgba(255,255,255,0.99);
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: 0;
+    z-index: 222;
+    transition: opacity 0.3s;
+}
+.joinTourTopModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 70%;
+    margin: auto;
+}
+.closeButton{
+    position: absolute;
+    right: 0;
+}
+.closeButton button{
+    border: none;
+    background-color: transparent;
+}
+.joinTourTopModal h1{
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.joinTourBodyModal{
+    padding: 5px 0px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.greyBlock{
+    width: 70%;
+    background-color: #E8E8E8;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.16);
+    padding: 15px 70px;
+    display: flex;
+    justify-content: center;
+}
+.tourName h2{
+    font-size: 20px;
+}
+.tourDate p{
+    font-size: 13px;
+}
+.greyBlockPassengerInfo{
+    padding: 20px 0px;
+    color: #757575;
+    font-size: 16px;
+}
+.greyBlockNumberOfPassenger{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+.passengerContainer{
+    width: 40%;
+}
+.passengerItem{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.passengerItemWord{
+    padding-right: 0px;
+}
+.passengerItemButton{
+    padding-left: 0px;
+}
+.passengerItemButton button fa-icon{
+    margin: 0px;
+}
+.greyBlockNumberOfPassenger p{
+    margin-bottom: 0px;
+}
+.greyBlockNumberOfPassenger input{
+    width: 50px;
+    background-color: #dcdcdc;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 0px 5px;
+}
+.greyBlockNumberOfPassenger button{
+    background-color: #FFCA00;
+    color: #fff;
+    border-radius: 100%;
+    border: none;
+    margin: 0px 5px;
+}
+.greyBlockNumberOfPassenger input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.greyBlockEnd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.greyBlockEnd img{
+    width: 30px;
+    margin-right: 10px;
+}
+.greyBlockEnd p{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.joinTourBottom{
+    text-align: center;
+    padding: 10px 0px;
+}
+.joinTourBottom button{
+    background-color: #0082FF;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    border-radius: 8px;
+    margin: 0px 5px;
+}
+
+
+
+
+/*  Media Queries start */
+
+/* Tour Booking User side media queries */
+
+@media(max-width: 991px){
+    .joinTourTopModal{
+        width: 100%;
+    } 
+    .greyBlock{
+        width: 100%;
+    }
+}
+@media(max-width: 767px){
+    .greyBlock{
+        padding: 20px 0px;
+    }
+    .passengerContainer{
+        width: 45%;
+    }
+}
+@media(max-width: 576px){
+    #joinTour{
+        padding: 20px 0px 10px;
+    }
+    .passengerContainer{
+        width: 100%;
+    }
+    .passengerItemWord {
+        padding-right: 15px;
+        display: flex;
+        justify-content: center;
+    }
+    .passengerItemButton{
+        padding-left: 15px;
+        display: flex;
+        justify-content: center;
+    }
+    .greyBlockEnd{
+        padding: 15px 0px;
+    }
+    .tourCommentsTop h3{
+        display: none;
+    }
+    .greyBlockPassengerInfo{
+        padding: 0px;
+    }
+    .greyBlockNumberOfPassenger{
+        padding: 10px 0px;
+    }
+    .passengerItem{
+        margin-bottom: 5px;
+    }
+    .greyBlockEnd{
+        padding: 5px 0px;
+    }
+}
+@media(max-width: 450px){
+    .tourCommentsCardText {
+        padding-left: 15px;
+    }
+}
+@media(max-width: 350px){
+    .joinTourTop h1{
+        font-size: 25px;
+    }
+    .joinTourBody{
+        padding: 10px 0px;
+    }
+    .tourCommentsTop h2{
+        font-size: 25px;
+    }
+    .tourCommentsCardStarMobile{
+        font-size: 20px;
+    }
+    .tourCommentsCardTitle h3{
+        font-size: 16px;
+    }
+    .tourCommentsCardStar{
+        font-size: 14px;
+    }
+}
+
+#heart:hover > fa-icon{
+    transition: color 0.3s;
+}
+
+#heart:hover > fa-icon{
+    color:#FFCA00;
+}
+
+
+/*  Single Tour  */
+
+@media(max-width: 1280px){
+    .tourOrganizerLeftContainer{
+        width: 73%;
+    }
+}
+@media(max-width: 1200px){
+    .prevToursCarousel{
+        height: 100%;
+    }
+    .tourPastpicture {
+        height: 100%;
+    }
+    .tourPastpicture img{
+        height: 100%;
+    }
+    .tourAboutBody p{
+        margin-bottom: 20px;
+    }
+}
+@media(max-width: 1024px){
+    .tourOrganizerLeftContainer{
+        width: 82%;
+    }
+}
+@media(max-width: 991px){
+    .joinTour{
+        padding-bottom: 50px;
+    }
+    .joinTourTop{
+        display: none;
+    }
+    .prevToursCarousel{
+        margin-bottom: 10px;
+    }
+    .tourFeatures{
+        padding: 0px 20px;
+    }
+    .tourFeedbackBody{
+        padding: 15px 0px;
+    }
+}
+@media(max-width: 800px){
+    .tourOrganizerLeftContainer{
+        width: 70%;
+    }
+}
+@media(max-width: 767px){
+    .tourOrganizer{
+        flex-direction: column;
+    }
+    .tourOrganizerRight {
+        height: 360px;
+    }
+    agm-map {
+        height: 360px;
+    }
+}
+@media(max-width: 575px){
+    #singleTour {
+        padding-bottom: 50px;
+    }
+    .tourProgramArrow{
+        padding-left: 30px;
+    }
+    .tourOrganizerLeftContainer{
+        width: 85%;
+    }
+    .tourOrganizerLeftLogo{
+        text-align: center;
+    }
+    .tourOrganizerLeftLogo img{
+        height: 70px;
+    }
+    .tourConnection p{
+        font-size: 20px;
+    }
+    .tourConnection fa-icon{
+        font-size: 20px;
+    }
+    .tourOrganizerLeftBottom{
+        display: flex;
+        justify-content: space-between;
+    }
+    .tourOrganizerLeftBottom fa-icon{
+        margin: 0px 10px;
+        font-size: 50px;
+    }
+    .tourProgramParts{
+        justify-content: center;
+    }
+    .prevToursCarouselItem {
+        display: flex;
+        justify-content: center;
+    }
+    .tourPastpicture{
+        width: 100%;
+    }
+    .tourFeedbackStars{
+        display: none;
+    }
+    .tourFeedbackBody textarea{
+        min-height: 150px;
+    }
+    .tourCommentsCardStarMobile{
+        display: flex;
+        font-size: 23px;
+    }
+    .tourCommentsCardTitle p{
+        display: none;
+    }
+    .tourCommentsCardStar{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+@media(max-width: 450px){
+    .tourOrganizerLeftLogo img{
+        height: 50px;
+    }
+    .tourProgramItem{
+        padding: 0px 10px;
+    }
+    .tourProgramArrow{
+        padding-left: 15px;
+    }
+}
+@media(max-width: 400px){
+    .tourFeedbackBody textarea{
+        min-height: 200px;
+    }
+    .tourFeedbackBottom button{
+        width: 100%;
+    }
+}
+@media(max-width: 380px){
+    .tourProgramItem{
+        padding: 0px 5px;
+    }
+    .tourProgramArrow{
+        padding-left: 5px;
+    }
+    .tourCommentsCardStarMobile{
+        font-size: 20px;
+    }
+    .tourCommentsCardStarMobile p{
+        margin-right: 15px;
+    }
+    .tourCommentsCardStarMobile fa-icon{
+        margin-left: 2px;
+    }
+    .tourCommentsCardStar fa-icon{
+        margin-right: 2px;
+    }
+}
+@media(max-width: 340px){
+    .tourProgramArrow fa-icon{
+        font-size: 35px;
+        margin-right: 0px;
+    }
+}

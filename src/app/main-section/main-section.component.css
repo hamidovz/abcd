@@ -1,0 +1,372 @@
+/* MAIN SECTION Styling */
+#vipTours{
+    padding: 10px 0px;
+    background-color: #E1E1E1;
+}
+.vipToursTop{
+    color: #707070;
+}
+.vipToursTop h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+#localTours{
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+.localToursTop{
+    font-family: Sarabun,sans-serif;
+    color: #707070;
+    padding-bottom: 20px;
+}
+.localToursTop h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.localToursTop h4{
+    font-size: 20px;
+    font-weight: bold;
+}
+.localToursTop .allTours{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.localTourCard{
+    padding-right: 5px;
+    padding-left: 5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.localTourCard:hover{
+    transform:translateY(-2%);
+}
+
+
+.localToursCardTitle{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.moreButton{
+    display: flex;
+    justify-content: center;
+    padding: 25px 0px;
+}
+.moreButton button{
+    padding: 10px 30px;
+    background-color: #0082FF;
+    border: none;
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+#externalTours{
+    padding-top: 30px;
+    background-color: #E1E1E1;
+}
+
+
+
+/* Card Styling */
+.tourCard{
+    position:relative;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px 2px lightgrey;
+    border-radius: 5px;
+}
+
+.tourCardImg{
+    height: 137px;
+    background:url("/assets/img/navbarBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.tourCardContent{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    height: 70px;
+}
+.tourCardTitleTime{
+    padding-left: 15px;
+}
+.tourCardTitleTime h3{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.tourCardTitleTime p{
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #707070;
+}
+.tourCardPrice{
+    background-color: #FFCA00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.tourCardPrice p{
+    margin: 0px;
+}
+
+.carousel{
+    display:flex;
+    transition:transform 0.5s;
+}
+
+.carousel-container{
+    overflow:hidden;
+    margin-left:31px;
+}
+
+.carouselCard{
+    box-shadow:0px 0px 5px 0px grey;
+    border-radius: 5px;
+    cursor:pointer;
+    transition:all 0.3s;
+}
+
+.carouselCard:hover{
+    transform:translateY(-2%);
+   box-shadow: 0px 0px 10px 0px grey;
+
+}
+
+.left-arrow{
+    position: absolute;
+    top: 50%;
+    left: -3%;
+    font-size: 36px;
+    transform: translateY(-50%);
+    cursor:pointer;
+}
+
+.right-arrow{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 36px;
+    transform: translateY(-50%);
+    cursor:pointer;
+}
+
+
+
+.vipToursBody{
+    position:relative;
+}
+
+.carouselDescription{
+    margin:auto;
+    background:white;
+    position:relative;
+}
+
+#carouselTourName{
+    font-size:18px;
+    font-weight: bold;
+}
+
+#carouselTourDate{
+    font-size:14px;
+}
+
+.carouselPrice{
+    position:absolute;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+    background:#FFCA00;
+    display:flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.price{
+    margin-left: 10%;
+}
+
+.premium{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#vip{
+    display:flex;
+    align-items: center;
+}
+
+.carouselImg{
+    height: 175px;
+    background:url("/assets/img/navbarBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#heart{
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    left: 4%;
+    font-size: 28px;
+    cursor:pointer;
+    transition: color 0.3s;
+}
+
+#heart:hover{
+    color:#FFCA00;
+}
+
+#share{
+    left:initial;
+    right:4%;
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    font-size: 28px;
+    transition: color 0.3s;
+}
+
+#share:hover{
+    color:#0082FF;
+}
+
+
+.vipToursMobile{
+    display:block;
+}
+
+.layer{
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:99;
+}
+
+/* Main Section Responsive design */
+
+@media screen and ( max-width: 1024px ){
+
+
+    .carouselImg{
+        height: 147px;
+    }
+
+    .tourCardImg{
+        height: 114px;
+    }
+
+
+}
+
+@media screen and (min-width:799px){
+
+    .vipToursMobile{
+        display:none !important;
+    }
+}
+
+@media (max-width: 800px){
+
+
+    .right-arrow{
+        right:-3%
+    }
+    
+    .localToursTop{
+        padding-bottom: 10px;
+    }
+    .allTours{
+        display: none!important;
+    }
+    .localToursCardTitle h2{
+        margin-bottom: 0px;
+        font-size: 25px;
+    }
+
+    #carouselTourName{
+        font-size:14px;
+    }
+
+    #carouselTourDate{
+        font-size:10px;
+    }
+
+    .carouselImg{
+        height:109px;
+    }
+
+    .tourCardImg{
+        height:129px;
+    }
+
+
+}
+@media(max-width: 768px){
+
+
+    #vipTours{
+        display:none;
+    }
+
+    .tourCardImg{
+        height: 200px;/* 768px */
+    }
+}
+@media(max-width: 577px){
+    .tourCardImg{
+        height: 180px;/* 577px */
+    }
+    .localTourCard {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media(max-width: 400px){
+    .tourCardImg{
+        height: 150px;/* 400px */
+    }
+}
+
+@media screen and (max-width:370px){
+
+
+    .premium{
+        justify-content: center;
+    }
+
+    .tourCardTitleTime h3{
+        font-size:14px;
+    }
+
+}
+
+@media(max-width: 350px){
+    .tourCardImg{
+        height: 120px;/* 350px */
+    }
+}
+
+@media screen and (max-width:330px){
+    .premium > img{
+        width:100%
+    }
+}

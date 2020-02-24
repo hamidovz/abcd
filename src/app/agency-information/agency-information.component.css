@@ -1,0 +1,45 @@
+.agencyInfoTitle h4{
+    font-family: 'Regular';
+    display: inline-block;
+    margin-bottom: 0 !important;
+    margin-left: 5px;
+}
+.imgHolder,img{
+    width: 100%;
+    height: 24vh;
+}
+.agencyInfo .upperRowInfo p:nth-child(odd),
+.agencyInfo .bottomRowInfo p:nth-child(odd)
+{
+    margin-bottom: 0 !important;
+}
+
+
+@media screen and (max-width:767px){
+    .upperRowInfo,
+    .bottomRowInfo,
+    #agencyInformation{
+        display: flex;
+        text-align: center;
+    }
+    .allInfo{
+        padding-left: 0 !important;
+    }
+    .bottomRowInfo{
+        padding-top: 0 !important;
+    }
+    .upperRowInfo{
+        margin-top: 20px !important;
+    }
+    .imgHolder img{
+        height: 150px !important;
+        width: 150px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1024px){
+    .imgHolder img{
+        height: 120px;
+        width: 200px;
+    }
+}

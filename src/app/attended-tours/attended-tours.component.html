@@ -1,0 +1,118 @@
+<section id="attendedTours">
+    <div class="container mt-5">
+        <div class="nothingAdded">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Siz hələ heç bir tura getməmisiniz.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-12 titleandsorting d-flex justify-content-start">
+                <div class="row" style="width: 100%;">
+                    <div class="titleofcontent col-6">
+                        <p style="font-size:25px">Gedilən turlar</p>
+                    </div>
+                    <div class="sortingMenu col-6 d-flex justify-content-end">
+                        <div class="wholeMenu" (click)="showAllOptions()" >
+                            <div class="selectedOption">
+                                <a href="">{{defaultValue}}</a>
+                                <svg-icon src="../../assets/icons/dropdown.svg" [stretch]="true"
+                                    [svgStyle]="{'width.px':17,'fill':'rgb(150,50,255)','padding.px':1,'margin.px':3}">
+                                </svg-icon>
+                            </div>
+                            <div class="allOptions" [class.d-none]="allOptionsHidden">
+                                <a #cheap (click)="changeOption(cheap)" value="Ucuz turlar əvvəl">Ucuz  turlar əvvəl</a>
+                                <a #expensive (click)="changeOption(expensive)" value="Baha turlar əvvəl">Baha turlar əvvəl</a>
+                                <a #close (click)="changeOption(close)" value="Yaxın tarix əvvəl">Yaxın tarix əvvəl</a>
+                                <a #far (click)="changeOption(far)" value="Uzaq tarix əvvəl">Uzaq tarix əvvəl</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="attendedToursBody mt-3">
+            <div class="row">
+                <div class="col-12 cardHolder">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard">
+                            <div class="tourCard">
+                                <div class="tourCardImg">
+                                    <!-- <img src="/assets/img/tourPic.png"> -->
+                                    <p id="heart">
+                                        <fa-icon [icon]="['fas','heart']"></fa-icon>
+                                    </p>
+                                    <p id="share">
+                                        <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                                    </p>
+                                </div>
+                                <div class="tourCardContent">
+                                    <div class="tourCardTitleTime">
+                                        <h3>Zaqatala - Balaken turu</h3>
+                                        <p>22.05.2019 - 22.07.2019</p>
+                                    </div>
+                                    <div class="tourCardPrice">
+                                        <p>1423.99 &#8380;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard">
+                            <div class="tourCard">
+                                <div class="tourCardImg">
+                                    <!-- <img src="/assets/img/tourPic.png"> -->
+                                    <p id="heart">
+                                        <fa-icon [icon]="['fas','heart']"></fa-icon>
+                                    </p>
+                                    <p id="share">
+                                        <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                                    </p>
+                                </div>
+                                <div class="tourCardContent">
+                                    <div class="tourCardTitleTime">
+                                        <h3>Zaqatala - Balaken turu</h3>
+                                        <p>22.05.2019 - 22.07.2019</p>
+                                    </div>
+                                    <div class="tourCardPrice">
+                                        <p>1423.99 &#8380;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard">
+                            <div class="tourCard">
+                                <div class="tourCardImg">
+                                    <!-- <img src="/assets/img/tourPic.png"> -->
+                                    <p id="heart">
+                                        <fa-icon [icon]="['fas','heart']"></fa-icon>
+                                    </p>
+                                    <p id="share">
+                                        <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                                    </p>
+                                </div>
+                                <div class="tourCardContent">
+                                    <div class="tourCardTitleTime">
+                                        <h3>Zaqatala - Balaken turu</h3>
+                                        <p>22.05.2019 - 22.07.2019</p>
+                                    </div>
+                                    <div class="tourCardPrice">
+                                        <p>1423.99 &#8380;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="loadMore col-12 d-flex justify-content-center my-3">
+            <button class="btn btn-primary">DAHA ÇOX YÜKLƏ</button>
+        </div>
+    </div>
+</section>

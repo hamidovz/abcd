@@ -1,0 +1,26 @@
+.functions{
+    text-align: center;
+}
+.functions .sameeen{
+    font-size: 250px;
+}.function{
+    color:#707070;
+    transition: 0.2s;
+    user-select: none;
+}
+.function:hover{
+    color: #007DFF;
+    cursor: pointer;
+}
+.addTour button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:575px){
+    .addTour{
+        display: flex;
+        justify-content: center;
+    }
+}

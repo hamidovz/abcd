@@ -1,0 +1,212 @@
+
+.paginationButton a {
+    color: white;
+    text-decoration: none;
+}
+
+#vendorActiveTours {
+    padding-top: 30px;
+    background-color: #ffffff;
+}
+
+.nothingAdded {
+    font-family: Sarabun, sans-serif;
+}
+
+.vendorActiveToursTop h4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.vendorActiveToursTop .allTours {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tourCard{
+    transition: 0.7s;
+}
+
+.vendorActiveToursCardTitle {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+
+/* Sorting */
+.sortingMenu{
+    padding-right: 0 !important;
+    max-height: 50px;
+    user-select: none;
+}
+.sortingMenu .wholeMenu{
+    width: 180px;
+    background-color: #EFEFEF;
+    z-index: 999;
+    text-align: right;
+    font-family: "Regular";
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 15px;
+    position: relative;
+}
+.sortingMenu .allOptions{
+    width: 100%;
+    background-color: #EFEFEF;
+    position: absolute;
+    z-index: 100;
+}
+.sortingMenu a:hover{
+    cursor: pointer !important;
+    text-decoration: none;
+}
+.sortingMenu a{
+    color: #757575;
+    display: block;
+}
+.sortingMenu .allOptions{
+    padding-right: 22px;
+    padding-bottom: 6%;
+}
+.sortingMenu .selectedOption a{
+    display: inline !important;
+}
+
+
+/* Card styling */
+.cardHolder{
+    z-index: 99;
+}
+.tourCard {
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px 2px lightgrey;
+    border-radius: 5px;
+    position: relative;
+}
+
+
+.tourCardImg {
+    height: 137px;
+    background: url("/assets/img/navbarBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.tourCardContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    height: 70px;
+}
+
+.tourCardTitleTime {
+    padding-left: 15px;
+}
+
+.tourCardTitleTime h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.tourCardTitleTime p {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #707070;
+}
+
+.tourCardPrice {
+    background-color: #FFCA00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.tourCardPrice p {
+    margin: 0px;
+}
+
+.tourCardPrice p img {
+    width: 20px;
+}
+
+#heart {
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    left: 4%;
+    font-size: 28px;
+}
+
+#share {
+    left: initial;
+    right: 4%;
+    z-index: 100;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 9%;
+    font-size: 28px;
+}
+
+/* Hover effect */
+
+.tourCard:hover {
+    transform: translateY(-15px);
+
+    -webkit-box-shadow: 2px 6px 39px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 6px 39px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 6px 39px 0px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+/* Pagination */
+
+.allPaginationButtons ul {
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+}
+
+.allPaginationButtons li {
+    list-style-type: none;
+    width: 30px;
+    height: 40px;
+    background-color: #0082FF;
+    color: white;
+    border-radius: 3px;
+}
+
+.allPaginationButtons li a {
+    width: 100%;
+    height: 100%;
+    ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive design */
+@media screen and (min-width:300px){
+    .sortingMenu .wholeMenu{
+        padding:7% 0;
+    }
+}
+ 
+@media screen and (min-width:768px){
+    .sortingMenu .wholeMenu{
+        padding:4% 0;
+    }
+}
+@media screen and (min-width:1200px){
+    .sortingMenu .wholeMenu{
+        padding: 2.5% 0
+    }
+}  

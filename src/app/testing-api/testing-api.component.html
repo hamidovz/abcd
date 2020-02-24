@@ -1,0 +1,20 @@
+<input type="file" #sekil>
+<br><br>
+<!-- <button (click)="send(sekil)">gonder</button> -->
+
+<br><br>
+<hr>
+<form #form1 action="http://www.ziqzaq.az/api/vendor/create" method="post" enctype="multipart/form-data">
+
+    <input type="text" name="MapLatitude"><br><br> 
+    <input type="text" name="Name"><br><br>
+    <input type="text" name="AgencyName"><br><br>
+    <input type="text" name="MapLongitude"><br><br>
+    <input type="text" name="PhoneNumber"><br><br>
+    <input type="text" name="AgencyEmail"><br><br>
+    <input type="text" name="Surname"><br><br>
+    <input type="text" name="Password"><br><br>
+    <input type="text" name="Email"><br><br>
+</form>
+
+<button (click)="sendData(form1)">sendData</button>

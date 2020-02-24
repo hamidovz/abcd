@@ -1,0 +1,248 @@
+<!-- Transfer Page Design -->
+<section id="transferInfo">
+    <div class="container">
+        <div class="tranferInfoTop">
+            <h1>Transfer sifarişi</h1>
+        </div>
+        <div class="transferInfoBody">
+            <div class="transferSteps">
+                <div class="transferStepsWords">
+                    <div class="transferStepsWord">
+                        <div class="transferStepsWordContainer">
+                            <span>Transfer məlumatları</span>
+                        </div>
+                    </div>
+                    <div class="transferStepsWord">
+                        <div class="transferStepsWordContainer">
+                            <span>Şəxsi məlumatlar</span>
+                        </div>
+                    </div>
+                    <div class="transferStepsWord">
+                        <div class="transferStepsWordContainer">
+                            <span>Sifarişin təsdiqi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="transferStepsİcons">
+                    <div class="transferStepsİcon">
+                        <div class="transferStepsİconContainer">
+                            <img src="assets/img/transfer.png">
+                        </div>
+                    </div>
+                    <p class="grey"></p>
+                    <p class="grey"></p>
+                    <p class="grey"></p>
+                    <p class="grey mobileNoneTwo"></p>
+                    <p class="grey mobileNone"></p>
+                    <div class="transferStepsİcon">
+                        <div class="transferStepsİconContainer grey">
+                            <img src="assets/img/person.png">
+                        </div>
+                    </div>
+                    <p class="grey"></p>
+                    <p class="grey"></p>
+                    <p class="grey"></p>
+                    <p class="grey mobileNoneTwo"></p>
+                    <p class="grey mobileNone"></p>
+                    <div class="transferStepsİcon">
+                        <div class="transferStepsİconContainer grey">
+                            <img src="assets/img/done.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="transferCarousel col-lg-8 col-md-12 mx-0 px-0">
+                <div class="transferCarouselStage col-12 px-0 mx-0" #carousel>
+                    
+                    <div class="transferCarouselItem col-12 stepOne">
+                        <div class="greyBlock col-12">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="transferInfoInput">
+                                            <input type="text" placeholder="Başlanğıc nöqtəsi" name="pickupLocation" [(ngModel)]="transferData.pickupLocation">
+                                        </div>
+                                        <div class="transferInfoInput">
+                                            <input type="text" placeholder="İstiqamət nöqtəsi" name="destination" [(ngModel)]="transferData.destination">
+                                        </div>
+                                        <div class="transferInfoInput">
+                                            <input type="number" placeholder="Uçuş kodu" name="flightCode" [(ngModel)]="transferData.flightCode">
+                                        </div>
+                                        <div class="transferInfoInput">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 endInputLeft">
+                                                    <span>Baqaj çəkisi</span>
+                                                    <input type="number" placeholder="Baqaj çəkisi" name="luggageWeight" [(ngModel)]="transferData.luggageWeight">
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 endInputRight">
+                                                    <span>Sərnişinlərin sayı</span>
+                                                    <input type="number" placeholder="Sərnişinlərin sayı" name="passengerNumber" [(ngModel)]="transferData.passengerNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="transferInfoInput">
+                                            <input type="text" placeholder="Tarix və saat" name="pickUpTime" [(ngModel)]="transferData.pickUpTime">
+                                        </div>
+                                        <div class="transferInfoTransport">
+                                            <div class="transferInfoTransportSpan">
+                                                <span>Nəqliyyat növü:</span>
+                                            </div>
+                                            <div class="transferInfoTransportIcons">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 transferInfoTransportIconContainer">
+                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('ekonom' , 1)">
+                                                            <div class="transferInfoTransportIconIMG">
+                                                                <img src="{{currentIcon == 'ekonom' ? 'assets/img/ekonomSedanBlue.png' : 'assets/img/ekonomSedan.png'}}">
+                                                            </div>
+                                                            <div class="transferInfoTransportIconWORD" [class.selectedIcon]="currentIcon == 'ekonom'">
+                                                                <span>Ekonom Sedan</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 transferInfoTransportIconContainer">
+                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('biznes' , 2)">
+                                                            <div class="transferInfoTransportIconIMG">
+                                                                <img src="{{currentIcon == 'biznes' ? 'assets/img/biznesSedanBlue.png' : 'assets/img/biznesSedan.png'}}">
+                                                            </div>
+                                                            <div class="transferInfoTransportIconWORD" [class.selectedIcon]="currentIcon == 'biznes'">
+                                                                <span>Biznes Sedan</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 transferInfoTransportIconContainer">
+                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('miniBus' , 3)">
+                                                            <div class="transferInfoTransportIconIMG">
+                                                                <img src="{{currentIcon == 'miniBus' ? 'assets/img/miniBusBlue.png' : 'assets/img/miniBus.png'}}">
+                                                            </div>
+                                                            <div class="transferInfoTransportIconWORD" [class.selectedIcon]="currentIcon == 'miniBus'">
+                                                                <span>Minibus</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="transferInfoBottom">
+                            <button (click)="nextStep('right',carousel)">DAVAM ET</button>
+                        </div>
+                    </div>
+    
+                    <div class="transferCarouselItem col-12 stepTwo">
+                        <div class="greyBlock col-12">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="transferInfoInput">
+                                            <input type="text" placeholder="Ad" name="name" [(ngModel)]="transferData.name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="transferInfoInput">
+                                            <input type="text" placeholder="Soyad" name="surname" [(ngModel)]="transferData.surname">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="transferInfoInput">
+                                            <input type="number" placeholder="Nömrə" name="number" [(ngModel)]="transferData.phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="transferInfoInput">
+                                            <input type="email" placeholder="Email" name="email" [(ngModel)]="transferData.email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="transferInfoBottom">
+                            <button class="transferInfoPrev" (click)="nextStep('left',carousel)">GERİYƏ</button>
+                            <button (click)="nextStep('right',carousel)">DAVAM ET</button>
+                        </div>
+                    </div>
+    
+                    <div class="transferCarouselItem col-12 stepFour">
+                        <div class="greyBlock col-12">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Ad soyad</h4>
+                                            <p>{{transferData.name}} {{transferData.surname}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Email</h4>
+                                            <p>{{transferData.email}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Telefon</h4>
+                                            <p>{{transferData.phone}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Başlanğıc nöqtəsi</h4>
+                                            <p>{{transferData.pickupLocation}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>İstiqamət</h4>
+                                            <p>{{transferData.destination}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Baqaj çəkisi</h4>
+                                            <p>{{transferData.luggageWeight}} kq</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Sərnişin sayı</h4>
+                                            <p>{{transferData.passengerNumber}}  nəfər</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="transferOrderInfo">
+                                            <h4>Minik növü</h4>
+                                            <p>{{carTypes[transferData.carTypeid]}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="transferInfoBottom">
+                            <button (click)="nextStep('right',carousel)">TƏSDİQLƏ</button>
+                        </div>
+                    </div>
+
+                    <div class="transferCarouselItem col-12 stepThree">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="orderConfirmCode">
+                                    <label>*SMS vasitəsilə göndərilən 6 rəqəmli şifrəni daxil edin</label>
+                                    <input type="number" placeholder="6 1 3 5 2 0" maxlength="6">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transferInfoBottom">
+                            <button>TƏSDİQLƏ</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

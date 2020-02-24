@@ -1,0 +1,71 @@
+a{
+    color: black;
+    display: block;
+}
+label {
+    font-size: 16px;
+    font-family: "Regular";
+    display: block;
+}
+
+form{
+    margin:auto;
+}
+
+.formElement {
+    margin-top: 5%;
+}
+.formInput {
+    width: 100%;
+    border:1px solid transparent;
+    border-bottom: 1px solid #757575;
+    background-color: transparent;
+    transition: 0.3s;
+}
+::-webkit-input-placeholder{
+    color:#757575;
+    font-family: "Regular";
+}
+
+
+/* Effect for input */
+
+.formInput:focus {
+    outline: none;
+    border-bottom: 1px solid #0082FF;
+}
+
+.blueColor{
+    color: #0082FF ;
+    transition: 0.3s;
+}
+.blueColor2{
+    color: #0082FF ;
+    transition: 0.3s;
+}
+input[type="submit"] {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.submitting {
+    display: flex;
+    justify-content: center;
+    padding: 7% 4%;
+}
+
+.submitting .submitbutton {
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.loginErrorMessage{
+    color:red;
+    opacity:0;
+}
+
+.loginErrorMessageAppear{
+    opacity : 1 !important;
+}

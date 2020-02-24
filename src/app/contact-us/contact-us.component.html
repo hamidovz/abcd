@@ -1,0 +1,85 @@
+<div class="container-fluid">
+
+    <div class="col-11 contactContainer row">
+
+        <p class="my-4">
+
+            <fa-icon [icon]="['fas','map-marker-alt']" class="mr-3"></fa-icon>
+            <span class="contactTitle">Bakı, Azərbaycan</span>
+
+        </p>
+
+        <p class="my-4">
+
+            <fa-icon [icon]="['fas','phone-alt']" class="mr-3"></fa-icon>
+            <span class="contactTitle">021245474577</span>
+
+        </p>
+
+        <p class="my-4">
+
+            <fa-icon [icon]="['fas','envelope']" class="mr-3"></fa-icon>
+            <span class="contactTitle">info@morpho.az</span>
+
+        </p>
+
+    </div>
+
+    <div class="col-12 feedbackContainer">
+
+        <div class="row">
+
+            <div class="col-12 col-lg-6 feedbackLeft">
+                
+                <p class="my-4 col-12">Bizimlə Əlaqə Saxlayın</p>
+
+                <p class="col-12 col-lg-6">
+                    <span>Ad</span> 
+                    <br>
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="name" [(ngModel)]="message.name">
+                </p>
+
+                <p class="col-12 col-lg-6">
+                    <span >Soyad</span> 
+                    <br>
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="surname" [(ngModel)]="message.surname">
+                </p>
+
+                <p class="col-12 col-lg-6">
+                    <span >Email</span> 
+                    <br>
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="email" [(ngModel)]="message.email">
+                </p>
+
+                <p class="col-12 col-lg-6">
+                    <span >Əlaqə nömrəsi
+                    </span> 
+                    <br>
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" name="number" [(ngModel)]="message.number">
+                </p>
+
+                <p class="col-12">
+                    <span >Fikirləriniz:
+                    </span> 
+                    <br>
+                    <textarea class="col-12 py-2 mt-2" name="text" [(ngModel)]="message.description"></textarea>
+                </p>
+
+                <p class="col-12">
+                    <button class="col-12 col-lg-3 py-2" (click)="sendMessage()">Göndər</button>
+                </p>
+
+
+            </div>
+
+            <div class="col-12 col-lg-6 feedbackRight">
+                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            
+            </div>
+
+        </div>
+    </div>
+
+</div>

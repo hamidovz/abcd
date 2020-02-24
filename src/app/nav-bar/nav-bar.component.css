@@ -1,0 +1,542 @@
+*{
+    font-family:Sarabun;
+}
+
+.active{
+    background:#0082ff !important;
+    color:white !important;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    z-index:111;
+    left:0;
+    right:0;
+    align-items:center;
+    transition: background 0.1s;
+}
+
+.navbkWhite{
+    background:white !important;
+}
+
+.navRow{
+    align-items: center;
+}
+
+.loginContainer{
+    position: absolute;
+    top: 120%;
+    right: 5%;
+    background: white;
+}
+
+.loginContainer > .row{
+    margin:0;
+    padding:0;
+}
+
+.loginContainer > input{
+    border-radius: 7px;
+    border:1px solid #757575;
+    outline:none;
+    background: #E8E8E8;
+}
+
+.row > p{
+    margin:0;
+    color:#007bff;
+    cursor:pointer;
+}
+
+.slogan{
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    font-size: 55px;
+    z-index: 110;
+    color:white;
+}
+
+.navBackground{
+    position:relative;
+    z-index:2;
+}
+
+.searchSection{
+    position:absolute;
+    top:70%;
+}
+
+.searchSection > .row{
+    justify-content:center;
+}
+
+.row > input{
+    border:none;
+}
+
+.depart, .return{
+    background:#007bff;
+    color:white;
+    border:none;
+    outline:none;
+    border-radius: 5px;
+    transform:translateX(-10%);
+}
+
+.calendar{
+    width:30%;
+    margin-right:5px;
+}
+
+.search{
+    background:#FFCA00;
+    color:white;
+    border:none;
+    outline:none;
+    border-radius:5px;
+    font-size:22px;
+}
+
+.date{
+    box-sizing:content-box;
+}
+
+.signUp, .signIn{
+    padding:0;
+}
+
+.signUp{
+    text-decoration: underline;
+}
+
+.signIn{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #FFCA00 !important;
+    color:black !important;
+    border-radius:20px;
+}
+
+.signIn > img{
+    width:14px;
+}
+
+.searchInput{
+    padding:0 25px !important;
+    box-sizing:content-box;
+}
+
+.loginClosed{
+    display: none !important;
+}
+
+
+
+
+.navBackgroundMobile{
+    display:none;
+}
+
+.profileMenuWeb{
+    position: absolute;
+    top: 120%;
+    right: 12%;
+    background: white;
+    box-shadow: 0 0 10px 0 lightgrey;
+    display:none;
+    z-index:102;
+}
+
+.profileMenuWebOpen{
+    display:block !important;
+}
+
+.profileMenuWeb > p{
+    display:flex;
+    align-items: center;
+}
+
+
+/* mobile styles */
+
+
+
+.mobile{
+    display:none;
+    z-index:1;
+}
+
+.mobile > .row{
+    align-items:center;
+}
+
+.menuFull{
+
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#0082FF;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    display:none;
+}
+
+.menuOpen{
+    display:flex;
+}
+
+.menuItems{
+    position: absolute;
+    left: 0;
+    top: 20%;
+}
+
+
+.footerSection{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.sloganMobile{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+.navBackgroundMobile{
+    background: url("/assets/img/navbarBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.searchSectionMobile{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.searchSectionMobile > input{
+    border:none;
+    outline:none;
+    border-radius: 5px;
+}
+
+.direction{
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.direction > input{
+    max-width:29%;
+    border:none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.direction > button{
+    border-radius: 5px;
+    border:none;
+    box-sizing: content-box;
+    background:#0082FF;
+    background-image: url("/assets/icon/calendar.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+}
+
+#arrive{
+    transform:translateX(-5%);
+}
+
+#return{
+    transform:translateX(5%);
+}
+
+.searchMobile{
+    background: #FFCA00;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    text-align:center;
+    font-size:25px;
+    max-width:85%;
+}
+
+/* mobile styles ends */
+
+
+
+
+
+
+.profileMenuContainer{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    background:#0000006e;
+    display: flex;
+    justify-content: flex-end;
+    z-index:111;
+    display:none;
+}
+
+
+.profileMenu {
+    background:white;
+    color:#707070;
+    font-size:22px;
+    text-align:center;
+}
+
+.profileMenuOpen{
+    display:flex;
+}
+
+
+.profileMenuLinks{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profileMenuLinks > p{
+    display:flex;
+    justify-content: flex-start;
+    padding-left:10% !important;
+}
+
+.closeButton{
+    position: absolute;
+    left: 0;
+}
+
+
+.userNotify{
+    background:white;
+    color:red;
+}
+
+.errorMessage{
+    color: red;
+    font-size: 12px;
+}
+@media screen and (max-width:1024px){
+    .navElement{
+        padding:0 20px;
+    }
+
+    .slogan{
+        font-size:45px;
+    }
+
+    .searchSection > .row{
+        justify-content: initial;
+    }
+
+    .searchInput{
+        padding:0 37px !important;
+        font-size:12px;
+    }
+
+    .date{
+        font-size:12px;
+    }
+
+    .return > img{
+        margin-right:3px !important;
+    }
+
+    .search{
+        font-size:19px;
+    }
+
+    .signIn, .signUp{
+        font-size:15px;
+    }
+
+    .signIn img{
+        width:13px;
+    }
+
+
+}
+
+@media screen and (max-width:800px){
+
+    .profileMenuWeb{
+        font-size:13px;
+    }
+
+    .navElement{
+        padding:0 5px;
+        font-size:15px;
+    }
+
+    .loginContainer{
+        font-size:13px;
+    }
+
+    .slogan{
+        font-size:35px;
+    }
+
+    .searchInput{
+        padding:0 !important;
+        font-size: 9px;
+    }
+
+    .date{
+        font-size: 9px;
+    }
+
+    .calendar{
+        width:37%;
+    }
+
+    .depart,.return{
+        font-size:10px;
+    }
+
+    .depart,.return,.searchInput,.date,.search{
+        height:35px;
+    }
+
+    .return > img{
+        margin-right:2px !important;
+    }
+
+    .signIn, .signUp{
+        font-size:11px;
+    }
+
+    .signIn img{
+        font-size:9px;
+    }
+}
+
+
+/*  Mobile Version Starts */
+
+@media screen and (max-width:799px){
+
+    /* navbar starts */
+
+
+    .desktop{
+        display:none;
+    }
+
+    .mobile{
+        display:flex;
+    }
+    
+    .navbar,.navbkWhite{
+        background:#0082FF !important;
+    }
+
+    .hamburger > img{
+        width:30%;
+    }
+
+
+    /* navbar ends */
+
+
+
+
+
+
+    /* searchSection starts */
+
+    .navBackground{
+        display:none
+    }
+
+    .navBackgroundMobile{
+        display:block;
+    }
+
+
+
+
+
+
+    /* searchSection ends */
+
+
+}
+
+
+@media screen and (min-width:481px) and (max-width:799px){
+    .direction > input{
+        max-width:33%;
+    }
+
+
+    .direction > button{
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+    }
+}
+
+
+
+
+
+@media screen and (max-width:479px){
+
+    .direction > input{
+        max-width: 29%;
+    }
+
+}
+
+@media screen and (max-width:400px){
+
+    .direction > input{
+        max-width: 28%;
+    }
+
+}
+
+
+@media screen and (max-width:350px){
+
+    .direction > input{
+        max-width: 27%;
+    }
+
+    .profileMenu{
+        font-size:17px;
+    }
+
+}
+
+
+@media screen and (min-width:500px){
+    .profileMenu{
+        font-size:35px;
+    }
+}
+
+
+@media screen and (min-width:600px){
+    .profileMenu{
+        font-size:40px;
+    }
+}
+

@@ -1,0 +1,271 @@
+<!-- VIP Tours -->
+<section id="vipTours" *ngIf="!searched">
+    <div class="container">
+        <div class="vipToursTop">
+            <div class="row">
+                <div class="col-md-12 localToursCardTitle">
+                    <h2 id="vip"><img class="mr-3" src="assets/icon/premium.svg">VIP Elanlar</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="vipToursBody">
+            <p class="left-arrow px-3"><fa-icon  [icon]="['fas','chevron-left']" (click)="carouselSlide('left',carousel)"></fa-icon></p>
+
+            <div class="carousel-container col-11 px-0">
+
+                <div class="carousel pb-1" #carousel>
+            
+                    <div class="col-6 px-0 mr-1 carouselCard"  *ngFor="let tour of vipTours.output" (click)="onTourClick($event , 'singleTourPage')">
+                        <div class="col-12 layer" attr.tourId={{tour.id}}></div>
+                        <div class="carouselImg">
+                            <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
+                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                        </div>
+
+                        <div class="col-12 px-1">
+                        <div class="col-12 px-0 row carouselDescription">
+                            <div class='col-7 pt-3'>
+                                <p id="carouselTourName">{{tour.name}} </p>
+                                <p id="carouselTourDate" class="px-0 mx-0">{{formatData(tour.departureTime)}} - {{formatData(tour.arrivalTime)}}</p>
+                            </div>
+
+                            <div class="col-2 premium">
+                                <img src="assets/icon/premium.svg">
+                           </div>
+
+                            <div class="col-3 px-0 mx-0">
+                                <p class="col-10 my-0 carouselPrice py-3 px-0">1450 <span class="price">&#8380;</span></p>
+                            </div>
+
+                        </div>
+
+                        </div>
+  
+            
+                    </div>
+                       
+            
+                </div>
+            
+            </div>
+
+            <p class="right-arrow px-3" (click)="carouselSlide('right',carousel)"><fa-icon [icon]="['fas','chevron-right']"></fa-icon></p>
+
+
+        </div>
+
+
+
+    </div>
+</section>
+
+
+<!-- VIP Tours Mobile -->
+<section id="localTours" class="vipToursMobile" *ngIf="!searched">
+    <div class="container">
+        <div class="localToursTop">
+            <div class="row">
+                <div class="col-md-6 localToursCardTitle">
+                    <h2>Vip turlar</h2>
+                </div>
+                <div class="col-md-6 allTours localToursCardTitle">
+                    <h4>Bütün daxili turlar</h4>
+                </div>
+            </div>
+        </div>
+        <div class="localToursBody">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" routerLink="/singleTourPage/{{tour.id}}" *ngFor="let tour of vipTours.output">
+                    <div class="tourCard">
+                        <div class="tourCardImg">
+                            <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
+                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                        </div>
+                        <div class="tourCardContent">
+                            <div class="tourCardTitleTime">
+                                <h3>{{tour.name}}</h3>
+                                <p>{{tour.departureTime}} - {{tour.arrivalTime}}</p>
+                            </div>
+                            <div class="col premium">
+                                <img src="assets/icon/premium.svg">
+                           </div>
+                            <div class="tourCardPrice">
+                                <p>{{tour.adultPrice}} &#8380;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="localTourBottom">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="moreButton">
+                        <button>DAHA ÇOX</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Local Tours -->
+<section id="localTours" *ngIf="!searched">
+    <div class="container">
+        <div class="localToursTop">
+            <div class="row">
+                <div class="col-md-6 localToursCardTitle">
+                    <h2>Daxili turlar</h2>
+                </div>
+                <div class="col-md-6 allTours localToursCardTitle">
+                    <h4>Bütün daxili turlar</h4>
+                </div>
+            </div>
+        </div>
+        <div class="localToursBody">
+            <div class="row">
+                <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of localTours.output" routerLink="/singleTourPage/{{tour.id}}"> -->
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of localTours.output" (click)="onTourClick($event , 'singleTourPage')">
+                    <div class="tourCard">
+
+                        <div class="col-12 layer" attr.tourId={{tour.id}}></div>
+                        
+                        <div class="tourCardImg">
+                            <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
+                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                        </div>
+                        <div class="tourCardContent">
+                            <div class="tourCardTitleTime">
+                                <h3>{{tour.name}}</h3>
+                                <p>{{tour.departureTime}}</p>
+                            </div>
+                            <div class="tourCardPrice">
+                                <p>{{tour.adultPrice}} &#8380;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="localTourBottom">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="moreButton">
+                        <button routerLink="/localTours">DAHA ÇOX</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- External Tours -->
+<section id="externalTours" *ngIf="!searched">
+    <div class="container">
+        <div class="localToursTop">
+            <div class="row">
+                <div class="col-md-6 localToursCardTitle">
+                    <h2>Xarici turlar</h2>
+                </div>
+                <div class="col-md-6 allTours localToursCardTitle">
+                    <h4>Bütün xarici turlar</h4>
+                </div>
+            </div>
+        </div>
+        <div class="localToursBody">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard"  *ngFor="let tour of foreignTours.output" (click)="onTourClick($event , 'singleTourPage')">
+                    <div class="tourCard">
+
+                        <div class="col-12 layer" attr.tourId={{tour.id}}></div>
+
+                        
+                        <div class="tourCardImg">
+                            <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
+                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                        </div>
+                        <div class="tourCardContent">
+                            <div class="tourCardTitleTime">
+                                <h3>{{tour.name}}</h3>
+                                <p>{{tour.departureTime}}</p>
+                            </div>
+                            <div class="tourCardPrice">
+                                <p>{{tour.adultPrice}} &#8380;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="localTourBottom">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="moreButton">
+                        <button routerLink="/externalTours">DAHA ÇOX</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- search results -->
+
+
+<section *ngIf="searched == true">
+
+  
+    <div class="container">
+        <div class="localToursTop">
+            <div class="row">
+                <div class="col-md-6 localToursCardTitle">
+                    <h2>Axtarışın Nəticələri</h2>
+                </div>
+            </div>
+        </div>
+        <div class="localToursBody">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" routerLink="/singleTourPage/{{tour.id}}" *ngFor="let tour of searchedTour">
+                    <div class="tourCard">
+                        <div class="tourCardImg">
+                            <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
+                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                        </div>
+                        <div class="tourCardContent">
+                            <div class="tourCardTitleTime">
+                                <h3>{{tour.name}}</h3>
+                                <p>{{tour.departureTime}}</p>
+                            </div>
+                            <div class="tourCardPrice">
+                                <p>{{tour.adultPrice}} &#8380;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="localTourBottom">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="moreButton">
+                        <button>DAHA ÇOX</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  </section>
+  
+    
+  <!-- search results -->
+
+

@@ -1,0 +1,710 @@
+<!-- Transfer Page Design -->
+<section id="transferInfo">
+    <div class="container">
+        <!-- <div class="tranferInfoTop">
+            <h1>Transfer xidməti</h1>
+        </div> -->
+        <!-- <div class="transferInfoBody">
+            <div class="transferSteps">
+                <div class="transferStepsWords">
+                    <div class="transferStepsWord">
+                        <div class="transferStepsWordContainer">
+                            <span>Transfer məlumatları</span>
+                        </div>
+                    </div>
+                    <div class="transferStepsWord">
+                        <div class="transferStepsWordContainer">
+                            <span>Şəxsi məlumatlar</span>
+                        </div>
+                    </div>
+                    <div class="transferStepsWord">
+                        <div class="transferStepsWordContainer">
+                            <span>Sifarişin təsdiqi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="transferStepsİcons">
+                    <div class="transferStepsİcon">
+                        <div class="transferStepsİconContainer">
+                            <img src="assets/icon/info.svg">
+                        </div>
+                    </div>
+                    <p class="col-1 mx-1" [class.grey]="steps.vendorTourCreate"></p>
+                    <p class="col-1 mx-1" [class.grey]="steps.vendorTourCreate"></p>
+                    <p class="col-1 mx-1" [class.grey]="steps.vendorTourCreate"></p>
+                    <p class="col-1 mx-1" [class.grey]="steps.vendorTourCreate" ></p>
+                    <p class="col-1 mx-1" [class.grey]="steps.vendorTourCreate"></p>
+                    <div class="transferStepsİcon">
+                        <div class="transferStepsİconContainer" [class.grey]="steps.vendorTourCreate">
+                            <img src="assets/icon/bulb.svg">
+                        </div>
+                    </div>
+                    <p class="col-1 mx-1" [class.grey]="!steps.vendorTourService"></p>
+                    <p class="col-1 mx-1" [class.grey]="!steps.vendorTourService"></p>
+                    <p class="col-1 mx-1" [class.grey]="!steps.vendorTourService"></p>
+                    <p class="col-1 mx-1" [class.grey]="!steps.vendorTourService"></p>
+                    <p class="col-1 mx-1" [class.grey]="!steps.vendorTourService"></p>
+                    <div class="transferStepsİcon">
+                        <div class="transferStepsİconContainer" [class.grey]="!steps.vendorTourService">
+                            <img src="assets/icon/target.svg" id="target">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+        <!-- Step Icons -->
+
+        <!-- <p class="col-10 my-5 pageLabel">Tur qeydiyyatı</p>
+
+        <div class="col-md-8 col-lg-5 stepIconContainer mb-5">
+
+            <div class="col-2 iconCircle">
+                <img src="assets/icon/info.svg">                
+            </div>
+
+            <div class="col-3 middleCircleContainer px-0">
+
+                <p class="col-3 middleCircle mb-5 mr-1"></p>                
+                <p class="col-3 middleCircle mb-5 mx-1"></p>                
+                <p class="col-3 middleCircle mb-5 mx-1 centerCircle"></p>                
+                <p class="col-3 middleCircle mb-5 mx-1"></p>                
+                <p class="col-3 middleCircle mb-5 ml-1"></p>              
+
+            </div>
+
+            <div class="col-2 iconCircle">
+                <img src="assets/icon/bulb.svg" id="bulb">
+
+            </div>
+
+            <div class="col-3 middleCircleContainer px-0">
+
+                <p class="col-3 middleCircle mb-5 mr-1"></p>                
+                <p class="col-3 middleCircle mb-5 mx-1"></p>                
+                <p class="col-3 middleCircle mb-5 mx-1 centerCircle"></p>                
+                <p class="col-3 middleCircle mb-5 mx-1"></p>                
+                <p class="col-3 middleCircle mb-5 ml-1"></p>    
+                
+            </div>
+
+
+            <div class="col-2 iconCircle">
+                <img src="assets/icon/target.svg" id="target">
+            </div>
+
+        </div> -->
+
+        <!-- step icons starts updated-->
+
+        <div class="col-10 stepIconContainer">
+
+                <div class="iconCircle">
+
+                    <p> <img src="assets/icon/info.svg"> </p>      
+
+                </div>
+
+                <div class="middleCircleContainer" [class.middleGrey]="steps.vendorTourCreate">
+                    <p></p>                    
+                    <p></p>                    
+                    <p></p>                    
+                    <p></p>                    
+                    <p></p>                    
+                </div>
+
+                <div class="iconCircle" [class.grey]="steps.vendorTourCreate">
+                    
+                    <p> <img src="assets/icon/bulb.svg"> </p> 
+
+
+                </div>
+
+                <div class="middleCircleContainer" [class.middleGrey]="!steps.vendorTourService">
+                    <p></p>                    
+                    <p></p>                    
+                    <p></p>                    
+                    <p></p>                    
+                    <p></p>                     
+                </div>
+
+                <div class="iconCircle" [class.grey]="!steps.vendorTourService && !steps.vendorTourFinish">
+                    
+                    <p> <img src="assets/icon/target.svg" id="target"> </p> 
+
+                </div>
+
+
+
+        </div>
+
+        <!-- Step Icons Ends -->
+
+
+
+
+
+
+
+
+
+
+        <!-- steps -->
+
+        <div  class="col-10 vendorTourSteps vendorTourCreate px-0" [class.fade]="steps.vendorTourCreate">
+
+
+            <div class="col-11 col-md-9 px-0 my-3 webTourCreate">
+
+                <p class="label col-12 px-0">Turun adı</p>
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.Name" [(ngModel)]="tourData.Name" [value]="fdfdf">
+
+                <p class="validationError" [class.showError]="hasValidationError.Name">{{validationMessages.Name}}</p>
+
+            </div>
+
+            <div class="col-11 col-md-9 px-0 my-3 mobileTourCreate">
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.Name" placeholder="Turun adı" [(ngModel)]="tourData.Name">
+
+                <p class="validationError" [class.showError]="hasValidationError.Name">{{validationMessages.Name}}</p>
+
+            </div>
+
+
+
+
+
+
+            <div class="col-md-5 col-11 mr-1 px-0 date mb-2 webTourCreate">
+
+                <p class="label col-md-12 px-0">Yola çıxma yeri</p>         
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.DepartureLocation"  [(ngModel)]="tourData.DepartureLocation">
+
+                <p class="validationError " [class.showError]="hasValidationError.DepartureLocation">{{validationMessages.DepartureLocation}}</p>
+
+            </div>
+
+            
+            <div class="col-md-5 col-11 mr-1 px-0 date mb-2 mobileTourCreate">
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.DepartureLocation" placeholder="Yola çıxma yeri" [(ngModel)]="tourData.DepartureLocation">
+
+                <p class="validationError " [class.showError]="hasValidationError.DepartureLocation">{{validationMessages.DepartureLocation}}</p>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-5 col-11 ml-md-1 px-0 date mb-2 webTourCreate">
+
+                <p class="label col-md-12 px-0">İstiqamət</p>              
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.Destination" [(ngModel)]="tourData.Destination">
+
+                <p class="validationError " [class.showError]="hasValidationError.Destination">{{validationMessages.Destination}}</p>
+
+            </div>
+
+
+            <div class="col-md-5 col-11 ml-md-1 px-0 date mb-2 mobileTourCreate">
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.Destination" placeholder="İstiqamət" [(ngModel)]="tourData.Destination">
+
+                <p class="validationError " [class.showError]="hasValidationError.Destination">{{validationMessages.Destination}}</p>
+
+            </div>
+
+
+            
+
+
+
+
+
+            <div class="col-md-5 col-11 mr-1 px-0 date mb-2 webTourCreate">
+
+                <p class="label col-md-12 px-0">Yola çıxma vaxtı</p>               
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.DepartureTime" [(ngModel)]="tourData.DepartureTime" ngbDatepicker #arrive="ngbDatepicker" (click)="arrive.toggle()">
+
+                <p class="validationError " [class.showError]="hasValidationError.DepartureTime">{{validationMessages.DepartureTime}}</p>
+
+            </div>
+
+
+            <div class="col-md-5 col-11 mr-1 px-0 date mb-2 mobileTourCreate">
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.DepartureTime" placeholder="Yola çıxma vaxtı" [(ngModel)]="tourData.DepartureTime" ngbDatepicker #arriveMobile="ngbDatepicker" (click)="arriveMobile.toggle()">
+
+                <p class="validationError " [class.showError]="hasValidationError.DepartureTime">{{validationMessages.DepartureTime}}</p>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="col-md-5 col-11 ml-md-1 px-0 date webTourCreate">
+
+                <p class="label col-md-12 px-0">Geri dönmə vaxtı</p>
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.ArrivalTime" [(ngModel)]="tourData.ArrivalTime" ngbDatepicker #departure="ngbDatepicker" (click)="departure.toggle()">
+
+                <p class="validationError " [class.showError]="hasValidationError.ArrivalTime">{{validationMessages.ArrivalTime}}</p>
+
+            </div>
+
+
+            <div class="col-md-5 col-11 ml-md-1 px-0 date mobileTourCreate">
+
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.ArrivalTime" placeholder="Geri dönmə vaxtı" [(ngModel)]="tourData.ArrivalTime" ngbDatepicker #departureMobile="ngbDatepicker" (click)="departureMobile.toggle()">
+
+                <p class="validationError " [class.showError]="hasValidationError.ArrivalTime">{{validationMessages.ArrivalTime}}</p>
+
+            </div>
+
+
+
+
+
+
+            <div class="col-md-9 col-11 price px-0 mb-2">
+
+                <p class="label col-12 px-0">Qiymət</p>
+
+                <p class="col-md-4 col-12 pr-0 pl-0 pr-md-1">
+                    <input class="col-12 py-2" [class.inputError] = "hasValidationError.AdultPrice" type="text" placeholder="Böyük" [(ngModel)]="tourData.AdultPrice">
+                    
+                    <span class="validationError" [class.showError]="hasValidationError.AdultPrice">{{validationMessages.AdultPrice}}</span>
+ 
+                </p>
+
+                <p class="col-md-4 col-12 px-0 px-md-1">
+                    <input class="col-12 py-2" [class.inputError]="hasValidationError.ChildPrice" type="text" placeholder="Uşaq" [(ngModel)]="tourData.ChildPrice">
+
+                    <span class="validationError" [class.showError]="hasValidationError.ChildPrice">{{validationMessages.ChildPrice}}</span>
+                    
+                </p>
+
+                <p class="col-md-4 col-12 pl-0 pr-0 pl-md-1">
+                    <input class="col-12 py-2" [class.inputError]="hasValidationError.InfantPrice" type="text" placeholder="Körpə" [(ngModel)]="tourData.InfantPrice" [value]="fff">
+
+                    <span class="validationError" [class.showError]="hasValidationError.InfantPrice">{{validationMessages.InfantPrice}}</span>
+                    
+                </p>
+
+            </div>
+
+
+
+
+
+
+            
+
+            <div class="col-md-9 col-11 px-0 mb-2 info webTourCreate">
+
+                <p class="label-info col-12 px-0">Məlumatlar</p>
+
+                <textarea class="col-12 py-2" [class.inputError]="hasValidationError.Description" [(ngModel)]="tourData.Description"></textarea>
+
+                <p class="validationError " [class.showError]="hasValidationError.Description">{{validationMessages.Description}}</p>
+
+            </div>
+
+
+            <div class="col-md-9 col-11 px-0 mb-2 info mobileTourCreate">
+
+                <textarea class="col-12 py-2" [class.inputError]="hasValidationError.Description" [(ngModel)]="tourData.Description">Məlumatlar</textarea>
+
+                <p class="validationError " [class.showError]="hasValidationError.Description">{{validationMessages.Description}}</p>
+
+            </div>
+
+
+
+
+
+
+
+            <div class="col-md-9 px-0 row">
+
+                <p class="col-md-4 px-0">Tur şəkilləri</p>
+
+                <p class="col-md-2 space"></p>
+
+                <p class="col-md-4 px-0">Ötən turdan şəkillər</p>
+            </div>
+
+            <div class="col-md-9 mt-2 px-0 images">
+
+
+                <p class="col-md-1 px-0 py-2" (click)="imagesCurrent.click()"> + </p>
+
+                <p [style.background] class="col-md-1 px-0 py-2  mx-2 imagePreview" #imgPreviewCurrent1></p>
+
+                <p [style.background] class="col-md-1 px-0 py-2  mx-2 imagePreview" #imgPreviewCurrent2></p>
+
+                <p [style.background] class="col-md-1 px-0 py-2  mx-2 imagePreview" #imgPreviewCurrent3></p>
+
+                <input type="file" name="img[]" #imagesCurrent id="currentTourImgs" (input)="extractImgFile(imagesCurrent , [imgPreviewCurrent1, imgPreviewCurrent2, imgPreviewCurrent3])" multiple>
+
+                <input type="file" name="img[]" #imagesPrevious id="prevTourImgs" (input)="extractImgFile(imagesPrevious , [imgPreviewPrevTour1, imgPreviewPrevTour2, imgPreviewPrevTour3])" multiple>
+
+                <p class="col-md-1 space"></p>
+
+                <p class="col-md-1 px-0 py-2 mx-2" (click)="imagesPrevious.click()"> + </p>
+
+                <p class="col-md-1 px-0 py-2 mx-2 imagePreviewPrev" #imgPreviewPrevTour1>  </p>
+
+                <p class="col-md-1 px-0 py-2 mx-2 imagePreviewPrev" #imgPreviewPrevTour2>  </p>
+
+                <p class="col-md-1 px-0 py-2 mx-2 imagePreviewPrev" #imgPreviewPrevTour3>  </p>
+
+            </div>
+
+
+            <!-- images validation error container (web) -->
+
+            <div class="col-md-9 px-0 row imgValidationContainerWeb">
+
+                <p class="validationError col-4 px-0" [class.showError]="hasValidationError.currentTourImgs">{{validationMessages.currentTourImgs}}</p>
+               
+                <p class="col-2 space"></p>
+                
+                <p class="validationError col-4 px-0" [class.showError]="hasValidationError.prevTourImgs">{{validationMessages.prevTourImgs}}</p>
+            
+            </div>
+
+
+             <!-- images validation error container ends (web) -->
+
+
+
+
+            <!-- images mobile -->
+
+            <div class="col-11 imagesMobile px-0 row">
+
+
+                <p class="col-6 px-0">Şəkil əlavə et</p>
+
+                <p class="col-6 validationError" [class.showError]="hasValidationError.currentTourImgs">{{validationMessages.currentTourImgs}}</p>
+
+                <div class="col-12 px-0 mx-0 row addImgMobile">
+
+                    <p class="col-2 px-0 py-0 pb-2 mr-1">+</p>
+
+                    <p class="col-2 px-0 py-0 pb-2">+</p>
+
+                </div>
+
+                
+                <p class="col-6 px-0 mt-2">Ötən turlardan şəkillər</p> 
+
+                <div class="col-12 px-0 mx-0 row addImgMobile">
+
+                    <p class="col-2 px-0 py-0 pb-2 mr-1">+</p>
+
+                    <p class="col-2 px-0 py-0 pb-2">+</p>
+
+                </div>
+
+
+            </div>
+
+
+            
+
+
+
+
+            <!-- images mobile ends -->
+
+
+
+
+        </div>
+
+        <!-- steps end -->
+
+
+
+        <!-- step 2 (vendorTourAcitivites) -->
+
+        <div class="col-10 vendorTourSteps activityList px-0" [class.fade]="steps.vendorTourActivities">
+
+            <div class='col-12 col-md-9 tourProgramLabel my-5'>
+
+                <p class="col-4">Fəaliyyətin adı</p>
+
+                <p class="col-4">Başlanğıc tarixi və saatı</p>
+
+                <p class="col-4 element-center">Redaktə Et</p>
+
+            </div>
+
+            <p class="validationError col-12 px-0 text-center" [class.showError]="hasValidationError.Programs">{{validationMessages.Programs}}</p>
+
+
+            <ng-container *ngFor="let program of tourData.Programs">
+
+                <div class="col-12 col-md-9 tourProgramInfo" >
+
+                    <p class="col-4">{{program.name}}</p>
+
+                    <p class="col-4">{{program.startDate}}</p>
+
+                    <p class="col-4 editIcons element-center">
+
+                        <img src="assets/icon/edit.svg" class="col-lg-3 col-5 pr-2">
+                        <img src="assets/icon/delete.svg" class="col-lg-3 col-5 pl-2">
+
+                    </p>
+
+                </div>
+
+            <hr class="col-12 mt-2 mb-4">
+
+            </ng-container>
+
+
+            <div class="add col-9">
+                <button class="col-11 mt-4 py-3 mb-5" (click)="toggleStep( 'vendorTourActivities' , 'vendorTourAddActivity' , 0 ) ">ƏLAVƏ ET +</button>
+            </div>
+
+
+        </div>
+
+
+        <!-- step2 endss -->
+
+
+
+
+
+
+        <!-- step 2 part 2 (vendorTourAddActivity) -->
+
+
+        <div   class="col-10 vendorTourSteps addActivity px-0 py-5" [class.fade]="steps.vendorTourAddActivity">
+
+            <p class="col-12" id="addActivityLabel">Yeni fəaliyyət</p>
+
+
+
+            <div class="col-md-6 col-11 my-4 px-1" style="text-align: right;" *ngFor="let type of programType">
+                <p class="col-8 px-0">Fəaliyyət növü</p>
+
+                <select class="col-12 col-md-8 py-3" #programType>
+                    <option>{{type.name}}</option>
+                    </select>
+
+            </div> 
+
+            <div class="col-11 col-md-6 my-4 px-1">
+                <p class="col-8 px-0">Fəaliyyətin adı</p>
+                <input type="text" class="col-12 col-md-8 py-3" placeholder="Fəaliyyətin adı" #programName>
+            </div>
+
+            <div class="col-11 col-md-6 my-4 px-1" style="text-align: right;">
+                <p class="col-8 px-0">Fəaliyyətin təsviri</p>
+                <input type="text" class="col-12 col-md-8 py-3" placeholder="Fəaliyyətin təsviri" #programDescription>
+            </div>
+
+            <div class="col-11 col-md-6 my-4 px-1">
+                <p class="col-8 px-0">Başlanğıc vaxtı</p>
+                <input type="text" class="col-12 col-md-8 py-3" placeholder="Başlanğıc vaxtı" #programStartTime>
+            </div>
+
+            <div class="col-12 text-center">
+                <button class="col-5" (click)="toggleStep('vendorTourAddActivity' , 'vendorTourActivities' , 2, [programType.value , programName.value , programDescription.value , programStartTime.value])">Əlavə Et</button>
+            </div>
+
+
+        </div>
+
+
+
+        <!-- step2 part 2 ends-->
+
+
+
+
+
+
+        <!-- step 3 -->
+
+
+        <div *ngIf = "steps.vendorTourService" class="col-10 vendorTourSteps tourServices px-0 py-5" [class.fade]="steps.vendorTourService">
+
+            <p class="col-12 text-center px-0 mb-4">Tura daxil olan xidmətlər</p>
+
+            <div class="col-12 col-md-6 my-3" *ngFor="let service of tourServices">
+
+                <label class="customCheckbox px-0 py-0 mr-2 my-0">
+                    <input type="checkbox" class="p-3 custom-control-checkbox" (click)="addService(service.name)">
+                    <span class="checkSymbol"></span>
+                </label>
+                {{service.name}}
+            </div>
+           
+            <p class="validationError col-12 mt-3 mb-0 px-0 text-center" [class.showError]="hasValidationError.Services">{{validationMessages.Services}}</p>
+            
+
+        </div>
+
+
+
+
+        <!-- step3 ends -->
+
+
+
+        <!-- success -->
+
+        <div class="col-12 vendorTourSteps success py-5" [class.fade]="steps.vendorTourFinish">
+
+            <p class="col-12 mb-5 successTitle">Yeni Tur Qeydiyyatı</p>
+
+            <p class="col-12 mt-3">
+                <img src="assets/icon/success.svg">
+            </p>
+
+            <p class="col-12 my-5 successMessage">
+                Təbriklər! Yeni turunuz uğurlu şəkildə yaradıldı.
+            </p>
+
+            <button class="col-10 addNewTour">
+
+                <span class="mr-3 mb-3">+</span>
+
+                <span id="addNewTourText" (click)="toggleStep( 'vendorTourFinish' , 'vendorTourCreate'  )">YENİ TUR ƏLAVƏ ET</span>
+
+            </button>
+
+        </div>
+
+        <!-- success ends -->
+
+
+
+
+        <!-- accept terms -->
+
+        <div  *ngIf = "steps.vendorTourService" class="col-12 my-5 acceptTerms" [class.fade]="steps.vendorTourService">
+
+            <p class="acceptTermsCircle my-0 mr-3"></p>
+
+            <p class="my-0 acceptTermsText" (click)="openModal()">Qaydalarla tanış oldum və qəbul edirəm</p>
+        </div>
+
+
+        <!-- accept terms ends -->
+
+
+
+
+
+
+
+
+        <!-- buttons -->
+
+
+
+        <!-- vendorTourServices buttons -->
+
+        <div *ngIf="steps.vendorTourService" class="col-12 prevNext mt-5">
+
+            <button class="col-2 mr-1 py-2" (click)="toggleStep( 'vendorTourService' , 'vendorTourActivities')">DÜZƏLİŞ ET</button>
+            <button class="col-2 ml-1 py-2" id="confirm" (click)="toggleStep( 'vendorTourService' , 'vendorTourFinish' , 3 );addTour(imagesCurrent,imagesPrevious)">TƏSDİQLƏ</button>
+
+        </div>
+
+        <!-- vendorTourServices buttons end -->
+
+
+
+
+        <!-- vendorTourCreate buttons -->
+
+
+        <div *ngIf="steps.vendorTourCreate" class="col-12 prevNext">
+
+            <button class="col-md-2 col-3 py-2 mt-5 nextButton" (click) = "toggleStep( 'vendorTourCreate' , 'vendorTourActivities' , 1  )">DAVAM ET</button>
+        
+        </div>
+
+
+
+        <!-- vendorTourCreate buttons end -->
+
+
+
+
+        <!-- vendorTourActivites buttons -->
+
+        <div *ngIf="steps.vendorTourActivities" class="col-12 prevNext">
+
+            <button class="col-2 py-2 mt-5 mr-1" (click)="toggleStep( 'vendorTourActivities' , 'vendorTourCreate',0 )">GERİYƏ</button>
+            <button class="col-2 py-2 mt-5 ml-1 nextButton" (click)="toggleStep( 'vendorTourActivities' , 'vendorTourService' , 2 )">DAVAM ET</button>
+
+        </div>
+
+        <!-- vendorTourActivites buttons ends -->
+
+
+        
+
+        <!-- vendorTourAddActivity buttons -->
+
+        <div *ngIf="steps.vendorTourAddActivity" class="col-12 prevNext">
+
+            <button class="col-2 py-2 mt-5 mr-1" (click)="toggleStep( 'vendorTourAddActivity' , 'vendorTourActivities' ,  0 )" > GERİYƏ </button>
+            <button class="col-2 py-2 mt-5 ml-1 nextButton" (click)="toggleStep( 'vendorTourAddActivity' , 'vendorTourActivities' )" > DAVAM ET </button>
+        
+        </div>
+        
+        <!-- vendorTourAddActivity buttons ends -->
+
+
+    </div>
+
+
+
+    <!-- Terms and Conditions Modal -->
+
+    <div class="container-fluid termsModal py-5" [class.termsModalOpen]="termsModalIsOpen">
+
+        <p class="col-11 mb-4 px-0 rules">Qaydalar</p>
+
+        <p class="col-11 px-0">
+            {{terms}}
+        </p>
+
+        <p class="col-11 py-2 mt-4 agreeButton" (click)="openModal()">Tanış Oldum</p>
+
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+
+    
+</section>
