@@ -12,6 +12,7 @@ import { ReviewServiceService } from '../ApiServices/reviewService/review-servic
 
 export class SingleTourPageComponent implements OnInit {
 
+
   public passengerCount = {
     'adults': 0,
     'children': 0,

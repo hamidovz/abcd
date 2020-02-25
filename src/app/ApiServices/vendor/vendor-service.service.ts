@@ -104,12 +104,23 @@ public convertDateToString(date){
 
 
 
+
 //arrivalTime and departureTime are sent as object
 //we need to convert it to a string in order to send it to the server
 
 //services will be array need to be appended seperately
 
   public addTour( currentImgs , prevTourImgs , tourData) {
+
+    var programs = tourData.Programs;
+
+    console.log(programs);
+
+    var programsLength = programs.length;
+
+    delete tourData.Programs;
+
+    var objKeys : any;
 
     var services = tourData.Services;
 
@@ -137,6 +148,8 @@ public convertDateToString(date){
     tourData.ArrivalTime = this.convertDateToString(arrivalTime);
     
     tourData.DepartureTime = this.convertDateToString(departureTime);
+
+
 
 
     var sendData = new FormData();
@@ -176,6 +189,25 @@ public convertDateToString(date){
       sendData.append("Services" , services[x]);
     }
 
+    for ( let x = 0; x < programsLength; x++ ){
+
+      objKeys = Object.keys(programs[x]);
+      
+      var objLength = objKeys.length;
+
+      for( let c = 0; c < objLength; c++ ){
+
+        var sendPrograms = "Programs" + "[" + x + "]." + objKeys[c]; 
+        console.log(sendPrograms);
+        
+        sendData.append(sendPrograms , programs[x][objKeys[c]]);
+
+        // console.log(`Programs[${x}].${objKeys[x]}` , programs[c]);
+    }
+
+      }
+
+
     sendData.append("Image", currentImgs.files[0]);
 
     
@@ -184,13 +216,13 @@ public convertDateToString(date){
   
   }
 
-  //programs are sent seperately but can be changed in the future
+  // //programs are sent seperately but can be changed in the future
 
-  public sendPrograms(programs){
+  // public sendPrograms(programs){
 
-    return this.http.post( this.apiUrl.sendPrograms , programs , this.sendHeader["sendPrograms"] );
+  //   return this.http.post( this.apiUrl.sendPrograms , programs , this.sendHeader["sendPrograms"] );
 
-  }
+  // }
 
 
   constructor( public http : HttpClient ) { }

@@ -23,6 +23,8 @@ public validationRules = {
         
         "AdultPrice" , "ChildPrice" , "InfantPrice" , "Description" , "currentTourImgs"],
 
+        2 : ["Programs"],
+
         3 : ["Services"]
 
 
@@ -115,20 +117,6 @@ public validateForm(step){
 
         var hasError = false;
 
-        if( step == 2 && this.programData.length < 1){
-                
-                hasError = true;
-
-                return hasError;
-                
-        }
-        
-        if( step == 2 && this.programData.length > 0){
-                
-
-                return hasError;
-                
-        }
 
         this.validationRules[step].map( data =>{
 
@@ -202,7 +190,7 @@ public addPrograms(programs){
 
         }
 
-        this.programData.push(formattedPrograms);
+        this.tourData["Programs"].push(formattedPrograms);
 
         console.log(this.tourData.Programs);
 
@@ -400,8 +388,10 @@ public tourData = {
 
 public addService(service){
         
-        console.log(service);
+        // console.log(service);
         this.tourData.Services.push(service);
+
+        console.log(this.tourData.Services);
 }
 
 
@@ -409,13 +399,13 @@ public addService(service){
 
 //programs need to be sent seperately
 
-public sendPrograms(tourid){
+// public sendPrograms(tourid){
 
-        this.programData[0]["tourId"] = tourid;
+//         this.programData[0]["tourId"] = tourid;
 
-        this.VendorService.sendPrograms(this.programData).subscribe( data => console.log(data));
+//         this.VendorService.sendPrograms(this.programData).subscribe( data => console.log(data));
 
-}
+// }
 
 public addTour(currentImgs , prevTourImgs ){
 
@@ -427,7 +417,7 @@ public addTour(currentImgs , prevTourImgs ){
                 var tourId = retreivedData.output;
 
                 if( retreivedData.isSuccess ){
-                        this.sendPrograms(tourId);
+                        //
                 }
         } );
         // .subscribe( data => console.log(data));
