@@ -212,16 +212,22 @@ export class NavBarComponent implements OnInit {
 
   //show navbarBackground on specifip pages
 
+  public allowedRoutes = [
+    "/home",
+    "/localTours",
+    "/externalTours"
+  ]
+
   public checkRoute(){
 
     var currentRoute = window.location.pathname;
 
-    if(currentRoute == "/userRegistration"){
-      this.mustAppearNavBackground = false;
+    if( this.allowedRoutes.indexOf(currentRoute) > - 1){
+      this.mustAppearNavBackground = true;
     }
 
     else{
-      this.mustAppearNavBackground = true;
+      this.mustAppearNavBackground = false;
     }
 
   }

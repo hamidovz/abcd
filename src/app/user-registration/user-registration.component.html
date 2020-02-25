@@ -90,7 +90,7 @@
                     </div>
                     <!-- Submit -->
                     <div class="col-12 submitting">
-                        <button type="submit" class="btn btn-primary submitbutton btn-sm" (click)="checkIfNumberExists()">Təsdİqlə</button>
+                        <button type="submit" class="btn btn-primary submitbutton btn-sm" (click)="registerUser(birthday.value)">Təsdiqlə</button>
                     </div>
                 </form>
             </div>
@@ -254,7 +254,7 @@
 
     <div class="col-12 mt-5 text-center">
 
-        <button class="col-6 col-lg-2 py-2 smsButton" (click)="verifySmsCode(birthday.value)"> Təsdiqlə </button>
+        <button class="col-6 col-lg-2 py-2 smsButton" (click)="verifySmsCode()"> Təsdiqlə </button>
     </div>
 </div>
 <!-- sms verification -->

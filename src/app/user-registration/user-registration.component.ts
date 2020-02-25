@@ -146,23 +146,47 @@ export class UserRegistrationComponent implements OnInit {
 
   }
 
+  public registerErrors = {
+
+    "The record has already been created. You cannot create again." : "İstifadəçi artıq mövcuddur"
+
+  }
 
 
   public registerUser (birthday){
 
-    this.userData.birthday = birthday;
+    this.resetValidation();
 
-    this.userService.registerUser(this.userData).subscribe( data =>{
+
+    if( !this.validateForm() ){
       
-      var retreivedData :any = data;
-
-      if ( retreivedData.isSuccess)//if user registration is successfull
-
-      this.registrationSuccessfull = true;
+      this.userData.birthday = birthday;
       
-    });
+      this.userService.registerUser(this.userData).subscribe( data =>{
+        
+        var retreivedData :any = data;
+        
+        if ( retreivedData.isSuccess){
+          
+          this.codeSent = true;
+        
+        }
+      
+      },
 
+      error => {
+        var error = error.error.errors[0];
 
+        if( this.registerErrors[error] ){
+
+          this.validationMessages.phoneNumber = this.registerErrors[error];
+
+          this.hasError["phoneNumber"] = true;
+        }
+      }
+      );
+    
+    }
   }
 
   //verify the code sent via sms
@@ -199,7 +223,7 @@ export class UserRegistrationComponent implements OnInit {
 
   }
 
-  public verifySmsCode(birthday){
+  public verifySmsCode(){
 
     this.verifyData.phoneNumber = this.userData.phoneNumber;
 
@@ -212,7 +236,7 @@ export class UserRegistrationComponent implements OnInit {
 
       if( retreivedData.isSuccess ){
 
-        this.registerUser(birthday);
+        this.registrationSuccessfull = true;
 
       }
 

@@ -92,6 +92,7 @@
     justify-content: space-between;
     padding: 10px 0px;
     height: 70px;
+    background:white;
 }
 .tourCardTitleTime{
     padding-left: 15px;
