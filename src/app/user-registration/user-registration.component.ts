@@ -160,9 +160,8 @@ export class UserRegistrationComponent implements OnInit {
 
     if( !this.validateForm() ){
       
-      this.userData.birthday = birthday;
       
-      this.userService.registerUser(this.userData).subscribe( data =>{
+      this.userService.registerUser(this.userData , birthday).subscribe( data =>{
         
         var retreivedData :any = data;
         

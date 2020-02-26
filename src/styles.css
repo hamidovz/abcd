@@ -6,3 +6,5 @@
     font-family: Sarabun;
     src: url(/assets/fonts/Sarabun-Regular.ttf) format("truetype");
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
