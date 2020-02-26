@@ -166,7 +166,7 @@
             <div class="col-11 col-md-9 px-0 my-3 webTourCreate">
 
                 <p class="label col-12 px-0">Turun adı</p>
-                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.Name" [(ngModel)]="tourData.Name" [value]="fdfdf">
+                <input type="text" class="col-12 py-2" [class.inputError]="hasValidationError.Name" [(ngModel)]="tourData.Name">
 
                 <p class="validationError" [class.showError]="hasValidationError.Name">{{validationMessages.Name}}</p>
 
@@ -304,7 +304,7 @@
                 </p>
 
                 <p class="col-md-4 col-12 pl-0 pr-0 pl-md-1">
-                    <input class="col-12 py-2" [class.inputError]="hasValidationError.InfantPrice" type="text" placeholder="Körpə" [(ngModel)]="tourData.InfantPrice" [value]="fff">
+                    <input class="col-12 py-2" [class.inputError]="hasValidationError.InfantPrice" type="text" placeholder="Körpə" [(ngModel)]="tourData.InfantPrice" >
 
                     <span class="validationError" [class.showError]="hasValidationError.InfantPrice">{{validationMessages.InfantPrice}}</span>
                     
@@ -389,7 +389,6 @@
                
                 <p class="col-2 space"></p>
                 
-                <p class="validationError col-4 px-0" [class.showError]="hasValidationError.prevTourImgs">{{validationMessages.prevTourImgs}}</p>
             
             </div>
 

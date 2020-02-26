@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { TourServiceService } from '../ApiServices/tour/tour-service.service';
 import { BookingServiceService } from '../ApiServices/booking/booking-service.service';
 import { ReviewServiceService } from '../ApiServices/reviewService/review-service.service';
- 
+import { UserServiceService } from '../ApiServices/user/user-service.service';
+
+
 @Component({
   selector: 'single-tour-page',
   templateUrl: './single-tour-page.component.html',
@@ -12,6 +15,28 @@ import { ReviewServiceService } from '../ApiServices/reviewService/review-servic
 
 export class SingleTourPageComponent implements OnInit {
 
+  //check login
+
+  public isLoggedIn = false;
+
+  public showMessage = false;
+
+  //handle user login
+
+  public handleLogin(){
+
+    var userToken = localStorage.accessToken;
+
+    userToken = userToken.trim();
+
+    if(userToken && userToken.length > 0){
+
+      this.isLoggedIn = true;
+
+    }
+  }
+
+  //passengers' count
 
   public passengerCount = {
     'adults': 0,
@@ -19,19 +44,25 @@ export class SingleTourPageComponent implements OnInit {
     'infants': 0
   };
 
+  //price for passengers' count
+
   public changeCount(passengerType , operation = 1){
+
     
     this.passengerCount[passengerType] += operation;
 
     if(this.passengerCount[passengerType] < 0){
+
       this.passengerCount[passengerType] = 0;
+      
     }
+
+    
 
     this.bookingData[passengerType] =  this.passengerCount[passengerType];
 
   }
 
-  
   // all( infants, adults, children )
 
   public sumOfPrice;
@@ -46,6 +77,29 @@ export class SingleTourPageComponent implements OnInit {
 
     this.sumOfPrice = adultPrice + childrenPrice + infantsPrice;
 
+    this.confirmBooking();
+
+  }
+
+  public bookingButton = false;
+
+
+  public confirmBooking(){
+
+
+
+    this.bookingButton = true;
+    
+    var sum = Number(this.bookingData["adults"]) + Number(this.bookingData["children"]) + Number(this.bookingData["infants"]); 
+
+    console.log(sum);
+    if( sum < 1 ){
+
+      this.bookingButton = false;
+
+    }
+
+
   }
 
   //carousel start position ( transform:translateX(0) )
@@ -54,11 +108,7 @@ export class SingleTourPageComponent implements OnInit {
 
   public previousCarouselPosition = 0;
 
-  //carousel photos
-
  
-
-  
   //carousel maximum increment value (found by calculating amount of the cards in the carousel)
 
   //will be calculated dynamically in the future
@@ -78,6 +128,7 @@ export class SingleTourPageComponent implements OnInit {
 
   }
 
+  //carousels' functions
 
   public carouselSlide(direction,carousel){
 
@@ -111,6 +162,11 @@ export class SingleTourPageComponent implements OnInit {
 
 
 
+
+  //issues about modals
+
+  public showModal = false;
+
   public modalIsOpen = false;
 
   public openModal(){
@@ -125,10 +181,6 @@ export class SingleTourPageComponent implements OnInit {
     event.preventDefault();
   }
 
-  lat = 40.730610;
-  lng = -73.935242;
-
-
 
   // API operations starts
    
@@ -138,20 +190,62 @@ export class SingleTourPageComponent implements OnInit {
 
   }
 
+  public isInternal = false;
+
+  public isExternal = false;
+
+  public tourID;
+
+  //map latitude and longitude
+
+  lat;
+
+  lng;
+
+  //tour's all reviews
+
+  public tourReviews : any = {
+
+    "text" : ""
+
+  }
+
+  public showAverageCommentRating = true;
+
+  //get SingleTour data
+
   public getSingleTour(){
 
     var id = this.route.snapshot.paramMap.get('id'); //get value of 'id' parameter on the route ( '/1' , '/2', etc.)
-
+   
     this.TourService.getSingleTour( id ).subscribe( data => {
 
       this.singleTour = data;
+      
 
       this.singleTour = this.singleTour.output;
+
+      this.tourID = this.singleTour.id;
 
       this.carouselLimit = -(this.singleTour.photos.length - 1) * 100;
 
       this.prevCarouselLimit = -(this.singleTour.previousPhotos.length - 1) * 25;
-      
+
+      this.lat = this.singleTour.mapLatitude;
+
+      this.lng = this.singleTour.mapLongitude;
+
+      this.isInternal = this.singleTour.isInternal;
+
+      this.tourReviews = this.singleTour.reviews;
+
+      if(this.tourReviews.length < 1){
+
+        this.showAverageCommentRating = false;
+      }
+
+      console.log(this.tourReviews);
+
       console.log(this.singleTour);
 
       // assign tour id to 'id' key in the bookingData variable, when tour data fully retreived
@@ -159,10 +253,34 @@ export class SingleTourPageComponent implements OnInit {
       this.bookingData["tourId"] = this.singleTour.id;
 
       this.commentData["tourId"] = this.singleTour.id;
+
+      this.getTourServices();
+
+      this.getTourType();
+
+      this.getUser(this.userID);
+
+      this.findAverageCount();
       
     });
 
   }
+
+  //get tour type (internal external or vip)
+
+  public getTourType(){
+
+    if(this.isInternal){
+
+      return;
+
+    }
+
+    this.isExternal = true;
+
+  }
+
+  //current Time
 
   public getCurrentTime(){
 
@@ -174,6 +292,92 @@ export class SingleTourPageComponent implements OnInit {
 
   }
 
+  //get tour's SERVICES 
+
+  public tourServices : any = {
+
+    output : []
+
+  }
+
+  public getTourServices(){
+
+    
+
+  }
+
+  //make tour favorite with heart icon
+
+  //favorite tour data
+
+  public favoriteTourData = {
+
+    "userId": "",
+    "tourId": 0,
+    "status": true
+    
+  }
+
+  //function - to make favorite tour
+  
+  public makeTourFavorite( tourId , clickedElement ){
+  
+    var heartElement = clickedElement.target.parentElement.parentElement;
+
+    console.log(heartElement);
+  
+    if(heartElement.tagName != "FA-ICON"){
+
+      return;
+
+    }
+  
+    this.favoriteTourData.tourId = tourId;
+    
+    this.favoriteTourData.userId = localStorage.getItem("userId");
+    
+    this.TourService.makeTourFavorite(this.favoriteTourData).subscribe( data => {
+    
+      var retreived : any = data;
+    
+      if( retreived.isSuccess ){
+    
+        heartElement.style.color = "#FFCA00";
+
+      }
+
+    });
+        
+  }
+
+  //get User data which is logged in
+
+  public userID = localStorage.userId;
+
+  public userInfo : any = {
+
+    "name" : ""
+
+  };
+
+  public getUser(userID){
+
+    this.UserService.getUserById(userID).subscribe(data =>{
+
+      var userData : any = data;
+
+      userData = userData.output;
+
+      this.userInfo = userData;
+
+      console.log(this.userInfo);
+
+    });
+
+  }
+
+
+
   // post booking 
   
   public bookingData = {
@@ -182,31 +386,38 @@ export class SingleTourPageComponent implements OnInit {
 
     "updateDate": this.getCurrentTime(),
 
-    "adults": "",
+    "adults": 0,
 
-    "children": "",
+    "children": 0,
 
-    "infants": "",
+    "infants": 0,
 
     "bookingStatus":"0",
 
-    "userId": localStorage.getItem("userId") ? localStorage.getItem("userId") : "",
+    "userId": "01de0d2f-cb6a-4362-b7b4-193a1bf3733d",
 
     "tourId": ""
 
   }
+
+  // localStorage.getItem("userId") ? localStorage.getItem("userId") : ""
 
   public postBooking() {
 
     // we'll make notify user to login in order to post a comment
 
     if(this.bookingData.userId.length < 1){
+
       return;
+
     }
 
     this.BookingService.createBooking(this.bookingData).subscribe(data => console.log(data));
 
   }
+
+
+
 
 
   // post comment
@@ -215,15 +426,65 @@ export class SingleTourPageComponent implements OnInit {
 
     "text": "",
 
-    "starValue": "",
+    "starValue": "1",
 
     "createdDate": this.getCurrentTime(),
 
     "tourId": "",
 
-    "userId": localStorage.getItem("userId") ? localStorage.getItem("userId") : ""
+    "userId": "01de0d2f-cb6a-4362-b7b4-193a1bf3733d"
 
   }
+
+  //comment star hover
+
+
+  public mouseOveredFive = false;
+
+  public mouseOveredFour = false;
+
+  public mouseOveredThree = false;
+
+  public mouseOveredTwo = false;
+
+  public mouseOveredOne = false;
+
+  // localStorage.getItem("userId") ? localStorage.getItem("userId") : ""
+
+  //get star for tour comment
+
+  public starComment(event,starContainer){
+
+    console.log(event.target.parentElement.parentElement.parentElement);
+
+    var index = event.target.parentElement.parentElement.parentElement.getAttribute("starIndex");
+
+    for (let i = 0; i > index; i++) {
+
+      starContainer.children[i].style.color = "#F9CE1D";
+      
+    }
+    
+
+  }
+
+  public resetCommentData(){
+
+    this.mouseOveredFive = false;
+
+    this.mouseOveredFour = false;
+
+    this.mouseOveredThree = false;
+
+    this.mouseOveredTwo = false;
+
+    this.mouseOveredOne = false;
+
+  }
+
+  //messageBox validate
+
+  public errorInMessage = false;
 
   public createComment() {
 
@@ -233,9 +494,45 @@ export class SingleTourPageComponent implements OnInit {
       return;
     }
 
+    if(this.commentData.text.length < 1){
+      this.errorInMessage = true;
+      return;
+    }
+
+    this.errorInMessage = false;
+
     this.ReviewService.postComment(this.commentData).subscribe(data => console.log(data));
 
+    this.resetCommentData();
+
   }
+
+  //tour average star value
+
+  public tourAverageValue = 0;
+
+  //average comment
+
+  public findAverageCount(){
+
+    var reviews = this.tourReviews;
+
+    var sumOfStarValue = 0;
+
+    var i;
+
+    for(i = 0; i < reviews.length; i++){
+
+      sumOfStarValue = sumOfStarValue + reviews[i].starValue;
+
+    }
+
+    var averageOfStarValue = sumOfStarValue / (reviews.length);
+
+    this.tourAverageValue = averageOfStarValue;
+
+  }
+
 
 
   //remove 'T' symbol form retreived date
@@ -248,55 +545,43 @@ export class SingleTourPageComponent implements OnInit {
     data = data[0];
     
     return data;
-  }
-
-  //calculate comment star
-
-  public commentStar(n){
-
-    console.log(n);
-
-    this.commentData.starValue = n;
 
   }
 
+  //remove ' ' symbol from retreived date 
+  //eg: 02.10.2020 00:01:00 => 02.10.2020
 
+  public formatReviewData(date){
 
-  //make tour favorite
+    var data = date.split(" ");
 
-  public favoriteTourData = {
+    data = data[0];
 
-    "userId": "",
-    "tourId": 0,
-    "status": true
-  
-}
+    return data;
 
-
-  public makeTourFavorite(tourId , clickedElement ){
-
-    var heartElement = clickedElement.target.parentElement.parentElement;
-
-    if(heartElement.tagName != "FA-ICON"){
-      return;
-    }
-
-    this.favoriteTourData.tourId = tourId;
-  
-    this.favoriteTourData.userId = localStorage.getItem("userId");
-  
-    this.TourService.makeTourFavorite(this.favoriteTourData).subscribe( data => {
-  
-      var retreived : any = data;
-  
-      if( retreived.isSuccess ){
-  
-        heartElement.style.color = "#FFCA00";
-      }
-    })
-      
-    //
   }
+  
+  //remove ' ' symbol from retreived date
+  //eg: 02.10.2020 00:01:00 => 02.10.2020
+
+  public formatTourProgramData(date){
+
+    var data = date.split(" ");
+
+    data = data[1];
+
+    data = data.split(":");
+
+    data = data[0] + ":" + data[1];
+
+    console.log()
+
+    return data;
+
+  }
+
+
+
 
   // API operations ends
 
@@ -308,7 +593,9 @@ export class SingleTourPageComponent implements OnInit {
 
     public BookingService : BookingServiceService,
 
-    public ReviewService : ReviewServiceService
+    public ReviewService : ReviewServiceService,
+
+    public UserService : UserServiceService
 
     ) { }
 
@@ -321,6 +608,10 @@ export class SingleTourPageComponent implements OnInit {
 
     this.previousCarouselSlide();
 
+    this.handleLogin();
+
   }
 
 }
+
+

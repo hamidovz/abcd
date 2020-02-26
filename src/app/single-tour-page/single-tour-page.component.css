@@ -97,6 +97,15 @@
 .tourFeaturesBottom button:hover{
     background-color: rgb(0, 110, 255);
 }
+.errorMessage{
+    display: none;
+}
+.errorMessageShow{
+    display: block!important;
+}
+.errorMessage p{
+    color: red;
+}
 
 
 /* About Tour part */
@@ -286,6 +295,9 @@ agm-map {
 .zoomButton:not(:disabled):not(.disabled):active{
     background-color: transparent;
 }
+.zoomButton img{
+    width: 100%;
+}
 .modal-dialog{
     max-width: 600px;
 }
@@ -300,6 +312,11 @@ agm-map {
     position: absolute;
     right: 20px;
     top: 10px;
+}
+.tourPast .modal-body img{
+    display: block;
+    width: auto;
+    max-height: 100%;
 }
 
 /* Carousel buttons */
@@ -331,27 +348,30 @@ agm-map {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
 }
-.tourCommentsTop h2{
+.tourCommentsTop p{
     color: #0082FF;
     font-size: 30px;
     margin-bottom: 0px;
 }
-.ratingPart{
+.ratingStars{
     display: flex;
 }
-.ratingPart p{
+.ratingStars p{
+    color: #000;
+    font-size: 22px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+.ratingStars fa-icon{
+    font-size: 20px;
     margin: 0px;
-    margin-right: 15px;
 }
 .tourCommentsCardStarMobile{
     display: flex;
     justify-content: flex-end;
     font-size: 20px;
     margin-bottom: 0px!important;
-    position: absolute;
-    right: 0;
 }
 .tourCommentsCardStarMobile fa-icon{
     margin-left: 5px;
@@ -381,7 +401,7 @@ agm-map {
 .tourCommentsCardTitle{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 .tourCommentsCardTitle h3{
     font-size: 18px;
@@ -400,8 +420,12 @@ agm-map {
     margin-right: 20px;
 }
 .tourCommentsCardStar fa-icon{
-    color: #F9CE1D;
-    margin-right: 10px;
+    /* color: #F9CE1D; */
+    margin-right: 0px;
+    font-size: 17px;
+}
+.yellowStar{
+    color: #F9CE1D!important;
 }
 .tourCommentsCardWrites p{
     font-size: 14px;
@@ -409,34 +433,15 @@ agm-map {
     margin-bottom: 0px;
 }
 
-.tourComments .rating-wrapper label::before{
-    top: -30px;
-    left: -5px;
-}
 
-.tourComments .rating-wrapper label::after{
-    top: -30px;
-    left: -5px;
-}
-.tourCommentsCardText .rating-wrapper{
-    margin-left: 15px;
-}
-
-.tourCommentsCardText  .rating-wrapper label::before{
-    top: -40px;
-    left: -5px;
-    font-size: 28px;
-}
-
-.tourCommentsCardText  .rating-wrapper label::after{
-    top: -40px;
-    left: -5px;
-    font-size: 28px;
-}
 
 /* Tour Feedback part */
 .tourFeedback{
+    display: none;
     padding-top: 20px 0px; 
+}
+.tourFeedbackBlock{
+    display: block!important;
 }
 .tourFeedbackTop{
     display: flex;
@@ -456,72 +461,25 @@ agm-map {
     margin-left: 5px;
     margin-right: 0px;
 }
-
-/*  new feedback stars  */
-
-.rating-wrapper{
-    /* transform:  rotate(180deg); */
-    direction: rtl;
+.tourFeedback .ratingStars{
+    direction: ltr;
+    transform: rotate(180deg);
 }
-
-.rating-wrapper label{
-    display: inline-block;
-    position: relative;
-    width: 20px;
+.tourFeedback .ratingStars p{
+    transform: rotate(-180deg);
+}
+.tourFeedback .ratingStars p:hover{
+    color: #F9CE1D;
     cursor: pointer;
-    margin-bottom: 0px;
+}
+.tourFeedback .ratingStars p:hover ~ p  {
+    color: #F9CE1D;
+    cursor: pointer;
+}
+.tourFeedback .ratingStars p{
+    margin: 0px;
 }
 
-.rating-wrapper input{
-    display: none;
-}
-
-.rating-wrapper label::before{
-    content: "\2605";
-    position: absolute;
-    font-size: 30px;
-    display: inline-block;
-    top: -20px;
-    left: -5px;
-}
-
-.rating-wrapper label::after{
-    content: "\2605";
-    position: absolute;
-    font-size: 30px;
-    display: inline-block;
-    top: -20px;
-    left: -5px;
-    color: yellow;
-    opacity: 0;
-    transition: all 0.2s;
-}
-
-.tourCommentsCardStarMobile .rating-wrapper label::before{
-    content: "\2605";
-    position: absolute;
-    font-size: 30px;
-    display: inline-block;
-    top: -32px;
-    left: -10px;
-}
-
-.tourCommentsCardStarMobile .rating-wrapper label::after{
-    content: "\2605";
-    position: absolute;
-    font-size: 30px;
-    display: inline-block;
-    top: -32px;
-    left: -10px;
-    color: yellow;
-    opacity: 0;
-    transition: all 0.2s;
-}
-
-.tourFeedback .rating-wrapper label:hover::after,
-.tourFeedback .rating-wrapper label:hover ~ label::after{
-    opacity: 1;
-}
 
 /* end */
 
@@ -530,12 +488,23 @@ agm-map {
 }
 .tourFeedbackBody textarea{
     background-color: #E2E0E0;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 5px;
     width: 100%;
     min-height: 100px;
     padding: 10px;
     font-size: 15px;
+}
+.errorForTextBox{
+    border-color: red!important;
+}
+.tourFeedbackBody p{
+    color: red;
+    margin-bottom: 3px;
+    display: none;
+}
+.errorForText{
+    display: block!important;
 }
 .tourFeedbackBottom button{
     background-color: #0082FF;
@@ -549,6 +518,10 @@ agm-map {
 
 
 /* Tour Booking Styling */
+
+.showMessageBox{
+    display: block;
+}
 
 .showModal{
     top:0 !important;
@@ -622,6 +595,9 @@ agm-map {
 .passengerContainer{
     width: 40%;
 }
+.passengerContainer button{
+    outline: none;
+}
 .passengerItem{
     display: flex;
     align-items: center;
@@ -683,6 +659,15 @@ agm-map {
     font-size: 15px;
     border-radius: 8px;
     margin: 0px 5px;
+}
+
+#heart:hover > fa-icon{
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+#heart:hover > fa-icon{
+   color:#FFCA00;
 }
 
 
@@ -770,13 +755,6 @@ agm-map {
     }
 }
 
-#heart:hover > fa-icon{
-    transition: color 0.3s;
-}
-
-#heart:hover > fa-icon{
-    color:#FFCA00;
-}
 
 
 /*  Single Tour  */

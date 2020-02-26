@@ -18,11 +18,23 @@ export class UserServiceService {
 
     verifySmsCode : "http://ziqzaq.az/api/user/confirmPhoneNumber",
 
-    checkIfNumberExists : "http://ziqzaq.az/api/user/checkDuplicate"
+    checkIfNumberExists : "http://ziqzaq.az/api/user/checkDuplicate",
+
+    user : "http://ziqzaq.az/api/user"
+
 
     // checkIfNumberExists : "http"
 
   }
+
+  public userToken = localStorage.accessToken;
+
+  public userOptions = {
+    
+    headers: new HttpHeaders({"Content-Type" : "application/json" , "Authorization" : "Bearer " + this.userToken})
+
+ }
+
 
   public options = {
     
@@ -63,6 +75,12 @@ export class UserServiceService {
     return this.http.post( this.apiUrl.checkIfNumberExists , number, this.options );
 
   }
+
+  public getUserById(id){
+
+    return this.http.get( this.apiUrl.user + `/${id}` , this.userOptions );
+
+ }
 
   constructor( public http : HttpClient ) { }
 }

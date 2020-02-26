@@ -1,4 +1,4 @@
-<section id="singleTour">
+<section id="singleTour" class="mt-5">
 
         <div class="joinTour">
             <div class="container">
@@ -6,9 +6,9 @@
                     <div class="returnLinks">
                         <a routerLink = "/home">Əsas səhifə</a>
                         <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                        <a routerLink = "/localTours">Daxili turlar</a>
+                        <a routerLink = "/localTours">{{singleTour.isInternal ? 'Daxili turlar' : 'Xarici turlar'}}</a>
                         <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                        <a class="blue">Amerika turu</a>
+                        <a class="blue">{{singleTour.name}}</a>
                     </div>
                 </div>
                 <div class="joinTourBody">
@@ -59,7 +59,7 @@
                                             <p class="bold">Gediş:</p>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-8">
-                                            <p>{{singleTour.departureTime}}</p>
+                                            <p>{{singleTour.arrivalTime}}</p>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-4">
                                             <p class="bold">Dönüş:</p>
@@ -77,13 +77,16 @@
                                 </div>
                                 <div class="tourFeaturesBottom">
                                     <div class="joinTourButton">
-                                        <button (click)="openModal()">TURA QOŞUL</button>
+                                        <button (click)="openModal()"  [attr.disabled]="isLoggedIn ? null : true">TURA QOŞUL</button>
                                     </div>
                                     <div class="joinTourIcon">
                                         <p id="heart" (click)="makeTourFavorite(singleTour.id,$event)"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
                                         <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
                                     </div>
                                 </div>
+                                <!-- <div class="errorMessage" [ngClass]="{'errorMessageShow' : showMessage}">
+                                    <p>İstifadəçi kimi daxil olun</p>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -98,33 +101,7 @@
                     <h2>Tur haqqında</h2>
                 </div>
                 <div class="tourAboutBody">
-                    <p>It is a long established fact that a reader will be distracted by the readable
-                        content of a page when looking at its layout. The point of using Lorem 
-                        Ipsum is that it has a more-or-less normal distribution of letters, as opposed 
-                        to using 'Content here, content here', making it look like readable English. 
-                        Many desktop publishing packages and web page editors now use Lorem Ipsum as 
-                        their default model text, and a search for 'lorem ipsum' will uncover many web 
-                        sites still in their infancy. Various versions have evolved over the years, 
-                        sometimes by accident, sometimes on purpose (injected humour and the like).
-                    </p>
-    
-                    <p>
-                        It is a long established fact that a reader will be distracted by the readable
-                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                        that it has a more-or-less normal distribution of letters, as opposed to using
-                        'Content here, content here', making it look like readable English. Many desktop 
-                        publishing packages and web page editors now use Lorem Ipsum as their default model 
-                        text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
-                        Various versions have evolved over the years, sometimes by accident, sometimes on 
-                        purpose (injected humour and the like).It is a long established fact that a reader 
-                        will be distracted by the readable content of a page when looking at its layout. 
-                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution 
-                        of letters, as opposed to using 'Content here, content here', making it look like 
-                        readable English. Many desktop publishing packages and web page editors now use 
-                        Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover 
-                        many web sites still in their infancy. Various versions have evolved over the years, 
-                        sometimes by accident, sometimes on purpose (injected humour and the like).
-                    </p>
+                    <p>{{singleTour.description}}</p>
                 </div>
             </div>
         </div>
@@ -136,146 +113,20 @@
                 </div>
                 <div class="tourProgramBody">
                     <div class="row tourProgramContainer">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem" *ngFor="let program of singleTour.tourPrograms">
                             <div class="tourProgramParts">
                                 <div class="tourProgramBlueBall">
                                     <p></p>
                                 </div>
                                 <div class="tourProgramInfo">
                                     <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
+                                        <span>{{program.name}}</span>
                                     </div>
                                     <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
+                                        <span>{{formatTourProgramData(program.startDate)}}</span>
                                     </div>
                                     <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
-                                    </div>
-                                </div>
-                                <div class="tourProgramArrow">
-                                    <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem">
-                            <div class="tourProgramParts">
-                                <div class="tourProgramBlueBall">
-                                    <p></p>
-                                </div>
-                                <div class="tourProgramInfo">
-                                    <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
-                                    </div>
-                                    <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
-                                    </div>
-                                    <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
-                                    </div>
-                                </div>
-                                <div class="tourProgramArrow">
-                                    <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem">
-                            <div class="tourProgramParts">
-                                <div class="tourProgramBlueBall">
-                                    <p></p>
-                                </div>
-                                <div class="tourProgramInfo">
-                                    <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
-                                    </div>
-                                    <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
-                                    </div>
-                                    <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
-                                    </div>
-                                </div>
-                                <div class="tourProgramArrow">
-                                    <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem">
-                            <div class="tourProgramParts">
-                                <div class="tourProgramBlueBall">
-                                    <p></p>
-                                </div>
-                                <div class="tourProgramInfo">
-                                    <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
-                                    </div>
-                                    <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
-                                    </div>
-                                    <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
-                                    </div>
-                                </div>
-                                <div class="tourProgramArrow">
-                                    <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem">
-                            <div class="tourProgramParts">
-                                <div class="tourProgramBlueBall">
-                                    <p></p>
-                                </div>
-                                <div class="tourProgramInfo">
-                                    <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
-                                    </div>
-                                    <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
-                                    </div>
-                                    <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
-                                    </div>
-                                </div>
-                                <div class="tourProgramArrow">
-                                    <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem">
-                            <div class="tourProgramParts">
-                                <div class="tourProgramBlueBall">
-                                    <p></p>
-                                </div>
-                                <div class="tourProgramInfo">
-                                    <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
-                                    </div>
-                                    <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
-                                    </div>
-                                    <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
-                                    </div>
-                                </div>
-                                <div class="tourProgramArrow">
-                                    <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 tourProgramItem tourProgramEnd">
-                            <div class="tourProgramParts">
-                                <div class="tourProgramBlueBall">
-                                    <p></p>
-                                </div>
-                                <div class="tourProgramInfo">
-                                    <div class="tourProgramInfoSpan">
-                                        <span>Yola düşmə</span>
-                                    </div>
-                                    <div class="tourProgramInfoTime">
-                                        <span>09:00</span>
-                                    </div>
-                                    <div class="tourProgramInfoPlace">
-                                        <span>Nizami ms</span>
+                                        <span>{{program.description}}</span>
                                     </div>
                                 </div>
                                 <div class="tourProgramArrow">
@@ -295,16 +146,16 @@
                         <h2>Təşkilatçı</h2>
                     </div>
                     <div class="tourOrganizerLeftLogo" routerLink="/tourAgency">
-                        <img src="assets/img/goTravelLogo.png">
+                        <img src="http://ziqzaq.az/images/{{singleTour.vendorImage}}">
                     </div>
                     <div class="tourOrganizerLeftBody">
                         <div class="tourConnection">
                             <fa-icon [icon]="['fas','phone-alt']"></fa-icon>
-                            <p>+994 12 345 12 14</p>
+                            <p>{{singleTour.vendorPhone}}</p>
                         </div>
                         <div class="tourConnection">
                             <fa-icon [icon]="['fas','envelope']"></fa-icon>
-                            <p>info@gotravel.az</p>
+                            <p>{{singleTour.vendorEmail}}</p>
                         </div>
                     </div>
                     <div class="tourOrganizerLeftBottom">
@@ -328,113 +179,13 @@
                 </div>
                 <div class="tourIncludesBody">
                     <div class="row">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6" *ngFor="let service of singleTour.tourServices">
                             <div class="tourIncludeItem">
                                 <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/ticket.png">
+                                    <img src="http://ziqzaq.az/images/{{service.icon}}">
                                 </div>
                                 <div class="tourIncludeItemWord">
-                                    <p>Təyyarə bileti</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/photo.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Fata çəkiliş</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/transport.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Şəhərlərarası nəqliyyat</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/lunch.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Səhər yeməyi</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/video.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Video çəkiliş</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/playGame.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Oyunlar</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/visa.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Visa dəstəyi</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/insurance.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Sığorta</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/airplane.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Transfer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/accomodation.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Qalacaq yer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="tourIncludeItem">
-                                <div class="tourIncludeItemIMG">
-                                    <img src="assets/img/guide.png">
-                                </div>
-                                <div class="tourIncludeItemWord">
-                                    <p>Bələdçi</p>
+                                    <p>{{service.name}}</p>
                                 </div>
                             </div>
                         </div>
@@ -458,12 +209,11 @@
                                         <img src="http://ziqzaq.az/images/{{tourPrevPhoto.photoURL}}">
                                     </button>
   
-                                    <!-- The Modal -->
                                     <div class="modal" id="myModal" [ngClass] = "{'show': showModal}">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
   
-                                                <!-- Modal body -->
+                                                
                                                 <div class="modal-body">
                                                     <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
                                                     <img src="http://ziqzaq.az/images/{{tourPrevPhoto.photoURL}}">
@@ -480,82 +230,38 @@
             </div>
         </div>
 
-        <div class="tourComments">
+        <div class="tourComments" *ngIf="showAverageCommentRating">
             <div class="container">
                 <div class="tourCommentsTop">
-                    <h2>Rəylər</h2>
-                    <div class="ratingPart">
-                        <p>4.7</p>
-                        <div class="rating-wrapper">
-                            <input type="radio" name="rating" id="star-1"><label for="star-1"></label>
-                            <input type="radio" name="rating" id="star-2"><label for="star-2"></label>
-                            <input type="radio" name="rating" id="star-3"><label for="star-3"></label>
-                            <input type="radio" name="rating" id="star-4"><label for="star-5"></label>
-                            <input type="radio" name="rating" id="star-5"><label for="star-5"></label>
-                        </div>
+                    <p>Rəylər</p>
+                    <div class="ratingStars">
+                        <p>{{(tourAverageValue).toFixed(1)}}</p>
+                        <fa-icon [ngClass]="{'yellowStar' : tourAverageValue > 0.5}" [icon]="['fas','star']"></fa-icon>
+                        <fa-icon [ngClass]="{'yellowStar' : tourAverageValue > 1.5}" [icon]="['fas','star']"></fa-icon>
+                        <fa-icon [ngClass]="{'yellowStar' : tourAverageValue > 2.5}" [icon]="['fas','star']"></fa-icon>
+                        <fa-icon [ngClass]="{'yellowStar' : tourAverageValue > 3.5}" [icon]="['fas','star']"></fa-icon>
+                        <fa-icon [ngClass]="{'yellowStar' : tourAverageValue > 4.5}" [icon]="['fas','star']"></fa-icon>
                     </div>
                 </div>
                 <div class="tourCommentsBody">
-                    <div class="tourCommentsCard">
+                    <div class="tourCommentsCard" *ngFor="let comment of singleTour.reviews">
                         <div class="tourCommentsCardIMG">
                             <img src="#">
                         </div>
                         <div class="tourCommentsCardText row">
                             <div class="tourCommentsCardTitle col-sm-12 col-6">
-                                <h3>Christina</h3>
-                                <p>14 June 2017</p>
+                                <h3>This is User Name</h3>
+                                <p>{{formatReviewData(comment.createdDate)}}</p>
                             </div>
-                            <div class="rating-wrapper">
-                                <input type="radio" name="rating" id="star-1"><label for="star-1"></label>
-                                <input type="radio" name="rating" id="star-2"><label for="star-2"></label>
-                                <input type="radio" name="rating" id="star-3"><label for="star-3"></label>
-                                <input type="radio" name="rating" id="star-4"><label for="star-5"></label>
-                                <input type="radio" name="rating" id="star-5"><label for="star-5"></label>
-                            </div>
-                            <div class="tourCommentsCardWrites col-sm-12 col-12">
-                                <p>Weasel the jeeper goodness inconsiderately spelled so</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tourCommentsCard">
-                        <div class="tourCommentsCardIMG">
-                            <img src="#">
-                        </div>
-                        <div class="tourCommentsCardText row">
-                            <div class="tourCommentsCardTitle col-sm-12 col-6">
-                                <h3>Christina</h3>
-                                <p>14 June 2017</p>
-                            </div>
-                            <div class="rating-wrapper">
-                                <input type="radio" name="rating" id="star-1"><label for="star-1"></label>
-                                <input type="radio" name="rating" id="star-2"><label for="star-2"></label>
-                                <input type="radio" name="rating" id="star-3"><label for="star-3"></label>
-                                <input type="radio" name="rating" id="star-4"><label for="star-5"></label>
-                                <input type="radio" name="rating" id="star-5"><label for="star-5"></label>
+                            <div class="tourCommentsCardStar col-12">
+                                <fa-icon [ngClass]="{'yellowStar' : comment.starValue > 0}" [icon]="['fas','star']"></fa-icon>
+                                <fa-icon [ngClass]="{'yellowStar' : comment.starValue > 1}" [icon]="['fas','star']"></fa-icon>
+                                <fa-icon [ngClass]="{'yellowStar' : comment.starValue > 2}" [icon]="['fas','star']"></fa-icon>
+                                <fa-icon [ngClass]="{'yellowStar' : comment.starValue > 3}" [icon]="['fas','star']"></fa-icon>
+                                <fa-icon [ngClass]="{'yellowStar' : comment.starValue > 4}" [icon]="['fas','star']"></fa-icon>
                             </div>
                             <div class="tourCommentsCardWrites col-sm-12 col-12">
-                                <p>Weasel the jeeper goodness inconsiderately spelled so</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tourCommentsCard">
-                        <div class="tourCommentsCardIMG">
-                            <img src="#">
-                        </div>
-                        <div class="tourCommentsCardText row">
-                            <div class="tourCommentsCardTitle col-sm-12 col-6">
-                                <h3>Christina</h3>
-                                <p>14 June 2017</p>
-                            </div>
-                            <div class="rating-wrapper">
-                                <input type="radio" name="rating" id="star-1"><label for="star-1"></label>
-                                <input type="radio" name="rating" id="star-2"><label for="star-2"></label>
-                                <input type="radio" name="rating" id="star-3"><label for="star-3"></label>
-                                <input type="radio" name="rating" id="star-4"><label for="star-5"></label>
-                                <input type="radio" name="rating" id="star-5"><label for="star-5"></label>
-                            </div>
-                            <div class="tourCommentsCardWrites col-sm-12 col-12">
-                                <p>Weasel the jeeper goodness inconsiderately spelled so</p>
+                                <p>{{comment.text}}</p>
                             </div>
                         </div>
                     </div>
@@ -563,25 +269,26 @@
             </div>
         </div>
 
-        <div class="tourFeedback">
+        <div class="tourFeedback" [class.tourFeedbackBlock]="isLoggedIn">
             <div class="container">
                 <div class="tourFeedbackTop">
                     <div class="tourFeedbackTitle">
                         <h2>Rəy bildir</h2>
                     </div>
-                    <div class="rating-wrapper">
-                        <input type="radio" name="rating" id="star-1" (click)="commentStar(1)"><label for="star-1"></label>
-                        <input type="radio" name="rating" id="star-2" (click)="commentStar(2)"><label for="star-2"></label>
-                        <input type="radio" name="rating" id="star-3" (click)="commentStar(3)"><label for="star-3"></label>
-                        <input type="radio" name="rating" id="star-4" (click)="commentStar(4)"><label for="star-5"></label>
-                        <input type="radio" name="rating" id="star-5" (click)="commentStar(5)"><label for="star-5"></label>
+                    <div class="ratingStars" (click)="starComment($event,starContainer)" #starContainer>
+                        <p [attr.starIndex] = "1"><fa-icon [icon]="['fas','star']"></fa-icon></p>
+                        <p [attr.starIndex] = "2"><fa-icon [icon]="['fas','star']"></fa-icon></p>
+                        <p [attr.starIndex] = "3"><fa-icon [icon]="['fas','star']"></fa-icon></p>
+                        <p [attr.starIndex] = "4"><fa-icon [icon]="['fas','star']"></fa-icon></p>
+                        <p [attr.starIndex] = "5"><fa-icon [icon]="['fas','star']"></fa-icon></p>
                     </div>
                 </div>
                 <div class="tourFeedbackBody">
-                    <textarea placeholder="Tur haqqında qeydləriniz."></textarea>
+                    <p [class.errorForText] = "errorInMessage">* Boş mesaj göndərilə bilməz</p>
+                    <textarea [class.errorForTextBox] = "errorInMessage" name="messageText" [(ngModel)]="commentData.text"  placeholder="Tur haqqında qeydləriniz."></textarea>
                 </div>
                 <div class="tourFeedbackBottom">
-                    <button (click)="createComment()">GÖNDƏR</button>
+                    <button (click)="createComment();resetCommentData()">GÖNDƏR</button>
                 </div>
             </div>
         </div>
@@ -599,21 +306,21 @@
                         <form (submit)="onSubmit($event)">
                             <div class="greyBlockTop">
                                 <div class="tourName">
-                                    <h2>Zaqatala-Balakən turu</h2>
+                                    <h2>{{singleTour.name}} turu</h2>
                                 </div>
                                 <div class="tourDate">
-                                    <p>22.06.2019 - 02.07.2019</p>
+                                    <p>{{singleTour.departureTime}} - {{singleTour.arrivalTime}}</p>
                                 </div>
                             </div>
                             <div class="greyBlockPassengerInfo">
                                 <div class="passengerName">
-                                    <span>Natiq</span>
+                                    <span>{{userInfo.name}} {{userInfo.surname}}</span>
                                 </div>
                                 <div class="passengerTel">
-                                    <span>+994555000550</span>
+                                    <span>+994{{userInfo.phoneNumber}}</span>
                                 </div>
                                 <div class="passengerEmail">
-                                    <span>natiq@mail.ru</span>
+                                    <span>{{userInfo.email}}</span>
                                 </div>
                             </div>
                             <div class="greyBlockNumberOfPassenger">
@@ -622,15 +329,15 @@
                                         <p>Böyük</p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 passengerItem passengerItemButton">
-                                        <button (click)="changeCount('adult',-1);changePrice()"><fa-icon [icon]="['fas','minus']"></fa-icon></button>
-                                        <input type="number" placeholder="2" value='{{passengerCount.adults}}' name="adult" [(ngModel)]="bookingData.adults">
+                                        <button (click)="changeCount('adults',-1);changePrice()"><fa-icon [icon]="['fas','minus']"></fa-icon></button>
+                                        <input type="number" placeholder="-" value='{{passengerCount.adults}}' name="adult" [(ngModel)]="bookingData.adults">
                                         <button (click)="changeCount('adults');changePrice()"><fa-icon [icon]="['fas','plus']"></fa-icon></button>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 passengerItem passengerItemWord">
                                         <p>Uşaq</p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 passengerItem passengerItemButton">
-                                        <button (click)="changeCount('child',-1);changePrice()"><fa-icon [icon]="['fas','minus']"></fa-icon></button>
+                                        <button (click)="changeCount('children',-1);changePrice()"><fa-icon [icon]="['fas','minus']"></fa-icon></button>
                                         <input type="number" placeholder="-" value='{{passengerCount.children}}' name="child" [(ngModel)]="bookingData.children">
                                         <button (click)="changeCount('children');changePrice()"><fa-icon [icon]="['fas','plus']"></fa-icon></button>
                                     </div>
@@ -638,8 +345,8 @@
                                         <p>Körpə</p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 passengerItem passengerItemButton">
-                                        <button (click)="changeCount('baby',-1);changePrice()"><fa-icon [icon]="['fas','minus']"></fa-icon></button>
-                                        <input type="number" placeholder="1" value='{{passengerCount.infants}}' name="baby" [(ngModel)]="bookingData.infants">
+                                        <button (click)="changeCount('infants',-1);changePrice()"><fa-icon [icon]="['fas','minus']"></fa-icon></button>
+                                        <input type="number" placeholder="-" value='{{passengerCount.infants}}' name="baby" [(ngModel)]="bookingData.infants">
                                         <button (click)="changeCount('infants');changePrice()"><fa-icon [icon]="['fas','plus']"></fa-icon></button>
                                     </div>
                                 </div>
@@ -652,7 +359,7 @@
                     </div>
                 </div>
                 <div class="joinTourBottom">
-                    <button (click)="postBooking()">TƏSDİQLƏ</button>
+                    <button (click)="postBooking()" [attr.disabled]="bookingButton ? null : true">TƏSDİQLƏ</button>
                 </div>
             </div>
         </section>
