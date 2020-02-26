@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
- 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome'
@@ -20,8 +18,8 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VendorTourAddComponent } from './vendor-tour-add/vendor-tour-add.component';
- 
 
+ 
 // natiq's components
 
 import { InternalToursComponent } from './internal-tours/internal-tours.component';
@@ -86,7 +84,7 @@ import { TestingApiComponent } from './testing-api/testing-api.component';
     RegistrationConfirmationComponent,
     TestingApiComponent,
     AdminPanelComponent,
-    AdminLoginComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

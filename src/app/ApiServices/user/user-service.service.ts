@@ -30,12 +30,7 @@ export class UserServiceService {
 
   }
 
-  public registerUser(userData , birthday){
-
-    // we changed birthday here instead of userRegsitration.ts file
-    // in order to make the value in the datetime input remain after submit
-
-    userData.birthday = birthday; 
+  public registerUser(userData){
 
     return this.http.post( this.apiUrl.userRegister , userData );
 

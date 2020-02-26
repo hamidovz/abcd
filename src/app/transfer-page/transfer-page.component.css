@@ -12,6 +12,7 @@
 .tranferInfoTop h1{
     font-size: 35px;
     font-style: normal;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.4);
     margin-bottom: 0px;
 }
 .transferInfoBody{
@@ -55,10 +56,6 @@
 }
 .grey{
     background-color: #A4A4A4!important;
-}
-.blue{
-    background-color: #0082FF!important;
-    transition: all 0.2s;
 }
 .transferStepsİcon{
     display: flex;
@@ -105,16 +102,11 @@
 }
 .transferInfoInput input{
     width: 100%;
-    border:2px solid transparent;
+    border:none;
     border-radius: 6px;
     padding: 15px 20px;
     background-color: #D1D0D0;
     color: #000;
-}
-.transferInfoInput p{
-    color: red;
-    font-size: 12px;
-    opacity: 0;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -212,26 +204,6 @@ input[type=number] {
     font-size: 20px;
     letter-spacing: 10px;
     background-color: #D1D0D0;
-}
-
-
-.showError{
-
-    opacity : 1 !important;
-
-}
-
-/* success message */
-
-.success{
-    justify-content: center;
-    color: #707070;
-    text-align:center;
-    background-color:white !important;
-}
-
-.successTitle, .successMessage{
-    font-size:40px;
 }
 
 
@@ -347,24 +319,6 @@ input[type=number] {
         width: 85px;
     }
 }
-
-@media screen and (min-width: 600px) and (max-width:799px){
-    .successTitle{
-        font-size:30px;
-    }
-
-    .successMessage{
-        font-size:23px;
-    }
-}
-
-@media screen and (min-width:500px ) and ( max-width:599px){
-
-    #successIcon{
-        width:27%;
-    }
-}
-
 @media(max-width: 380px){
     .mobileNoneTwo{
         display: none;
@@ -390,16 +344,4 @@ input[type=number] {
     .stepFour .greyBlock{
         padding: 15px;
     }
-}
-
-.successTitle{
-    font-size:23px;
-}
-
-.successMessage{
-    font-size: 18px;
-}
-
-#successIcon{
-    width:32%;
 }

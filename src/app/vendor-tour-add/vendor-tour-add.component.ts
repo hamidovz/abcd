@@ -21,7 +21,7 @@ public validationRules = {
 
         1 : ["Name" , "DepartureLocation" , "Destination" , "DepartureTime" , "ArrivalTime" , 
         
-        "AdultPrice" , "ChildPrice" , "InfantPrice" , "Description"],
+        "AdultPrice" , "ChildPrice" , "InfantPrice" , "Description" , "currentTourImgs"],
 
         2 : ["Programs"],
 
