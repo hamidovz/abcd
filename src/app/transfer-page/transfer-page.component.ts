@@ -43,7 +43,7 @@ export class TransferPageComponent implements OnInit {
 
     var step = Math.abs(this.carouselCurrentPosition / 100);
     
-    if( step < 3 && this.validateForm(step)){
+    if( direction == "right" && step < 3 && this.validateForm(step)){
 
       this.carouselCurrentPosition -= calculatedValue;
       
