@@ -394,7 +394,7 @@ export class SingleTourPageComponent implements OnInit {
 
     "bookingStatus":"0",
 
-    "userId": "01de0d2f-cb6a-4362-b7b4-193a1bf3733d",
+    "userId": localStorage.getItem("accessToken"),
 
     "tourId": ""
 
