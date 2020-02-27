@@ -370,7 +370,7 @@ export class SingleTourPageComponent implements OnInit {
 
       this.userInfo = userData;
 
-      console.log(this.userInfo);
+      return userData.name
 
     });
 

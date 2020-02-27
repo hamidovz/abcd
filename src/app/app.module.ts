@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome'
@@ -49,6 +51,7 @@ import { VendorActiveToursComponent } from './vendor-active-tours/vendor-active-
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
 import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
 import { TestingApiComponent } from './testing-api/testing-api.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -95,11 +98,14 @@ import { TestingApiComponent } from './testing-api/testing-api.component';
     HttpClientModule,
     FormsModule,
     NgbDatepickerModule,
+    OwlDateTimeModule,  
+    OwlNativeDateTimeModule,
     AgmCoreModule.forRoot(
       {
         apiKey: "AIzaSyCE-FU2s6OOzWE2_FkyFBnVdUrk4oZLhrY"
       }
-    )
+    ),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
