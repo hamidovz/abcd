@@ -1,5 +1,5 @@
 <!-- Transfer Page Design -->
-<section id="transferInfo" class="mt-5">
+<section id="transferInfo">
     <div class="container">
         <div class="tranferInfoTop">
             <h1>Transfer sifarişi</h1>
@@ -29,23 +29,23 @@
                             <img src="assets/img/transfer.png">
                         </div>
                     </div>
-                    <p class="grey"></p>
-                    <p class="grey"></p>
-                    <p class="grey"></p>
-                    <p class="grey mobileNoneTwo"></p>
-                    <p class="grey mobileNone"></p>
+                    <p class="grey" [ngClass] = "stepTwo ? 'blue' : 'grey'"></p>
+                    <p class="grey" [ngClass] = "stepTwo ? 'blue' : 'grey'"></p>
+                    <p class="grey" [ngClass] = "stepTwo ? 'blue' : 'grey'"></p>
+                    <p class="grey mobileNoneTwo" [ngClass] = "stepTwo ? 'blue' : 'grey'"></p>
+                    <p class="grey mobileNone" [ngClass] = "stepTwo ? 'blue' : 'grey'"></p>
                     <div class="transferStepsİcon">
-                        <div class="transferStepsİconContainer grey">
+                        <div class="transferStepsİconContainer grey" [ngClass] = "stepTwo ? 'blue' : 'grey'">
                             <img src="assets/img/person.png">
                         </div>
                     </div>
-                    <p class="grey"></p>
-                    <p class="grey"></p>
-                    <p class="grey"></p>
-                    <p class="grey mobileNoneTwo"></p>
-                    <p class="grey mobileNone"></p>
+                    <p class="grey" [ngClass] = "stepThree ? 'blue' : 'grey'"></p>
+                    <p class="grey" [ngClass] = "stepThree ? 'blue' : 'grey'"></p>
+                    <p class="grey" [ngClass] = "stepThree ? 'blue' : 'grey'"></p>
+                    <p class="grey mobileNoneTwo" [ngClass] = "stepThree ? 'blue' : 'grey'"></p>
+                    <p class="grey mobileNone" [ngClass] = "stepThree ? 'blue' : 'grey'"></p>
                     <div class="transferStepsİcon">
-                        <div class="transferStepsİconContainer grey">
+                        <div class="transferStepsİconContainer grey" [ngClass] = "stepThree ? 'blue' : 'grey'">
                             <img src="assets/img/done.png">
                         </div>
                     </div>
@@ -61,9 +61,11 @@
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
                                             <input type="text" placeholder="Başlanğıc nöqtəsi" name="pickupLocation" [(ngModel)]="transferData.pickupLocation">
+                                            <p [class.showError] = "hasValidationError.pickupLocation">{{validationMessages.pickupLocation}}</p>
                                         </div>
                                         <div class="transferInfoInput">
                                             <input type="text" placeholder="İstiqamət nöqtəsi" name="destination" [(ngModel)]="transferData.destination">
+                                            <p [class.showError] = "hasValidationError.destination">{{validationMessages.destination}}</p>
                                         </div>
                                         <div class="transferInfoInput">
                                             <input type="number" placeholder="Uçuş kodu" name="flightCode" [(ngModel)]="transferData.flightCode">
@@ -73,19 +75,22 @@
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 endInputLeft">
                                                     <span>Baqaj çəkisi</span>
                                                     <input type="number" placeholder="Baqaj çəkisi" name="luggageWeight" [(ngModel)]="transferData.luggageWeight">
+                                                    <p [class.showError] = "hasValidationError.luggageWeight">{{validationMessages.luggageWeight}}</p>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 endInputRight">
                                                     <span>Sərnişinlərin sayı</span>
-                                                    <input type="number" placeholder="Sərnişinlərin sayı" name="passengerNumber" [(ngModel)]="transferData.passengerNumber">
+                                                    <input type="number" placeholder="Sərnişin sayı" name="passengerNumber" [(ngModel)]="transferData.passengerNumber">
+                                                    <p [class.showError] = "hasValidationError.passengerNumber">{{validationMessages.passengerNumber}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
-                                            <input type="text" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Tarix və saat" name="pickUpTime" [(ngModel)]="transferData.pickUpTime">
                                         
-                                            <owl-date-time #dt1></owl-date-time> 
+                                            <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" type="text" placeholder="Tarix və saat" name="pickUpTime" [(ngModel)]="transferData.pickUpTime">
+                                            <owl-date-time #dt1></owl-date-time>
+                                            <p [class.showError] = "hasValidationError.pickUpTime">{{validationMessages.pickUpTime}}</p>
                                         </div>
                                         <div class="transferInfoTransport">
                                             <div class="transferInfoTransportSpan">
@@ -94,7 +99,7 @@
                                             <div class="transferInfoTransportIcons">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-6 transferInfoTransportIconContainer">
-                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('ekonom' , 1)">
+                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('ekonom' , 5)">
                                                             <div class="transferInfoTransportIconIMG">
                                                                 <img src="{{currentIcon == 'ekonom' ? 'assets/img/ekonomSedanBlue.png' : 'assets/img/ekonomSedan.png'}}">
                                                             </div>
@@ -104,7 +109,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-6 transferInfoTransportIconContainer">
-                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('biznes' , 2)">
+                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('biznes' , 6)">
                                                             <div class="transferInfoTransportIconIMG">
                                                                 <img src="{{currentIcon == 'biznes' ? 'assets/img/biznesSedanBlue.png' : 'assets/img/biznesSedan.png'}}">
                                                             </div>
@@ -114,7 +119,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-6 transferInfoTransportIconContainer">
-                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('miniBus' , 3)">
+                                                        <div class="transferInfoTransportIcon" (click)="changeIcon('miniBus' , 7)">
                                                             <div class="transferInfoTransportIconIMG">
                                                                 <img src="{{currentIcon == 'miniBus' ? 'assets/img/miniBusBlue.png' : 'assets/img/miniBus.png'}}">
                                                             </div>
@@ -131,7 +136,7 @@
                             </form>
                         </div>
                         <div class="transferInfoBottom">
-                            <button (click)="nextStep('right',carousel)">DAVAM ET</button>
+                            <button (click)="nextStep('right',carousel);becomeBlue()">DAVAM ET</button>
                         </div>
                     </div>
     
@@ -142,29 +147,33 @@
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
                                             <input type="text" placeholder="Ad" name="name" [(ngModel)]="transferData.name">
+                                            <p [class.showError] = "hasValidationError.name">{{validationMessages.name}}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
                                             <input type="text" placeholder="Soyad" name="surname" [(ngModel)]="transferData.surname">
+                                            <p [class.showError] = "hasValidationError.surname">{{validationMessages.surname}}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
                                             <input type="number" placeholder="Nömrə" name="number" [(ngModel)]="transferData.phone">
+                                            <p [class.showError] = "hasValidationError.phone">{{validationMessages.phone}}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
                                             <input type="email" placeholder="Email" name="email" [(ngModel)]="transferData.email">
+                                            <p [class.showError] = "hasValidationError.email">{{validationMessages.email}}</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </form>
                         </div>
                         <div class="transferInfoBottom">
-                            <button class="transferInfoPrev" (click)="nextStep('left',carousel)">GERİYƏ</button>
-                            <button (click)="nextStep('right',carousel)">DAVAM ET</button>
+                            <button class="transferInfoPrev" (click)="nextStep('left',carousel);becomeGrey()">GERİYƏ</button>
+                            <button (click)="nextStep('right',carousel);becomeBlue2()">DAVAM ET</button>
                         </div>
                     </div>
     
@@ -233,12 +242,36 @@
                             <div class="col-12">
                                 <div class="orderConfirmCode">
                                     <label>*SMS vasitəsilə göndərilən 6 rəqəmli şifrəni daxil edin</label>
-                                    <input type="number" placeholder="6 1 3 5 2 0" maxlength="6">
+                                    <input type="number" placeholder="6 1 3 5 2 0" maxlength="6" #smsCode>
                                 </div>
                             </div>
                         </div>
                         <div class="transferInfoBottom">
-                            <button>TƏSDİQLƏ</button>
+                            <button (click)="verifySmsCode(smsCode.value , carousel)">TƏSDİQLƏ</button>
+                        </div>
+                    </div>
+
+                    <div class="transferCarouselItem col-12 stepThree">
+                        <div class="row">
+
+                            <div  class="col-12  success py-5" >
+
+                                <p class="col-12 mb-5 successTitle">Transfer Sifarişi</p>
+                        
+                                <p class="col-12 mt-3">
+                                    <img src="assets/icon/success.svg" id="successIcon">
+                                </p>
+                        
+                                <p class="col-12 my-5 successMessage">
+                                    Təbriklər! Transfer sifarişiniz uğurlu şəkildə yaradıldı.
+                                    <br><br>
+                        
+                                    Əsas Səhifəyə Yönləndirilir !
+                                </p>
+                        
+                               
+                            </div>
+                            
                         </div>
                     </div>
 
