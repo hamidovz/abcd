@@ -235,6 +235,9 @@ input[type=number] {
 }
 
 
+/* date time picker */
+
+
 /* Media Queries start */
 @media(max-width: 1200px){
     .transferSteps{
@@ -391,6 +394,7 @@ input[type=number] {
         padding: 15px;
     }
 }
+
 
 .successTitle{
     font-size:23px;

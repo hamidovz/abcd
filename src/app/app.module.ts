@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +19,8 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VendorTourAddComponent } from './vendor-tour-add/vendor-tour-add.component';
+
+import { LocalizationComponent } from './dateTimePicker/localization/localization.component';
 
  
 // natiq's components
@@ -53,7 +54,7 @@ import { RegistrationConfirmationComponent } from './registration-confirmation/r
 import { TestingApiComponent } from './testing-api/testing-api.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 
@@ -87,7 +88,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegistrationConfirmationComponent,
     TestingApiComponent,
     AdminPanelComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    LocalizationComponent
   ],
   imports: [
     BrowserModule,

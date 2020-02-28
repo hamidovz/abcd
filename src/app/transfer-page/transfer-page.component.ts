@@ -1,13 +1,22 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { TransferServiceService } from '../ApiServices/transferService/transfer-service.service';
 import { FaLayersTextBaseComponent } from '@fortawesome/angular-fontawesome/layers/layers-text-base.component';
+import { DateTimeAdapter, OWL_DATE_TIME_LOCALE, OwlDateTimeIntl } from 'ng-pick-datetime';
+import { NativeDateTimeAdapter } from 'ng-pick-datetime/date-time/adapter/native-date-time-adapter.class';
+import { Platform } from '@angular/cdk/platform';
 
 
 
 @Component({
   selector: 'transfer-page',
   templateUrl: './transfer-page.component.html',
-  styleUrls: ['./transfer-page.component.css']
+  styleUrls: ['./transfer-page.component.css'],
+  providers: [
+    // The locale would typically be provided on the root module of your application. We do it at
+    // the component level here, due to limitations of our example generation script.
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'tr'},
+    {provide: DateTimeAdapter, useClass: NativeDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE,Platform]},
+]
 })
 export class TransferPageComponent implements OnInit {
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { from } from 'rxjs';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,10 @@ export class ContactUsServiceService {
 
   constructor( public http: HttpClient ) { }
 
+  public apiBase = environment.apiEndpoint;
+
   public api = {
-    message: "http://ziqzaq.az/api/contactUs"
+    message: `${this.apiBase}/contactUs`
   }
 
   httpOptions = {

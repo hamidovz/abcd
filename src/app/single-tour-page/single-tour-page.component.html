@@ -18,7 +18,7 @@
                                 <div class="prevToursCarouselStage col-12 mx-0 px-0"  #carousel>
                                     <div class="prevToursCarouselItem col-12" *ngFor="let tourPhoto of singleTour.photos">
                                         <div class="tourPastpicture">
-                                            <img src="http://ziqzaq.az/images/{{tourPhoto.photoURL}}">
+                                            <img src="https://api.ziqzaq.az/images/{{tourPhoto.photoURL}}">
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                         <h2>Təşkilatçı</h2>
                     </div>
                     <div class="tourOrganizerLeftLogo" routerLink="/tourAgency">
-                        <img src="http://ziqzaq.az/images/{{singleTour.vendorImage}}">
+                        <img src="https://api.ziqzaq.az/images/{{singleTour.vendorImage}}">
                     </div>
                     <div class="tourOrganizerLeftBody">
                         <div class="tourConnection">
@@ -182,7 +182,7 @@
                         <div class="col-lg-2 col-md-3 col-sm-4 col-6" *ngFor="let service of singleTour.tourServices">
                             <div class="tourIncludeItem">
                                 <div class="tourIncludeItemIMG">
-                                    <img src="http://ziqzaq.az/images/{{service.icon}}">
+                                    <img src="https://api.ziqzaq.az/images/{{service.icon}}">
                                 </div>
                                 <div class="tourIncludeItemWord">
                                     <p>{{service.name}}</p>
@@ -206,7 +206,7 @@
                                 <div class="tourPastpicture">
                                     <!-- Button to Open the Modal -->
                                     <button type="button" class="btn btn-primary zoomButton" (click)="showModal=true" data-toggle="modal" data-target="#myModal">
-                                        <img src="http://ziqzaq.az/images/{{tourPrevPhoto.photoURL}}">
+                                        <img src="https://api.ziqzaq.az/images/{{tourPrevPhoto.photoURL}}">
                                     </button>
   
                                     <div class="modal" id="myModal" [ngClass] = "{'show': showModal}">
@@ -216,7 +216,7 @@
                                                 
                                                 <div class="modal-body">
                                                     <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
-                                                    <img src="http://ziqzaq.az/images/{{tourPrevPhoto.photoURL}}">
+                                                    <img src="https://api.ziqzaq.az/images/{{tourPrevPhoto.photoURL}}">
                                                 </div>
   
                                             </div>

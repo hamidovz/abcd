@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,19 @@ export class VendorServiceService {
 
   public currentImgPreview : any = [];
 
+  public apiBase = environment.apiEndpoint;
+
   public apiUrl = {
 
-    vendorLogin : "http://ziqzaq.az/api/vendor/login",
+    vendorLogin : `${this.apiBase}/vendor/login`,
 
-    getTourServices : "http://ziqzaq.az/api/service",
+    getTourServices : `${this.apiBase}/service`,
 
-    getTourProgramType : "http://ziqzaq.az/api/programType",
+    getTourProgramType : `${this.apiBase}/programType`,
 
-    vendorAddTour : "http://ziqzaq.az/api/tour",
+    vendorAddTour : `${this.apiBase}/tour`,
 
-    sendPrograms : "http://ziqzaq.az/api/tourProgram"
+    sendPrograms : `${this.apiBase}/tourProgram`
 
   }
 

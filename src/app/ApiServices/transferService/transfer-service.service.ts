@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,14 @@ export class TransferServiceService {
 
   constructor( public http: HttpClient ) { }
 
+  public apiBase = environment.apiEndpoint;
+
   public api = {
-    transfer: "http://ziqzaq.az/api/transfer",
+    transfer: `${this.apiBase}/transfer`,
 
-    sendSms : "http://ziqzaq.az/api/transfer/sendPhoneNumber",
+    sendSms : `${this.apiBase}/transfer/sendPhoneNumber`,
 
-    verifySmsCode : "http://ziqzaq.az/api/transfer/confirmPhoneNumber"
+    verifySmsCode : `${this.apiBase}/transfer/confirmPhoneNumbe`
   }
 
   public adminToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkQ3QTFFQjIxLUZFRDMtNDM0OS1BRDQ5LURDQjk4MUUwRkEzOCIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTU4MTU4OTIyNCwiZXhwIjoxNTgxNjc1NjI0LCJpYXQiOjE1ODE1ODkyMjR9.0v-t7nR-GVqizABlAlTEGSkZx-nIIIP1nwn4YzXTZ7I";

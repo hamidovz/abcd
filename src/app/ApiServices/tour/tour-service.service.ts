@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,12 @@ export class TourServiceService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'access-control-allow-origin' : '*','Authorization': "Bearer " + localStorage.getItem("accessToken")}) 
   };
 
-  public apiUrl = {
-    tour : "http://ziqzaq.az/api/tour",
+  public apiBase = environment.apiEndpoint;
 
-    tourFavorite : "http://ziqzaq.az/api/favorite"
+  public apiUrl = {
+    tour : `${this.apiBase}/tour`,
+
+    tourFavorite : `${this.apiBase}/favorite`
   }
 
 

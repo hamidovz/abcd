@@ -1,26 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http'; 
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
 
+  public apiBase = environment.apiEndpoint;
+
   public apiUrl = {
 
-    userRegister : "http://ziqzaq.az/api/user/register",
+    userRegister : `${this.apiBase}/user/register`,
     
-    loginUser : "http://ziqzaq.az/api/user/login",
+    loginUser : `${this.apiBase}/user/login`,
 
-    logOut : "http://ziqzaq.az/api/user/logout",
+    logOut : `${this.apiBase}/user/logout`,
 
-    sendSms : "http://ziqzaq.az/api/user/sendPhoneNumber",
+    sendSms : `${this.apiBase}/user/sendPhoneNumber`,
 
-    verifySmsCode : "http://ziqzaq.az/api/user/confirmPhoneNumber",
+    verifySmsCode : `${this.apiBase}/user/confirmPhoneNumber`,
 
-    checkIfNumberExists : "http://ziqzaq.az/api/user/checkDuplicate",
+    checkIfNumberExists : `${this.apiBase}/user/checkDuplicate`,
 
-    user : "http://ziqzaq.az/api/user"
+    user : `${this.apiBase}/user`
 
 
     // checkIfNumberExists : "http"

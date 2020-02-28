@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,10 @@ export class ReviewServiceService {
 
   constructor( public http: HttpClient ) { }
 
+  public apiBase = environment.apiEndpoint;
+
   public api = {
-    comment: "http://ziqzaq.az/api/review"
+    comment: `${this.apiBase}/review`
   }
 
   httpOptions = {
