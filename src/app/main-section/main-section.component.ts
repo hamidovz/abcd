@@ -59,9 +59,9 @@ export class MainSectionComponent implements OnInit {
 
   public carouselStep = {
 
-    right: -51,
+    right: -50.5,
 
-    left: 51
+    left: 50.5
 
   }
 
@@ -82,6 +82,19 @@ export class MainSectionComponent implements OnInit {
 
   }
 
+
+  //share button operations
+
+
+  public shareEnabledId;
+
+  public openSharingPanel(id){
+
+    console.log("sharing");
+
+    this.shareEnabledId = id;
+    
+  }
 
 
   // API operations starts
@@ -121,7 +134,7 @@ export class MainSectionComponent implements OnInit {
 
       console.log(limit);
 
-      this.carouselLimit = -limit * 51;
+      this.carouselLimit = -limit * 50.5;
 
       console.log(this.carouselLimit);
       
@@ -170,6 +183,8 @@ export class MainSectionComponent implements OnInit {
 
       var retreived : any = data;
 
+      console.log(retreived);
+
       if( retreived.isSuccess ){
 
         clickedElement.style.color = "#FFCA00";
@@ -200,7 +215,7 @@ export class MainSectionComponent implements OnInit {
 
     routeId = clickedElement.getAttribute("tourId");
 
-    if(clickedElementParent.tagName == "FA-ICON"){ //if user clicked on of the icons (heart ot share )
+    if(clickedElementParent.tagName == "FA-ICON" && clickedElementParent.parentElement.id == "heart"){ //if user clicked on of the icons (heart ot share )
       
 
       this.makeTourFavorite(clickedTourId , clickedElement);

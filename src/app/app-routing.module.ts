@@ -26,6 +26,7 @@ import { RegistrationConfirmationComponent } from './registration-confirmation/r
 import { TestingApiComponent } from './testing-api/testing-api.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
 
 
 const routes: Routes = [
@@ -56,7 +57,8 @@ const routes: Routes = [
   { path: "registrationConfirmation" , component: RegistrationConfirmationComponent },
   { path: "admin" , component: AdminPanelComponent },
   { path: "adminLogin" , component: AdminLoginComponent},
-  { path: "apiTest" , component: TestingApiComponent }
+  { path: "apiTest" , component: TestingApiComponent },
+  { path: "userResetPassword" , component : PasswordForgottenComponent }
   
 ];
 

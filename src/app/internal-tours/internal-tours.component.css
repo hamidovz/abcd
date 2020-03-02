@@ -172,6 +172,11 @@
     font-size: 28px;
 }
 
+#share:hover{
+    color:#0082FF;
+}
+
+
 #heart:hover{
     color:#FFCA00;
 }
@@ -184,6 +189,14 @@
     left:0;
     right:0;
     z-index:99;
+}
+
+share-buttons{
+    text-align: center;
+}
+
+.cardContainer{
+    align-items:flex-end;
 }
 
 /* Internal Tours Responsive design */

@@ -94,6 +94,20 @@ export class InternalToursComponent implements OnInit {
 
 
 
+
+    //share button operations
+
+
+    public shareEnabledId;
+
+    public openSharingPanel(id){
+  
+      console.log("sharing");
+  
+      this.shareEnabledId = id;
+      
+    }
+
   
 
 //make tour favorite
@@ -147,7 +161,7 @@ public onTourClick($event , route){
 
   routeId = clickedElement.getAttribute("tourId");
 
-  if(clickedElementParent.tagName == "FA-ICON"){ //if user clicked on of the icons (heart ot share )
+  if(clickedElementParent.tagName == "FA-ICON" && clickedElementParent.parentElement.id == "heart"){ //if user clicked on of the icons (heart ot share )
     
 
     this.makeTourFavorite(clickedTourId , clickedElement);

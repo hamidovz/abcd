@@ -5,11 +5,29 @@
   <title>ZiqzaqFront</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .preLoadingContainer{
+    
+    width: 100%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+  
+  }
+
+  </style>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <app-root></app-root>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+  <app-root>
+    <div class="preLoadingContainer">
+    <img style="margin:auto;width:20%" src="assets/img/preLoading.gif">
+  </div>
+  </app-root>
 </body>
 </html>

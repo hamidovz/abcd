@@ -34,6 +34,19 @@
     color: #0082FF!important;
 }
 
+
+/* tour past */
+
+
+.tourPast .prevToursCarousel{
+
+    overflow: hidden;
+}
+
+
+/* tour past */
+
+
 /* Join Tour part BODY */
 .joinTourBody{
     padding: 5px 0px;
@@ -249,27 +262,27 @@ agm-map {
 .tourPastBody{
     padding: 20px 0px;
 }
-.joinTour .prevToursCarousel{
+.tourPast.prevToursCarousel{
     display: flex;
     overflow: hidden;
     position: relative;
     width: 100%;
     height: 400px;
 }
-.joinTour .prevToursCarouselStage{
+.tourPast .prevToursCarouselStage{
     display: flex;
     /* transform: translateX(-300%); */
 }
-.joinTour .prevToursCarouselItem{
+.tourPast .prevToursCarouselItem{
     padding: 0px 5px;
     width: 100%;
     height: 100%;
 }
-.joinTour  .tourPastpicture{
+.tourPast  .tourPastpicture{
     width: 100%;
     height: 100%;
 }
-.joinTour  .tourPastpicture img{
+.tourPast  .tourPastpicture img{
     width: 100%;
     height: 100%;
 }
@@ -668,6 +681,14 @@ agm-map {
 
 #heart:hover > fa-icon{
    color:#FFCA00;
+}
+
+#share{
+    cursor: pointer;
+}
+
+#share:hover > fa-icon{
+    color:#0082FF;
 }
 
 

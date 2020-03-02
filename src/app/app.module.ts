@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+// import { LoadersCssModule } from 'angular2-loaders-css';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +54,7 @@ import { VendorPastToursComponent } from './vendor-past-tours/vendor-past-tours.
 import { VendorActiveToursComponent } from './vendor-active-tours/vendor-active-tours.component';
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
 import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
+import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
 import { TestingApiComponent } from './testing-api/testing-api.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -89,10 +93,13 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     TestingApiComponent,
     AdminPanelComponent,
     AdminLoginComponent,
-    LocalizationComponent
+    LocalizationComponent,
+    PasswordForgottenComponent
   ],
   imports: [
     BrowserModule,
+    ShareButtonsModule,
+    MatProgressSpinnerModule,
     AppRoutingModule,
     BrowserModule,
     FontAwesomeModule,

@@ -81,9 +81,18 @@
                                     </div>
                                     <div class="joinTourIcon">
                                         <p id="heart" (click)="makeTourFavorite(singleTour.id,$event)"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
-                                        <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                                        <p id="share" (click)="openSharingPanel(singleTour.id)"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
                                     </div>
                                 </div>
+
+                                <div *ngIf="singleTour.id == shareEnabledId">
+                    
+                                    <share-buttons [theme]="'modern-dark'"
+                                        [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']" [show]="9"
+                                        [url]="'https://ziqzaq.az/singleTourPage/'+ singleTour.id" [autoSetMeta]="false" [size]=-7></share-buttons>
+                                
+                                </div>
+                                
                                 <!-- <div class="errorMessage" [ngClass]="{'errorMessageShow' : showMessage}">
                                     <p>İstifadəçi kimi daxil olun</p>
                                 </div> -->

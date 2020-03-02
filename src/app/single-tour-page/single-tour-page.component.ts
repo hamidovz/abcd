@@ -306,6 +306,24 @@ export class SingleTourPageComponent implements OnInit {
 
   }
 
+
+
+
+        //share button operations
+
+
+        public shareEnabledId;
+
+        public openSharingPanel(id){
+      
+          console.log("sharing");
+      
+          this.shareEnabledId = id;
+          
+        }
+
+
+        
   //make tour favorite with heart icon
 
   //favorite tour data

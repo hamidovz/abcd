@@ -23,6 +23,8 @@ export class UserServiceService {
 
     checkIfNumberExists : `${this.apiBase}/user/checkDuplicate`,
 
+    setNewPassword : `${this.apiBase}/user/setNewPassword`,
+
     user : `${this.apiBase}/user`
 
 
@@ -37,6 +39,12 @@ export class UserServiceService {
     headers: new HttpHeaders({"Content-Type" : "application/json" , "Authorization" : "Bearer " + this.userToken})
 
  }
+
+ public passwordForgetOptions = {
+    
+  headers: new HttpHeaders({"Content-Type" : "application/json"})
+
+}
 
 
   public options = {
@@ -70,6 +78,12 @@ export class UserServiceService {
   public verifySmsCode( verifyData ){
 
     return this.http.post( this.apiUrl.verifySmsCode , verifyData , this.options);
+
+  }
+
+  public setNewPassword( newPassData ){
+
+    return this.http.post( this.apiUrl.setNewPassword , newPassData , this.passwordForgetOptions);
 
   }
 

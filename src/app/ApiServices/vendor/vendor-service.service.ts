@@ -26,6 +26,7 @@ export class VendorServiceService {
 
   }
 
+
   // http headers to inject into the request:
 
   public sendHeader = {
@@ -53,6 +54,43 @@ export class VendorServiceService {
     }
 
   }
+
+
+
+  //recreate headers ( for updating tokens after vendor login )
+
+
+  public updateHeader(){
+
+    this.sendHeader =  {
+    
+      vendorLogin : {
+        headers : new HttpHeaders(  {"Content-Type" : "application/json" } )
+      },
+  
+      getTourService : {
+        headers: new HttpHeaders({ 'Access-Control-Allow-Origin' : '*',"Authorization":"Bearer " + localStorage.getItem("vendorToken")})
+      },
+  
+  
+      getTourPrograms : {
+        headers: new HttpHeaders({ 'Access-Control-Allow-Origin' : '*',"Authorization":"Bearer " + localStorage.getItem("vendorToken")})
+      },
+  
+      
+      vendorAddTour : {
+        headers: new HttpHeaders({ 'Access-Control-Allow-Origin' : '*',"Authorization":"Bearer " + localStorage.getItem("vendorToken")})
+      },
+  
+      sendPrograms : {
+        headers: new HttpHeaders({ 'Content-Type' : 'application/json' , 'Access-Control-Allow-Origin' : '*',"Authorization":"Bearer " + localStorage.getItem("vendorToken")})
+      }
+  
+    }
+
+  }
+
+
 
 
   public vendorLogin( loginData ){

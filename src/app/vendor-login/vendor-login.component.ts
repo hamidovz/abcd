@@ -36,10 +36,20 @@ export class VendorLoginComponent implements OnInit {
       
       localStorage.setItem("vendorToken" , retreivedData['accessToken']);
 
+      this.updateToken();
+
       this.router.navigate(["vendorDashboard"]);
 
 
     } );
+
+  }
+
+  //update headers to get updated tokens (for updating tokens after login )
+
+  public updateToken(){
+
+    this.VendorService.updateHeader();
 
   }
 

@@ -26,6 +26,15 @@
         <div class="localToursBody">
             <div class="row cardContainer">
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of localTours.output" (click)="onTourClick($event , 'singleTourPage')">
+                    
+                    <div *ngIf="tour.id == shareEnabledId">
+                    
+                        <share-buttons [theme]="'modern-dark'"
+                            [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']" [show]="9"
+                            [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false" [size]=-7></share-buttons>
+                    
+                    </div>
+                    
                     <div class="tourCard">
 
                         <div class="col-12 layer" attr.tourId={{tour.id}}></div>
@@ -33,7 +42,7 @@
 
                         <div class="tourCardImg">
                             <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
-                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                            <p id="share" (click)="openSharingPanel(tour.id)"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
                         </div>
                         <div class="tourCardContent">
                             <div class="tourCardTitleTime">
