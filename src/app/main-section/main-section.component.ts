@@ -91,7 +91,7 @@ export class MainSectionComponent implements OnInit {
 
     
 
-    if(id == this.shareEnabledId){
+    if(id == this.shareEnabledId && retreivedSection == this.shareSection){
       this.shareEnabledId = 0;
       return;
     }

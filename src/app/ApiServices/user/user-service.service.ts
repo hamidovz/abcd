@@ -56,8 +56,8 @@ export class UserServiceService {
   public registerUser(userData){
 
     return this.http.post( this.apiUrl.userRegister , userData );
-
-  }
+ 
+  } 
 
   public loginUser(loginData){
 
