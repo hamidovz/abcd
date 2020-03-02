@@ -22,7 +22,6 @@ export class MainSectionComponent implements OnInit {
       
       this.searched = data;
 
-      console.log(data);
       
     });
 
@@ -33,7 +32,6 @@ export class MainSectionComponent implements OnInit {
     this.searchService.searchResult.subscribe(data => {
       
       this.searchedTour = data;
-      console.log(this.searchedTour);
     
     });
 
@@ -59,9 +57,9 @@ export class MainSectionComponent implements OnInit {
 
   public carouselStep = {
 
-    right: -50.5,
+    right: -51,
 
-    left: 50.5
+    left: 51
 
   }
 
@@ -86,13 +84,21 @@ export class MainSectionComponent implements OnInit {
   //share button operations
 
 
-  public shareEnabledId;
+  public shareSection = "";
+  public shareEnabledId = 0;
 
-  public openSharingPanel(id){
+  public openSharingPanel(id , retreivedSection){
 
-    console.log("sharing");
+    
+
+    if(id == this.shareEnabledId){
+      this.shareEnabledId = 0;
+      return;
+    }
 
     this.shareEnabledId = id;
+
+    this.shareSection = retreivedSection
     
   }
 
@@ -128,15 +134,12 @@ export class MainSectionComponent implements OnInit {
       
       this.vipTours = data;
 
-      console.log(this.vipTours.output);
 
       var limit = this.vipTours.output.length - 2 ;
 
-      console.log(limit);
 
-      this.carouselLimit = -limit * 50.5;
+      this.carouselLimit = -limit * 51;
 
-      console.log(this.carouselLimit);
       
     });
 
@@ -183,7 +186,6 @@ export class MainSectionComponent implements OnInit {
 
       var retreived : any = data;
 
-      console.log(retreived);
 
       if( retreived.isSuccess ){
 
@@ -224,7 +226,6 @@ export class MainSectionComponent implements OnInit {
 
 
 
-    console.log(clickedElement);
 
     //if user clicked on the card itself
 

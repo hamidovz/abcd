@@ -10,56 +10,68 @@
         </div>
 
         <div class="vipToursBody">
-            <p class="left-arrow px-3"><fa-icon  [icon]="['fas','chevron-left']" (click)="carouselSlide('left',carousel)"></fa-icon></p>
+            <p class="left-arrow px-3">
+                <fa-icon [icon]="['fas','chevron-left']" (click)="carouselSlide('left',carousel)"></fa-icon>
+            </p>
 
             <div class="carousel-container col-11 px-0">
 
                 <div class="carousel pb-1" #carousel>
-            
-                    <div class="col-6 px-0 mr-1 carouselCard"  *ngFor="let tour of vipTours.output" (click)="onTourClick($event , 'singleTourPage')">
-                        
-                        <div *ngIf="tour.id == shareEnabledId">
-                    
+
+                    <div class="col-6 px-0 mr-1 carouselCard" *ngFor="let tour of vipTours.output"
+                        (click)="onTourClick($event , 'singleTourPage')">
+
+                        <div class="overlay" *ngIf="tour.id == shareEnabledId && shareSection == 'carousel'">
+
                             <share-buttons [theme]="'modern-dark'"
-                                [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']" [show]="9"
-                                [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false" [size]=-5></share-buttons>
-                        
+                                [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']"
+                                [show]="9" [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false"
+                                [size]=-5></share-buttons>
+
                         </div>
-                        
+
                         <div class="col-12 layer" attr.tourId={{tour.id}}></div>
                         <div class="carouselImg">
-                            <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
-                            <p id="share" (click)="openSharingPanel(tour.id)"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                            <p id="heart">
+                                <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon>
+                            </p>
+                            <p id="share" (click)="openSharingPanel(tour.id , 'carousel')">
+                                <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                            </p>
                         </div>
 
                         <div class="col-12 px-1">
-                        <div class="col-12 px-0 row carouselDescription">
-                            <div class='col-7 pt-3'>
-                                <p id="carouselTourName">{{tour.name}} </p>
-                                <p id="carouselTourDate" class="px-0 mx-0">{{formatData(tour.departureTime)}} - {{formatData(tour.arrivalTime)}}</p>
-                            </div>
+                            <div class="col-12 px-0 row carouselDescription">
+                                <div class='col-7 pt-3'>
+                                    <p id="carouselTourName">{{tour.name}} </p>
+                                    <p id="carouselTourDate" class="px-0 mx-0">{{formatData(tour.departureTime)}} -
+                                        {{formatData(tour.arrivalTime)}}</p>
+                                </div>
 
-                            <div class="col-2 premium">
-                                <img src="assets/icon/premium.svg">
-                           </div>
+                                <div class="col-2 premium">
+                                    <img src="assets/icon/premium.svg">
+                                </div>
 
-                            <div class="col-3 px-0 mx-0">
-                                <p class="col-10 my-0 carouselPrice py-3 px-0">1450 <span class="price">&#8380;</span></p>
+                                <div class="col-3 px-0 mx-0">
+                                    <p class="col-10 my-0 carouselPrice py-3 px-0">1450 <span
+                                            class="price">&#8380;</span></p>
+                                </div>
+
                             </div>
 
                         </div>
 
-                        </div>
-  
-            
+
                     </div>
-                       
-            
+
+
                 </div>
-            
+
             </div>
 
-            <p class="right-arrow px-3" (click)="carouselSlide('right',carousel)"><fa-icon [icon]="['fas','chevron-right']"></fa-icon></p>
+            <p class="right-arrow px-3" (click)="carouselSlide('right',carousel)">
+                <fa-icon [icon]="['fas','chevron-right']"></fa-icon>
+            </p>
 
 
         </div>
@@ -86,24 +98,27 @@
         <div class="localToursBody">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of vipTours.output" (click)="onTourClick($event , 'singleTourPage')">
-                    
-                    <div *ngIf="tour.id == shareEnabledId">
-                    
-                        <share-buttons [theme]="'modern-dark'"
-                            [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']" [show]="9"
-                            [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false" [size]=-7></share-buttons>
-                    
-                    </div>
-                    
-                    
-                    <div class="tourCard">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of vipTours.output"
+                    (click)="onTourClick($event , 'singleTourPage')">
 
+
+
+                    <div class="tourCard">
+                        <div class="overlay" *ngIf="tour.id == shareEnabledId && shareSection == 'carousel'">
+                            <share-buttons [theme]="'modern-dark'"
+                                [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']"
+                                [show]="9" [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false"
+                                [size]=-7></share-buttons>
+                        </div>
                         <div class="col-12 layer" attr.tourId={{tour.id}}></div>
 
                         <div class="tourCardImg">
-                            <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
-                            <p id="share" (click)="openSharingPanel(tour.id)"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                            <p id="heart">
+                                <fa-icon [icon]="['fas','heart']"></fa-icon>
+                            </p>
+                            <p id="share" (click)="openSharingPanel(tour.id, 'carousel')">
+                                <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                            </p>
                         </div>
                         <div class="tourCardContent">
                             <div class="tourCardTitleTime">
@@ -112,7 +127,7 @@
                             </div>
                             <div class="col premium">
                                 <img src="assets/icon/premium.svg">
-                           </div>
+                            </div>
                             <div class="tourCardPrice">
                                 <p>{{tour.adultPrice}} &#8380;</p>
                             </div>
@@ -150,23 +165,25 @@
         <div class="localToursBody">
             <div class="row">
                 <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of localTours.output" routerLink="/singleTourPage/{{tour.id}}"> -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of localTours.output" (click)="onTourClick($event , 'singleTourPage')">
-                    
-                    <div *ngIf="tour.id == shareEnabledId">
-                    
-                        <share-buttons [theme]="'modern-dark'"
-                            [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']" [show]="9"
-                            [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false" [size]=-7></share-buttons>
-                    
-                    </div>
-                    
-                    <div class="tourCard">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of localTours.output"
+                    (click)="onTourClick($event , 'singleTourPage')">
 
+                    <div class="tourCard">
+                        <div class="overlay" *ngIf="tour.id == shareEnabledId && shareSection == 'local'">
+                            <share-buttons [theme]="'modern-dark'"
+                                [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']"
+                                [show]="9" [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false"
+                                [size]=-7></share-buttons>
+                        </div>
                         <div class="col-12 layer" attr.tourId={{tour.id}}></div>
-                        
+
                         <div class="tourCardImg">
-                            <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
-                            <p id="share" (click)="openSharingPanel(tour.id)"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                            <p id="heart">
+                                <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon>
+                            </p>
+                            <p id="share" (click)="openSharingPanel(tour.id,'local')">
+                                <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                            </p>
                         </div>
                         <div class="tourCardContent">
                             <div class="tourCardTitleTime">
@@ -207,25 +224,33 @@
                 </div>
             </div>
         </div>
-        <div class="localToursBody">
+        <div class="externalToursBody">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard"  *ngFor="let tour of foreignTours.output" (click)="onTourClick($event , 'singleTourPage')">
-                    <div *ngIf="tour.id == shareEnabledId">
-                    
-                        <share-buttons [theme]="'modern-dark'"
-                            [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']" [show]="9"
-                            [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false" [size]=-7></share-buttons>
-                    
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" *ngFor="let tour of foreignTours.output"
+                    (click)="onTourClick($event , 'singleTourPage')">
+                    <div>
+
+
                     </div>
-                    
+
                     <div class="tourCard">
 
+                        <div class="overlay" *ngIf="tour.id == shareEnabledId && shareSection == 'external'">
+                            <share-buttons [theme]="'modern-dark'"
+                                [include]="['facebook','twitter','linkedin','telegram','messenger','whatsapp','copy']"
+                                [show]="9" [url]="'https://ziqzaq.az/singleTourPage/'+tour.id" [autoSetMeta]="false"
+                                [size]=-7></share-buttons>
+                        </div>
                         <div class="col-12 layer" attr.tourId={{tour.id}}></div>
 
-                        
+
                         <div class="tourCardImg">
-                            <p id="heart"> <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon> </p>
-                            <p id="share" (click)="openSharingPanel(tour.id)"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                            <p id="heart">
+                                <fa-icon attr.tourId={{tour.id}} [icon]="['fas','heart']"></fa-icon>
+                            </p>
+                            <p id="share" (click)="openSharingPanel(tour.id,'external')">
+                                <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                            </p>
                         </div>
                         <div class="tourCardContent">
                             <div class="tourCardTitleTime">
@@ -261,7 +286,7 @@
 
 <section *ngIf="searched == true">
 
-  
+
     <div class="container">
         <div class="localToursTop">
             <div class="row">
@@ -272,11 +297,16 @@
         </div>
         <div class="localToursBody">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" routerLink="/singleTourPage/{{tour.id}}" *ngFor="let tour of searchedTour">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 localTourCard" routerLink="/singleTourPage/{{tour.id}}"
+                    *ngFor="let tour of searchedTour">
                     <div class="tourCard">
                         <div class="tourCardImg">
-                            <p id="heart"> <fa-icon [icon]="['fas','heart']"></fa-icon> </p>
-                            <p id="share"> <fa-icon [icon]="['fas','share-alt']"></fa-icon> </p>
+                            <p id="heart">
+                                <fa-icon [icon]="['fas','heart']"></fa-icon>
+                            </p>
+                            <p id="share">
+                                <fa-icon [icon]="['fas','share-alt']"></fa-icon>
+                            </p>
                         </div>
                         <div class="tourCardContent">
                             <div class="tourCardTitleTime">
@@ -301,10 +331,8 @@
             </div>
         </div>
     </div>
-  
-  </section>
-  
-    
-  <!-- search results -->
+
+</section>
 
 
+<!-- search results -->

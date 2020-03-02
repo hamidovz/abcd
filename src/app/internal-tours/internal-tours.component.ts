@@ -15,7 +15,7 @@ export class InternalToursComponent implements OnInit {
 
   public defaultValue = "Turları sırala";
 
-  public changeOption(sent){
+  public changeOption(sent) {
 
     var sentValue = sent.getAttribute("value");
 
@@ -27,57 +27,57 @@ export class InternalToursComponent implements OnInit {
 
   public showAllOptions() {
 
-    this.allOptionsHidden =  !this.allOptionsHidden;
+    this.allOptionsHidden = !this.allOptionsHidden;
 
   }
 
 
   // API operations starts
 
-  public localTours : any = {
+  public localTours: any = {
 
-    output : []
+    output: []
 
   };
 
   public getTours() {
 
-    this.TourService.getTour(2).subscribe( data => this.localTours = data );
-   
+    this.TourService.getTour(2).subscribe(data => this.localTours = data);
+
   }
 
 
 
 
-    //the search result section will be rendered conditionally,
+  //the search result section will be rendered conditionally,
   //according the value of the variable below
 
-  public searched : any = false;
+  public searched: any = false;
 
-  public toggleSearched(){
+  public toggleSearched() {
 
-    this.searchService.searched.subscribe( data => {
-      
+    this.searchService.searched.subscribe(data => {
+
       this.searched = data;
 
       console.log(data);
-      
+
     });
 
   }
 
-  getSearchResults(){
+  getSearchResults() {
 
     this.searchService.searchResult.subscribe(data => {
-      
+
       this.searchedTour = data;
       console.log(this.searchedTour);
-    
+
     });
 
   }
 
-  public searchedTour : any = [];
+  public searchedTour: any = [];
 
 
 
@@ -87,7 +87,7 @@ export class InternalToursComponent implements OnInit {
 
   public tourLimit = 20;
 
-  public loadMore(){
+  public loadMore() {
     //
   }
 
@@ -95,22 +95,24 @@ export class InternalToursComponent implements OnInit {
 
 
 
-    //share button operations
+  //share button operations
 
 
-    public shareEnabledId;
+  public shareEnabledId;
 
-    public openSharingPanel(id){
-  
-      console.log("sharing");
-  
-      this.shareEnabledId = id;
-      
+  public openSharingPanel(id) {
+    if(id == this.shareEnabledId){
+      this.shareEnabledId = 0;
+      return;
     }
 
-  
+    this.shareEnabledId = id;
+    
+  }
 
-//make tour favorite
+
+
+  //make tour favorite
 
 
   public favoriteTourData = {
@@ -118,84 +120,82 @@ export class InternalToursComponent implements OnInit {
     "userId": "",
     "tourId": 0,
     "status": true
-  
-}
-
-public makeTourFavorite(tourId , clickedElement ){
-
-  this.favoriteTourData.tourId = tourId;
-
-  this.favoriteTourData.userId = localStorage.getItem("userId");
-
-  this.TourService.makeTourFavorite(this.favoriteTourData).subscribe( data => {
-
-    var retreived : any = data;
-
-    if( retreived.isSuccess ){
-
-      clickedElement.style.color = "#FFCA00";
-    }
-  })
-    
-  //
-}
-
-
-//check if clicked on tour itself or the icons (heart,share icons) on the tourCard
-
-//navigate to the corresponding route if click on the tourCard it self
-
-//or make the current tour favorite if clicked on the heart
-
-public onTourClick($event , route){
-
-  var clickedTourId;
-
-  var routeId;
-
-  var clickedElement = $event.target;
-
-  var clickedElementParent = clickedElement.parentElement.parentElement;
-  
-  clickedTourId = clickedElementParent.getAttribute("tourId");
-
-  routeId = clickedElement.getAttribute("tourId");
-
-  if(clickedElementParent.tagName == "FA-ICON" && clickedElementParent.parentElement.id == "heart"){ //if user clicked on of the icons (heart ot share )
-    
-
-    this.makeTourFavorite(clickedTourId , clickedElement);
 
   }
 
+  public makeTourFavorite(tourId, clickedElement) {
+
+    this.favoriteTourData.tourId = tourId;
+
+    this.favoriteTourData.userId = localStorage.getItem("userId");
+
+    this.TourService.makeTourFavorite(this.favoriteTourData).subscribe(data => {
+
+      var retreived: any = data;
+
+      if (retreived.isSuccess) {
+
+        clickedElement.style.color = "#FFCA00";
+      }
+    })
+
+    //
+  }
 
 
-  console.log(clickedElement);
+  //check if clicked on tour itself or the icons (heart,share icons) on the tourCard
 
-  //if user clicked on the card itself
+  //navigate to the corresponding route if click on the tourCard it self
 
-  if( clickedElement.classList.contains("layer") ){
+  //or make the current tour favorite if clicked on the heart
 
-    var formattedRoute = route + "/" + routeId;
+  public onTourClick($event, route) {
 
-    this.router.navigate([formattedRoute]);
-  } 
+    var clickedTourId;
+
+    var routeId;
+
+    var clickedElement = $event.target;
+
+    var clickedElementParent = clickedElement.parentElement.parentElement;
+
+    clickedTourId = clickedElementParent.getAttribute("tourId");
+
+    routeId = clickedElement.getAttribute("tourId");
+
+    if (clickedElementParent.tagName == "FA-ICON" && clickedElementParent.parentElement.id == "heart") { //if user clicked on of the icons (heart ot share )
+
+
+      this.makeTourFavorite(clickedTourId, clickedElement);
+
+    }
 
 
 
-  //
-}
+    //if user clicked on the card itself
 
-  constructor( 
-    
+    if (clickedElement.classList.contains("layer")) {
+
+      var formattedRoute = route + "/" + routeId;
+
+      this.router.navigate([formattedRoute]);
+    }
+
+
+
+    //
+  }
+
+  constructor(
+
     public http: HttpClient,
 
-    public TourService : TourServiceService,
+    public TourService: TourServiceService,
 
-    public searchService : SearchTourServiceService,
+    public searchService: SearchTourServiceService,
 
-    public router : Router
-    
+    public router: Router
+
   ) { }
 
   ngOnInit() {

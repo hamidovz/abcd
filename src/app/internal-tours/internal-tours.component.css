@@ -199,6 +199,17 @@ share-buttons{
     align-items:flex-end;
 }
 
+.overlay{
+    position: absolute;
+    z-index: 99;
+    padding-top: 20%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.381);
+    height: 100%;
+    width: 100%;
+}
+
 /* Internal Tours Responsive design */
 
 /* Media Queries start */

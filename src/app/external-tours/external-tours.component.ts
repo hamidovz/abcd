@@ -84,10 +84,14 @@ export class ExternalToursComponent implements OnInit {
       public shareEnabledId;
 
       public openSharingPanel(id){
-    
-        console.log("sharing");
+        if(id == this.shareEnabledId){
+          this.shareEnabledId = 0;
+          return;
+        }
     
         this.shareEnabledId = id;
+    
+        
         
       }
 
