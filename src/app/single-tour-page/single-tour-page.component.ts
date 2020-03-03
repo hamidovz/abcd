@@ -286,7 +286,17 @@ export class SingleTourPageComponent implements OnInit {
 
     var time = new Date();
 
-    var timeFormatted = time.getFullYear() + "-" + time.getMonth() + "-" + time.getDate();
+    var month : any = time.getMonth().toString();
+
+    month = month.padStart(2,0);
+
+    var day : any = time.getDate().toString();
+
+    day = day.padStart(2,0);
+
+    var timeFormatted = time.getFullYear() + "-" + month + "-" + day;
+
+    console.log(timeFormatted);
 
     return timeFormatted;
 
@@ -412,7 +422,7 @@ export class SingleTourPageComponent implements OnInit {
 
     "bookingStatus":"0",
 
-    "userId": localStorage.getItem("accessToken"),
+    "userId": "",
 
     "tourId": ""
 
@@ -421,14 +431,23 @@ export class SingleTourPageComponent implements OnInit {
   // localStorage.getItem("userId") ? localStorage.getItem("userId") : ""
 
   public postBooking() {
+    // console.log("OK");
 
     // we'll make notify user to login in order to post a comment
 
+    this.bookingData.userId = localStorage.getItem("userId");
+
     if(this.bookingData.userId.length < 1){
+
+      console.log("OK");
 
       return;
 
     }
+
+    console.log("OK");
+
+  
 
     this.BookingService.createBooking(this.bookingData).subscribe(data => console.log(data));
 

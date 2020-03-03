@@ -25,20 +25,31 @@ export class UserServiceService {
 
     setNewPassword : `${this.apiBase}/user/setNewPassword`,
 
-    user : `${this.apiBase}/user`
+    user : `${this.apiBase}/user`,
+
+    visitedTours : `${this.apiBase}/booking/getWent/`,
+
+    plannedTours : `${this.apiBase}/booking/getWillGo/`
+
 
 
     // checkIfNumberExists : "http"
 
   }
 
-  public userToken = localStorage.accessToken;
+  // public userToken = localStorage.accessToken;
 
-  public userOptions = {
+  public userOptions;
+
+  public createHeader(){
+
+    this.userOptions = {
     
-    headers: new HttpHeaders({"Content-Type" : "application/json" , "Authorization" : "Bearer " + this.userToken})
+      headers: new HttpHeaders({"Content-Type" : "application/json" , "Authorization" : "Bearer " + localStorage.getItem("accessToken")})
 
- }
+    }
+  }
+
 
  public passwordForgetOptions = {
     
@@ -95,7 +106,33 @@ export class UserServiceService {
 
   public getUserById(id){
 
+    this.createHeader();
+
     return this.http.get( this.apiUrl.user + `/${id}` , this.userOptions );
+
+ }
+ 
+ 
+
+ //getdiyim turlar
+
+ public getVisitedTours(){
+
+  this.createHeader();
+
+  return this.http.get( this.apiUrl.visitedTours + localStorage.getItem("userId") , this.userOptions );
+
+ }
+
+
+ //gedeceyim turlar (planlasdirilmis turlar)
+
+ public getPlannedTours(){
+
+  this.createHeader();
+
+  console.log("ok");
+  return this.http.get( this.apiUrl.plannedTours + localStorage.getItem("userId") , this.userOptions );
 
  }
 

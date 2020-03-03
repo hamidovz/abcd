@@ -104,6 +104,8 @@ export class VendorServiceService {
 
   public getTourService(){
 
+    this.updateHeader();
+
     return this.http.get( this.apiUrl.getTourServices, this.sendHeader["getTourService"] );
 
   }
@@ -112,7 +114,7 @@ export class VendorServiceService {
   //get programTypes (fealiyyet) to add into the vendorTourAddPrograms page
 
   public getTourProgramType(){
-    console.log("qwerty");
+    this.updateHeader();
 
     return this.http.get( this.apiUrl.getTourProgramType , this.sendHeader["getTourPrograms"] );
   }

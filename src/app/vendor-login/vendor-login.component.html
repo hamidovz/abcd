@@ -14,7 +14,7 @@
                             <!-- Phone number -->
                             <div class="formElement col-12">
                                 <input type="text" name="phoneNumber" class="formInput"
-                                    placeholder="Telefon" [(ngModel)]="loginData.phoneNumber">
+                                    placeholder="Telefon" [(ngModel)]="loginData.phoneNumber" #phoneNumber (input)="addCountryCode(phoneNumber)">
                             </div>
                             <!-- Password  -->
                             <div class="formElement col-12">

@@ -50,7 +50,7 @@ export class ContactUsComponent implements OnInit {
   //form validation
 
 
-  public formFields = [ "name", "surname", "email", "phoneNumber", "description" ];
+  public formFields = [ "name", "surname", "email", "number", "description" ];
   
 
   public hasError : any = {
@@ -82,27 +82,17 @@ export class ContactUsComponent implements OnInit {
     "description": "Boş buraxmaq olmaz"
   }
 
-  public contactData ={
 
-    "name": "",
-
-    "surname": "",
-
-    "email": "",
-
-    "phoneNumber": "",
-
-    "description": ""
-
-  }
 
   public validateForm(){
+
+    this.resetValidation();
 
     var hasError = false;
 
     this.formFields.map( field => {
 
-      if( this.contactData[field].length < 1){
+      if( this.message[field].length < 1){
         
         this.hasError[field] = true;
 

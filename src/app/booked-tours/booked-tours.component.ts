@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../ApiServices/user/user-service.service';
 
 @Component({
   selector: 'booked-tours',
@@ -20,9 +21,30 @@ export class BookedToursComponent implements OnInit {
     this.allOptionsHidden =  !this.allOptionsHidden;
   }
 
-  constructor() { }
+
+  public plannedTours
+
+  
+  public getPlannedTours(){
+
+    this.plannedTours = this.userService.getPlannedTours().subscribe( data =>{
+
+
+      this.plannedTours = data;
+
+      this.plannedTours = this.plannedTours.output;
+
+      console.log(this.plannedTours);
+    });
+
+    
+  }
+
+  constructor( public userService : UserServiceService) { }
 
   ngOnInit() {
+
+    this.getPlannedTours();
   }
 
 }

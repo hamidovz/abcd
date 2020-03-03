@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../ApiServices/user/user-service.service';
 
 @Component({
   selector: 'attended-tours',
@@ -18,10 +19,29 @@ export class AttendedToursComponent implements OnInit {
   public showAllOptions() {
     this.allOptionsHidden =  !this.allOptionsHidden;
   }
+
+  public bookedTours : any = [];
+
+  public getPlannedTours(){
+
+    this.userService.getVisitedTours().subscribe( data =>{
+
+      this.bookedTours = data;
+
+      console.log(data);
+
+      this.bookedTours = this.bookedTours.output;
+
+    });
+
+    
+  }
   
-  constructor() { }
+  constructor( public userService : UserServiceService ) { }
 
   ngOnInit() {
+
+    this.getPlannedTours()
   }
 
 }

@@ -41,6 +41,12 @@ a {
     display: inline-block !important;
 }
 
+#userProfileAvatar{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
 /* Responsive design */
 
 @media screen and (min-width:768px) {

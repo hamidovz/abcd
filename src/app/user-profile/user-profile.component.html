@@ -5,12 +5,14 @@
             <!-- Profile image -->
 
             <div class="col-md-2 col-sm-4 col-4 offset-4 offset-md-0 imgSide">
+
+                <input type="file" id="userProfileAvatar" #userProfileAvatar>
                 <div class="imgKeeper">
                     <!-- User image -->
                     <img src="../../assets/img/Group 219.png" alt="profile picture">
                     <!-- User image -->
                 </div>
-                <div class="editIcon imageEditIcon">
+                <div class="editIcon imageEditIcon" (click)="userProfileAvatar.click()">
                     <a class="editIcon">
                         <svg-icon src="../assets/icons/Path 258.svg" [svgStyle]="{'width.px':16,
                                  'margin-right.px':'2',

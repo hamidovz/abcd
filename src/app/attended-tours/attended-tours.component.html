@@ -1,6 +1,6 @@
 <section id="attendedTours">
     <div class="container mt-5">
-        <div class="nothingAdded">
+        <div class="nothingAdded" *ngIf="!bookedTours">
             <div class="row">
                 <div class="col-12">
                     <h3>Siz hələ heç bir tura getməmisiniz.</h3>
@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-12 cardHolder">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard">
+                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard" *ngFor="let tour of bookedTours">
                             <div class="tourCard">
                                 <div class="tourCardImg">
                                     <!-- <img src="/assets/img/tourPic.png"> -->
@@ -52,55 +52,11 @@
                                 </div>
                                 <div class="tourCardContent">
                                     <div class="tourCardTitleTime">
-                                        <h3>Zaqatala - Balaken turu</h3>
-                                        <p>22.05.2019 - 22.07.2019</p>
+                                        <h3>{{tour.name}}</h3>
+                                        <p>{{tour.departureTime}} - {{tour.arrivalTime}}</p>
                                     </div>
                                     <div class="tourCardPrice">
-                                        <p>1423.99 &#8380;</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard">
-                            <div class="tourCard">
-                                <div class="tourCardImg">
-                                    <!-- <img src="/assets/img/tourPic.png"> -->
-                                    <p id="heart">
-                                        <fa-icon [icon]="['fas','heart']"></fa-icon>
-                                    </p>
-                                    <p id="share">
-                                        <fa-icon [icon]="['fas','share-alt']"></fa-icon>
-                                    </p>
-                                </div>
-                                <div class="tourCardContent">
-                                    <div class="tourCardTitleTime">
-                                        <h3>Zaqatala - Balaken turu</h3>
-                                        <p>22.05.2019 - 22.07.2019</p>
-                                    </div>
-                                    <div class="tourCardPrice">
-                                        <p>1423.99 &#8380;</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6  col-12 attendedTourCard">
-                            <div class="tourCard">
-                                <div class="tourCardImg">
-                                    <!-- <img src="/assets/img/tourPic.png"> -->
-                                    <p id="heart">
-                                        <fa-icon [icon]="['fas','heart']"></fa-icon>
-                                    </p>
-                                    <p id="share">
-                                        <fa-icon [icon]="['fas','share-alt']"></fa-icon>
-                                    </p>
-                                </div>
-                                <div class="tourCardContent">
-                                    <div class="tourCardTitleTime">
-                                        <h3>Zaqatala - Balaken turu</h3>
-                                        <p>22.05.2019 - 22.07.2019</p>
-                                    </div>
-                                    <div class="tourCardPrice">
-                                        <p>1423.99 &#8380;</p>
+                                        <p>{{tour.adultPrice}} &#8380;</p>
                                     </div>
                                 </div>
                             </div>

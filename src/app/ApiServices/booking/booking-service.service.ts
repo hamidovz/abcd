@@ -16,15 +16,22 @@ export class BookingServiceService {
     booking: `${this.apiBase}/booking`
   }
 
-  // public userToken = "Bearer ;  
+  // public userToken = "Bearer ;
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'access-control-allow-origin' : '*','Authorization':"Bearer " + localStorage.getItem("accessToken")}) 
-  };
+  public httpOptions;
+
+  public createHeader(){
+
+    this.httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'access-control-allow-origin' : '*','Authorization':"Bearer " + localStorage.getItem("accessToken")}) 
+    };
+
+  }
+
 
   public createBooking(data) {
     
-    console.log(data);
+    this.createHeader();
 
     return this.http.post(this.api.booking,data,this.httpOptions);
 
