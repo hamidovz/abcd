@@ -377,6 +377,37 @@ public validateForm(step){
 }
 
 
+public addCountryCode(inputEl){
+
+  // inputEl.value = "994";
+
+  // console.log(this.userData.phoneNumber);
+
+  // return;
+
+
+
+  if(inputEl.value.length < 3){
+    inputEl.value="994";
+  }
+
+
+
+  if(inputEl.value.slice(0,3) != "994" ){
+
+
+    inputEl.value = "994" + inputEl.value.slice(3);
+
+  }
+
+
+  console.log(this.transferData.phone);
+
+
+  
+}
+
+
   ngOnInit() {
   }
 

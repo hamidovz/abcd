@@ -81,6 +81,32 @@ export class NavBarComponent implements OnInit {
 
   }
 
+  public closeLoginBox(){
+
+    this.loginModalClosed = true;
+  }
+
+  // public classOfLoginBoxElements = ["loginContainer" , "signIn" , "loginBoxInput"];
+
+  // public loginBoxClicked(event){
+
+  //   var clickedElement = event.target;
+
+  //   console.log(clickedElement);
+
+  //   this.classOfLoginBoxElements.forEach( data =>{
+
+  //     if( !clickedElement.classList.contains(data) ){
+
+  //       this.loginModalClosed = true;
+  //     }
+
+  //   })
+
+  // }
+
+
+
   
   public calculateScrollHeight(){
 
@@ -238,6 +264,39 @@ export class NavBarComponent implements OnInit {
       this.checkRoute();
     })
 
+  }
+
+
+
+
+  public addCountryCode(inputEl){
+
+    // inputEl.value = "994";
+
+    // console.log(this.userData.phoneNumber);
+
+    // return;
+
+
+
+    if(inputEl.value.length < 3){
+      inputEl.value="994";
+    }
+
+
+
+    if(inputEl.value.slice(0,3) != "994" ){
+
+
+      inputEl.value = "994" + inputEl.value.slice(3);
+
+    }
+
+
+    console.log(this.userData.phoneNumber)
+
+
+    
   }
 
 

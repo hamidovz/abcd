@@ -20,21 +20,21 @@
         <p class="col-auto navElement py-1" (click)="activateNavElement('localTour')" [class.active]="activeNavbarElement == 'localTour'" routerLink="/localTours">Daxili Turlar</p>
         <p class="col-auto navElement py-1" (click)="activateNavElement('foreignTour')" [class.active]="activeNavbarElement == 'foreignTour'" routerLink="/externalTours">Xarici Turlar</p>
         <p class="col-auto navElement py-1" (click)="activateNavElement('transfer')" [class.active]="activeNavbarElement == 'transfer'" routerLink="/transferPage">Transfer Xidməti</p>
-        <p class="col-auto navElement py-1" (click)="loginBox()" [class.active]="activeNavbarElement == 'login'" *ngIf="!userIsLogged">Daxil ol</p>
+        <p class="col-auto navElement py-1" (click)="loginBox()" [class.active]="activeNavbarElement == 'login'" *ngIf="!userIsLogged" id="navLoginButton">Daxil ol</p>
         <p class="col-auto navElement py-1"  *ngIf="userIsLogged"><img src="assets/icon/avatar.svg" (click)="openProfileMenuWeb()"></p>
 
-        <div class="col-4 col-xl-5 py-2 loginContainer" [class.loginClosed]="loginModalClosed">
+        <div class="col-4 col-xl-5 py-2 loginContainer" [class.loginClosed]="loginModalClosed" (clickOutside)="closeLoginBox()" [exclude]="'#navLoginButton'">
 
-          <input type="text" class="col-12 my-2" placeholder="Əlaqə nömrəsi" [(ngModel)]="userData.phoneNumber">
+          <input type="text" class="col-12 my-2 loginBoxInput" placeholder="Əlaqə nömrəsi" [(ngModel)]="userData.phoneNumber" #phoneNumber #phoneNumber (input)="addCountryCode(phoneNumber)">
 
           <br>
 
-          <input type="password" class="col-12 my-2" placeholder="Şifrə" [(ngModel)]="userData.password">
+          <input type="password" class="col-12 my-2 loginBoxInput" placeholder="Şifrə" [(ngModel)]="userData.password">
 
           <p class="pl-3 errorMessage" *ngIf="!userCredentials">İstifadəçi məlumatları yanlışdır</p>
           <div class="row col-12">
 
-            <p class="col-xl-7 col-6 signUp" routerLink="/userRegistration">
+            <p class="col-xl-7 col-6 signUp" routerLink="/userRegistration" (click)="closeLoginBox()">
               Qeydiyyat
             </p>
 
@@ -43,7 +43,7 @@
               <img src="assets/icon/login.svg">
             </p>
 
-            <p class="col-xl-12 col-6 signUp" routerLink="/userResetPassword">
+            <p class="col-xl-12 col-6 signUp" routerLink="/userResetPassword" (click)="closeLoginBox()">
               Şifrəni yenilə
             </p>
 

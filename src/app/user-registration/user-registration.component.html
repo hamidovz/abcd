@@ -31,7 +31,7 @@
                             <!-- Phone number -->
                             <div class="formElement col-md-6 col-sm-12">
 
-                                <input type="text" [class.inputError]="hasError.phoneNumber" name="phoneNumber" class="formInput" placeholder="Mobil nömrə" [(ngModel)]="userData.phoneNumber">
+                                <input type="text" [class.inputError]="hasError.phoneNumber" name="phoneNumber" class="formInput" placeholder="Mobil nömrə" [(ngModel)]="userData.phoneNumber" #phoneNumber (input)="addCountryCode(phoneNumber)">
                            
                                 <p class="col-12 validationError px-0 mt-1 mb-0" [class.showError]="hasError.phoneNumber" >{{validationMessages.phoneNumber}}</p> 
                            

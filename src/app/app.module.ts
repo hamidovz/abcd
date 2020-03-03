@@ -4,7 +4,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import { LoadersCssModule } from 'angular2-loaders-css';
 import { ShareButtonsModule } from '@ngx-share/buttons';
-
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -107,7 +107,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     HttpClientModule,
     FormsModule,
     NgbDatepickerModule,
-    OwlDateTimeModule,  
+    OwlDateTimeModule,
+    ClickOutsideModule,
     OwlNativeDateTimeModule,
     AgmCoreModule.forRoot(
       {

@@ -159,7 +159,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="transferInfoInput">
-                                            <input type="number" placeholder="Nömrə" name="number" [(ngModel)]="transferData.phone">
+                                            <input type="number" placeholder="Nömrə" name="number" [(ngModel)]="transferData.phone" #phoneNumber (input)="addCountryCode(phoneNumber)">
                                             <p [class.showError] = "hasValidationError.phone">{{validationMessages.phone}}</p>
                                         </div>
                                     </div>

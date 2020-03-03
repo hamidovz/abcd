@@ -334,6 +334,11 @@
     color: red;
     font-size: 12px;
 }
+
+.logo{
+    cursor:pointer;
+}
+
 @media screen and (max-width:1024px){
     .navElement{
         padding:0 20px;

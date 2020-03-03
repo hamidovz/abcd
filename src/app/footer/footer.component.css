@@ -18,6 +18,10 @@
     font-family: Sarabun,sans-serif;
 }
 
+.footerLogo{
+    cursor:pointer;
+}
+
 /* Footer Responsive design */
 @media(max-width: 991px){
     #footer{
