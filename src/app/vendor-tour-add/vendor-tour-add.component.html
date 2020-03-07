@@ -344,7 +344,7 @@
 
 
 
-            <div class="col-md-9 px-0 row addImageslabelWeb">
+            <div class="col-md-9 px-0 row addImageslabelWeb mt-5">
 
                 <p class="col-md-4 px-0">Tur şəkilləri</p>
 
@@ -598,7 +598,7 @@
 
                 <span class="mr-3 mb-3">+</span>
 
-                <span id="addNewTourText" (click)="toggleStep( 'vendorTourFinish' , 'vendorTourCreate'  )">YENİ TUR ƏLAVƏ ET</span>
+                <span id="addNewTourText" (click)="toggleStep( 'vendorTourFinish' , 'vendorTourCreate', 1 )">YENİ TUR ƏLAVƏ ET</span>
 
             </button>
 
@@ -613,9 +613,9 @@
 
         <div  *ngIf = "steps.vendorTourService" class="col-12 my-5 acceptTerms" [class.fade]="steps.vendorTourService">
 
-            <p class="acceptTermsCircle my-0 mr-3"></p>
+            <input type="checkbox" #acceptTermsCheckbox (click)="vendorTermsAccept(acceptTermsCheckbox)">
 
-            <p class="my-0 acceptTermsText" (click)="openModal()">Qaydalarla tanış oldum və qəbul edirəm</p>
+            <p class="my-0 acceptTermsText" (click)="openModal()" [class.makeRed]="hasValidationError.acceptTermsCheckbox">Qaydalarla tanış oldum və qəbul edirəm</p>
         </div>
 
 
@@ -637,7 +637,12 @@
         <div *ngIf="steps.vendorTourService" class="col-12 prevNext mt-5">
 
             <button class="col-2 mr-1 py-2" (click)="toggleStep( 'vendorTourService' , 'vendorTourActivities')">DÜZƏLİŞ ET</button>
-            <button class="col-2 ml-1 py-2" id="confirm" (click)="toggleStep( 'vendorTourService' , 'vendorTourFinish' , 3 );addTour(imagesCurrent,imagesPrevious)">TƏSDİQLƏ</button>
+            <button class="col-2 ml-1 py-2" id="confirm" (click)="addTour(imagesCurrent,imagesPrevious)">
+                
+                <span *ngIf="lastStep" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                TƏSDİQLƏ
+            
+            </button>
 
         </div>
 
@@ -651,7 +656,10 @@
 
         <div *ngIf="steps.vendorTourCreate" class="col-12 prevNext">
 
-            <button class="col-md-2 col-3 py-2 mt-5 nextButton" (click) = "toggleStep( 'vendorTourCreate' , 'vendorTourActivities' , 1  )">DAVAM ET</button>
+            <button class="col-md-2 col-3 py-2 mt-5 nextButton" (click) = "toggleStep( 'vendorTourCreate' , 'vendorTourActivities' , 1  )">
+                DAVAM 
+            
+            </button>
         
         </div>
 

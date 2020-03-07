@@ -1,4 +1,13 @@
 <section id="userProfile">
+    <div class="container-fluid">
+
+        <div class="container">
+            <div class="col-12 row profileLabel">
+                <p class="col-1"><img src="/assets/icon/avatarSimple.svg"></p>
+            <p class="col-3">test</p>
+        </div>
+        </div>
+    </div>
     <div class="container pt-5 pb-5">
         <div class="row">
 
@@ -27,51 +36,92 @@
                     <div class="col-12 detailValues">
                         <!-- All elements start here -->
                         <!-- Name -->
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Ad:</p>
+                                
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Ad</mat-label>
+                                    <input matInput 
+                                           placeholder="Məs: Əli">
+                                    <mat-hint>Yeni ad yazın</mat-hint>
+                                    <mat-error >
+                                      boş buraxmaq  <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+
                             </div>
-                            <div class="col-md-7 col-9">
-                                <p>Hikmət</p>
-                            </div>
+                            <!-- <div class="col-md-7 col-9">
+                                <p class="px-2 editableField">Hikmət</p>
+                            </div> -->
                         </div>
                         <!-- Surname -->
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Soyad:</p>
+
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Soyad</mat-label>
+                                    <input matInput 
+                                           placeholder="Məs: Vəliyev">
+
+                                    <mat-hint>Yeni soyad yazın</mat-hint>
+
+                                    <mat-error >
+                                      Boş buraxmaq <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+
                             </div>
-                            <div class="col-md-7 col-9">
-                                <p>Musayev</p>
-                            </div>
+                            <!-- <div class="col-md-7 col-9">
+                                <p class="px-2 editableField">Musayev</p>
+                            </div> -->
                         </div>
                         <!-- Phone number -->
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Nömrə:</p>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Nömrə</mat-label>
+                                    <input matInput 
+                                           placeholder="Məs: 9945599999999" [(ngModel)]="editData.phoneNumber">
+                                    <mat-hint>Yeni nömrə yazın</mat-hint>
+
+                                    <mat-error >
+                                      Boş buraxmaq <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
                             </div>
-                            <div class="col-md-7 col-9">
-                                <p contenteditable="true">+994559355558</p>
-                                <a>
+                            <!-- <div class="col-md-7 col-9">
+                                <p class="px-2 editableField" name="phoneNumber" #phoneNumber (input)="addNewData(phoneNumber.innerText,'phoneNumber')" (clickOutside)="disableEdit('phoneNumber')" [exclude]="'#editIcon'" [class.editActive]="isEditable.phoneNumber" [attr.contentEditable]="isEditable.phoneNumber ? true : null">+994559355558</p>
+                                <a id="editIcon" (click)="makeEditable('phoneNumber');openSnack('salam')">
                                     <svg-icon src="../assets/icons/Path 258.svg"
                                         [svgStyle]="{'width.px':16, 'margin-left.px':4}">
                                     </svg-icon>
                                 </a>
 
-                            </div>
+                            </div> -->
                         </div>
                         <!-- Password -->
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Şifrə:</p>
+                                <!-- <p >Şifrə:</p> -->
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Şifrə</mat-label>
+                                    <input type="password" matInput 
+                                           placeholder="*****" [(ngModel)]="editData.phoneNumber">
+                                    <mat-hint>Yeni şifrə yazın</mat-hint>
+
+                                    <mat-error >
+                                      Boş buraxmaq <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
                             </div>
-                            <div class="col-md-7 col-9">
-                                <p>******</p>
-                                <a>
+                            <!-- <div class="col-md-7 col-9">
+                                <p class="px-2 editableField" name="newPassword" #newPassword (input)="addNewData(newPassword.innerText,'newPassword')"  (clickOutside)="disableEdit('password')" [exclude]="'#editIcon'" [class.editActive]="isEditable.password" [attr.contentEditable]="isEditable.password ? true : null">******</p>
+                                <a id="editIcon" (click)="makeEditable('password')">
                                     <svg-icon src="../assets/icons/Path 258.svg"
                                         [svgStyle]="{'width.px':16, 'margin-left.px':4}">
                                     </svg-icon>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
 
                     </div>
@@ -84,33 +134,65 @@
                     <div class="col-12 detailValues">
                         <!-- All elements start here -->
                         <!-- Birth date -->
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Doğum tarixi:</p>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Doğum tarixi</mat-label>
+                                    <input matInput 
+                                           placeholder="Məs: 1990-03-02">
+                                    <mat-hint>Doğum tarixini dəyişin</mat-hint>
+                                    <mat-error >
+                                      boş buraxmaq  <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+
                             </div>
-                            <div class="col-md-7 col-9">
-                                <p>29/03/1992</p>
-                            </div>
+                            <!-- <div class="col-md-7 col-9">
+                                <p class="px-2 editableField">29/03/1992</p>
+                            </div> -->
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Cins:</p>
+
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Cins</mat-label>
+                                    <input matInput 
+                                           placeholder="Məs: Kişi">
+                                    <mat-hint>Cinsinizi dəyişin</mat-hint>
+
+                                    <mat-error >
+                                     Boş buraxmaq <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+
                             </div>
-                            <div class="col-md-7 col-9">
-                                <p>Kişi</p>
-                            </div>
+                            <!-- <div class="col-md-7 col-9">
+                                <p class="px-2 editableField">Kişi</p>
+                            </div> -->
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-5 col-3">
-                                <p>Email:</p>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput 
+                                           placeholder="Məs: abc@test.az">
+                                    <mat-hint>Emailinizi dəyişim</mat-hint>
+                                    <mat-error >
+                                      Boş buraxmaq <strong>olmaz</strong>
+                                    </mat-error>
+                                  </mat-form-field>
                             </div>
                             <div class="col-md-7 col-9">
-                                <p>hikmat.musayevv@gmail.com</p>
-                                <a>
+                                <!-- <p class="px-2 editableField" name="email" #email (input)="addNewData(email.innerText,'email')"  (clickOutside)="disableEdit('email')" [exclude]="'#editIcon'" [class.editActive]="isEditable.email" [attr.contentEditable]="isEditable.email ? true : null">hikmat.musayevv@gmail.com</p> -->
+                                
+
+                                
+                                
+                                <!-- <a id="editIcon" (click)="makeEditable('email')">
                                     <svg-icon src="../assets/icons/Path 258.svg"
                                         [svgStyle]="{'width.px':16, 'margin-left.px':4}">
                                     </svg-icon>
-                                </a>
+                                </a> -->
 
                             </div>
                         </div>

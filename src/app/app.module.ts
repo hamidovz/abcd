@@ -1,10 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule , Title} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule } from '@angular/material';
 // import { LoadersCssModule } from 'angular2-loaders-css';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { ClickOutsideModule } from 'ng-click-outside';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -106,9 +108,11 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     AngularSvgIconModule,
     HttpClientModule,
     FormsModule,
+    MatInputModule,
     NgbDatepickerModule,
     OwlDateTimeModule,
     ClickOutsideModule,
+    MatSnackBarModule,
     OwlNativeDateTimeModule,
     AgmCoreModule.forRoot(
       {

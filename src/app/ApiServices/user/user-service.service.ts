@@ -29,8 +29,9 @@ export class UserServiceService {
 
     visitedTours : `${this.apiBase}/booking/getWent/`,
 
-    plannedTours : `${this.apiBase}/booking/getWillGo/`
+    plannedTours : `${this.apiBase}/booking/getWillGo/`,
 
+    sendUpdatedData : `${this.apiBase}/user/` //a user id will be added to the end of the url
 
 
     // checkIfNumberExists : "http"
@@ -133,6 +134,16 @@ export class UserServiceService {
 
   console.log("ok");
   return this.http.get( this.apiUrl.plannedTours + localStorage.getItem("userId") , this.userOptions );
+
+ }
+
+
+
+ public sendUpdatedData( data ){
+
+  this.createHeader();
+
+  return this.http.put( this.apiUrl.sendUpdatedData + localStorage.getItem("userId") , data , this.userOptions);
 
  }
 

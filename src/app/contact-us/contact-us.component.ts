@@ -61,7 +61,7 @@ export class ContactUsComponent implements OnInit {
 
     "email": false,
 
-    "phoneNumber": false,
+    "number": false,
 
     "description": false
 
@@ -77,11 +77,25 @@ export class ContactUsComponent implements OnInit {
 
     "email": "Boş buraxmaq olmaz",
 
-    "phoneNumber": "Boş buraxmaq olmaz",
+    "number": "Boş buraxmaq olmaz",
 
     "description": "Boş buraxmaq olmaz"
   }
 
+
+  public validationLength = {
+
+    name : { min : 3, max : 20 },
+    
+    surname : { min : 3, max : 20 },
+
+    email : { min : 3, max : 20 },
+    
+    description : { min : 3, max : 20 },
+    
+    number : { min : 3, max : 20 },
+
+}
 
 
   public validateForm(){
@@ -100,7 +114,23 @@ export class ContactUsComponent implements OnInit {
 
       }
 
+      if( (this.message[field].length && this.message[field].length < this.validationLength[field].min) || (this.message[field].length && this.message[field].length > this.validationLength[field].max) ){
+
+        console.log(this.validationMessages[field]);
+
+                        
+        this.validationMessages[field] ="uzunluq 3-20 arası olmalıdır";
+
+        this.hasError[field] = true;
+
+        hasError = true;
+
+        console.log(this.hasError[field]);
+        
+      }
+
     })
+    
 
     return hasError;
 
@@ -112,20 +142,14 @@ export class ContactUsComponent implements OnInit {
     this.hasError  = {
 
       "name": false,
-  
+
       "surname": false,
   
       "email": false,
   
-      "phoneNumber": false,
+      "number": false,
   
-      "password": false,
-  
-      "confirmPassword": false,
-  
-      "birthday": false,
-  
-      "gender": false
+      "description": false
   
     }
 

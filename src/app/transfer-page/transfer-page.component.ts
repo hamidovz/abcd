@@ -152,9 +152,9 @@ export class TransferPageComponent implements OnInit {
   }
 
   public carTypes = {
-    1: "Ekonom Sedan",
-    2: "Biznes Sedan",
-    3: "MiniBus"
+    5: "Ekonom Sedan",
+    6: "Biznes Sedan",
+    7: "MiniBus"
   }
 
   public setCarType( carType ){
@@ -289,6 +289,27 @@ public hasValidationError = {
 }
 
 
+public validationLength = {
+
+  pickupLocation : { min : 3, max : 20 },
+  
+  destination : { min : 3, max : 20 },
+
+  pickUpTime : { min : 3, max : 20 },
+  
+  passengerNumber : { min : 3, max : 20 },
+
+  luggageWeight : { min : 3, max : 20 },
+
+  name : { min :3, max : 20},
+
+  surname : { min :3, max : 20},
+
+  phone : { min :3, max : 20},
+
+  email : { min :3, max : 20},
+
+}
 
 public resetValidationMessages(){
 
@@ -348,7 +369,9 @@ public resetValidationMessages(){
 
 public validateForm(step){
 
-    console.log(step);
+  // console.log(this.transferData);
+
+    // console.log(step);
 
     this.resetValidationMessages();
 
@@ -360,7 +383,7 @@ public validateForm(step){
             
             if (this.transferData[data].length < 1){
 
-                    console.log(this.transferData[data].length);
+                    // console.log(this.transferData[data].length);
 
                     this.validationMessages[data] ="bos buraxmaq olmaz";
 
@@ -368,6 +391,20 @@ public validateForm(step){
 
                     hasError = true;
             }
+
+            console.log(this.transferData["luggageWeight"].toString().length);
+            console.log(this.transferData["luggageWeight"]);
+
+
+            if( (this.transferData[data].toString().length && this.transferData[data].toString().length < this.validationLength[data].min) || (this.transferData[data].toString().length && this.transferData[data].toString().length < this.validationLength[data].min) ){
+
+                        
+              this.validationMessages[data] ="uzunluq 3-20 arası olmalıdır";
+
+              this.hasValidationError[data] = true;
+
+              hasError = true;
+      }
             
     })
 

@@ -13,6 +13,12 @@ export class VendorTourAddComponent implements OnInit {
         public test = "ok";
 
 
+        public checkLoginStatus(){
+
+
+        }
+
+
 //validation of input fields. (give a notification to the user if any of the fields is blank)
 
 //check validation rules according the steps of tourAdding. the numbers (1,2,3) represent the steps
@@ -45,6 +51,30 @@ public validationMessages = {
         currentTourImgs : "bos buraxmaq olmaz",
 }
 
+//check if length of specific input field corresponds its maximum length
+
+public validationLength = {
+
+        Name : { min : 3, max : 50 },
+        
+        DepartureLocation : { min : 3, max : 20 },
+
+        Destination : { min : 3, max : 20 },
+        
+        DepartureTime : { min : 3, max : 20 },
+
+        ArrivalTime : { min : 3, max : 20 },
+
+        AdultPrice : { min :1, max : 20},
+
+        ChildPrice : { min :1, max : 20},
+
+        InfantPrice : { min :1, max : 20},
+
+        Description : { min :3, max : 500},
+
+}
+
 
 //make opacity 1 of validation error message container of specific input field,
 //according the values below
@@ -65,6 +95,7 @@ public hasValidationError = {
         Programs : false,
         Services : false,
         currentTourImgs : false,
+        acceptTermsCheckbox : false
 
 }
 
@@ -104,6 +135,7 @@ public resetValidationMessages(){
                 Programs : false,
                 Services : false,
                 currentTourImgs : false,
+                acceptTermsCheckbox : false
         
         }
 }
@@ -118,22 +150,37 @@ public validateForm(step){
         var hasError = false;
 
 
+
         this.validationRules[step].map( data =>{
 
-                console.log(data);
 
                 //if input field is empty (length < 1)
                 
+                console.log(this.tourData[data].length);
                 if (this.tourData[data].length < 1){
 
-                        console.log(this.tourData[data].length);
 
                         this.validationMessages[data] ="bos buraxmaq olmaz";
 
                         this.hasValidationError[data] = true;
 
-                        console.log(this.validationMessages,this.hasValidationError);
                         
+                        hasError = true;
+                }
+
+                if( (this.validationLength[data] && this.tourData[data].length && this.tourData[data].length < this.validationLength[data].min) || ( this.validationLength[data] && this.tourData[data].length && this.tourData[data].length > this.validationLength[data].max) ){
+
+                        console.log(this.tourData[data] + " : " + this.tourData[data].length + "\n");
+
+                        console.log(this.validationLength[data]);
+
+
+
+
+                        this.validationMessages[data] ="uzunluq 3-20 arası olmalıdır";
+
+                        this.hasValidationError[data] = true;
+
                         hasError = true;
                 }
                 
@@ -199,6 +246,8 @@ public addPrograms(programs){
 
 public toggleStep( stepToDisable , stepToEnable , step? , programs?){
 
+
+
         console.log(this.tourData);
 
 
@@ -211,7 +260,7 @@ public toggleStep( stepToDisable , stepToEnable , step? , programs?){
         }
 
 
-        if ( step && this.validateForm(step) ){  //if validation method returns true it means there is a error
+        if ( step  && this.validateForm(step) ){  //if validation method returns true it means there is a error
 
                 return;
         }
@@ -389,11 +438,24 @@ public tourData = {
 public addService(service){
         
         // console.log(service);
-        this.tourData.Services.push(service);
+        this.tourData["Services"].push(service);
 
         console.log(this.tourData.Services);
 }
 
+
+
+//if vendor accepts terms (checks the checkbox on the last step)
+//make the value of the variable below true; (will be used for validation  )
+
+public vendorAcceptedTerms = false;
+
+public vendorTermsAccept(termsCheckbox){
+
+        var checkBox = termsCheckbox;
+
+        this.vendorAcceptedTerms = checkBox.checked;
+}
 
 
 
@@ -407,7 +469,26 @@ public addService(service){
 
 // }
 
+public lastStep = false;
+
 public addTour(currentImgs , prevTourImgs ){
+
+        // console.log(this.vendorAcceptedTerms);
+
+
+        this.hasValidationError["acceptTermsCheckbox"] = false;
+
+        //check if acceptTerms checkbox checked if not notify vendor with an error
+
+        if(!this.vendorAcceptedTerms){
+
+                this.hasValidationError["acceptTermsCheckbox"] = true;
+
+                return;
+        }
+
+
+        this.lastStep = true;
 
 
         this.VendorService.addTour( currentImgs , prevTourImgs , this.tourData ).subscribe( data => {
@@ -417,7 +498,9 @@ public addTour(currentImgs , prevTourImgs ){
                 var tourId = retreivedData.output;
 
                 if( retreivedData.isSuccess ){
-                        //
+
+                        console.log("ok");
+                        this.toggleStep("vendorTourService","vendorTourFinish",3);
                 }
         } );
         // .subscribe( data => console.log(data));
@@ -430,12 +513,34 @@ public handleAuth(){
         //vendor id ve token gonderilecek ugurlu olarsa auth edilib eks halda auth edilmeyib
         
         var token = localStorage.getItem("vendorToken");
+
+        var phoneNumber = localStorage.getItem("vendorPhoneNumber");
+
+        var vendorInfo = {
+                "token" : token,
+                "phoneNumber" : phoneNumber
+        }
     
         if(!token){
     
           this.route.navigate(["vendorLogin"]);
           
         }
+
+        this.VendorService.checkLoginStatus(vendorInfo).subscribe( data => {
+
+                var validationData : any = data;
+
+                if(!validationData.isSuccess){
+                        
+                        this.route.navigate(["vendorLogin"]);
+                }
+
+        },
+        
+        error => this.route.navigate(["vendorLogin"]))
+
+        
       }
 
 
@@ -517,6 +622,8 @@ public extractImgFile( inputFiles , imgPreviewCurrent){
         ) { }
 
   ngOnInit() {
+
+        this.handleAuth();
 
         this.getTourService();
 

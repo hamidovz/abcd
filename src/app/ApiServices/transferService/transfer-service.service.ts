@@ -17,7 +17,7 @@ export class TransferServiceService {
 
     sendSms : `${this.apiBase}/transfer/sendPhoneNumber`,
 
-    verifySmsCode : `${this.apiBase}/transfer/confirmPhoneNumbe`
+    verifySmsCode : `${this.apiBase}/transfer/confirmPhoneNumber`
   }
 
   public adminToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkQ3QTFFQjIxLUZFRDMtNDM0OS1BRDQ5LURDQjk4MUUwRkEzOCIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTU4MTU4OTIyNCwiZXhwIjoxNTgxNjc1NjI0LCJpYXQiOjE1ODE1ODkyMjR9.0v-t7nR-GVqizABlAlTEGSkZx-nIIIP1nwn4YzXTZ7I";

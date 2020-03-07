@@ -36,7 +36,7 @@ export class UserRegistrationComponent implements OnInit {
 
   //formValidation
 
-  public formFields = [ "name", "surname", "email", "phoneNumber", "password", "confirmPassword", "birthday", "gender" ];
+  public formFields = [ "name", "surname", "email", "phoneNumber", "password", "confirmPassword", "birthday" ];
   
 
   public hasError : any = {
@@ -81,6 +81,25 @@ export class UserRegistrationComponent implements OnInit {
 
   }
 
+  public validationLength = {
+
+    name : { min : 3, max : 20 },
+    
+    surname : { min : 3, max : 20 },
+
+    email : { min : 3, max : 20 },
+    
+    phoneNumber : { min : 3, max : 20 },
+
+    password : { min : 3, max : 20 },
+
+    confirmPassword : { min :3, max : 20},
+
+    birthday : { min :3, max : 20}
+
+
+}
+
   public userData={
 
     "name": "",
@@ -113,6 +132,14 @@ export class UserRegistrationComponent implements OnInit {
 
         hasError = true;
 
+      }
+
+      if( (this.userData[field].length && this.userData[field].length < this.validationLength[field].min) || (this.userData[field].length && this.userData[field].length < this.validationLength[field].min) ){
+
+                        
+        this.validationMessages[field] ="uzunluq 3-20 arası olmalıdır";
+
+        this.hasError[field] = true;
       }
 
     })
@@ -245,7 +272,6 @@ export class UserRegistrationComponent implements OnInit {
 
   }
 
-
   public verifyData = {
 
     phoneNumber : "",
@@ -308,14 +334,9 @@ export class UserRegistrationComponent implements OnInit {
   }
 
 
-
   //for notification on registration
 
   public registrationSuccessfull = false;
-
-
-
-
 
 
   //for sms verification

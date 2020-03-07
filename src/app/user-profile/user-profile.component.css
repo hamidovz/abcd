@@ -17,6 +17,12 @@ a {
     max-width: 31vw
 }
 
+
+.imgSide{
+    display: flex;
+    align-items: center;
+}
+
 /* Different type of location style with this class */
 
 .imgSide {
@@ -32,11 +38,15 @@ a {
 .imgSide .imgKeeper img {
     max-height: inherit;
     border-radius: 50%;
-    width: 100%;
     height: 100%;
 }
 
 .detailValues p {
+    overflow-wrap: break-word;
+    display: inline-block !important;
+}
+
+.detailValues input {
     overflow-wrap: break-word;
     display: inline-block !important;
 }
@@ -47,6 +57,27 @@ a {
     height:0;
 }
 
+
+.profileLabel{
+    align-items:flex-end;
+}
+
+#userProfile{
+    margin-top:12%;
+}
+
+.editableField{
+    border:1px solid transparent;
+    outline:none;
+}
+
+.editActive{
+    border:1px solid #00C853;
+}
+
+.inputError{
+    border:1px solid red !important;
+}
 /* Responsive design */
 
 @media screen and (min-width:768px) {

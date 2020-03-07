@@ -37,7 +37,7 @@
                     <span>Ad</span> 
                     <br>
                     <input type="text" class="col-12 col-lg-11 py-2 mt-2" [class.inputError]="hasError.name" name="name" [(ngModel)]="message.name">
-
+                    
                     <br>
                     <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.name">{{validationMessages.name}}</span> 
                 </p>
@@ -65,10 +65,10 @@
                     <span >Əlaqə nömrəsi
                     </span> 
                     <br>
-                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" [class.inputError]="hasError.phoneNumber" name="number" [(ngModel)]="message.number">
+                    <input type="text" class="col-12 col-lg-11 py-2 mt-2" [class.inputError]="hasError.number" name="number" [(ngModel)]="message.number">
 
-                    <br>
-                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.phoneNumber">{{validationMessages.phoneNumber}}</span>  
+                    <br> 
+                    <span class="col-8 validationError mt-0 mb-0 px-0" [class.showError]="hasError.number">{{validationMessages.number}}</span>  
                 </p>
 
                 <p class="col-12">

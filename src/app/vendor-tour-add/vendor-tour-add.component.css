@@ -713,7 +713,9 @@ input[type="text"] , textarea{
 
 
 
-
+.makeRed{
+    color:red !important;
+}
 
 /* Mobile Version Starts */
 

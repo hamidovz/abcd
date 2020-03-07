@@ -22,7 +22,9 @@ export class VendorServiceService {
 
     vendorAddTour : `${this.apiBase}/tour`,
 
-    sendPrograms : `${this.apiBase}/tourProgram`
+    sendPrograms : `${this.apiBase}/tourProgram`,
+
+    vendorValidate : `${this.apiBase}/vendor/validate`
 
   }
 
@@ -32,6 +34,11 @@ export class VendorServiceService {
   public sendHeader = {
     
     vendorLogin : {
+      headers : new HttpHeaders(  {"Content-Type" : "application/json" } )
+    },
+
+
+    vendorTokenValidate : {
       headers : new HttpHeaders(  {"Content-Type" : "application/json" } )
     },
 
@@ -65,6 +72,10 @@ export class VendorServiceService {
     this.sendHeader =  {
     
       vendorLogin : {
+        headers : new HttpHeaders(  {"Content-Type" : "application/json" } )
+      },
+
+      vendorTokenValidate : {
         headers : new HttpHeaders(  {"Content-Type" : "application/json" } )
       },
   
@@ -155,23 +166,25 @@ public convertDateToString(date){
 
   public addTour( currentImgs , prevTourImgs , tourData) {
 
-    var programs = tourData.Programs;
+    var newTourData = Object.assign({}, tourData);
+
+    var programs = newTourData.Programs;
 
     console.log(programs);
 
     var programsLength = programs.length;
 
-    delete tourData.Programs;
+    delete newTourData.Programs;
 
     var objKeys : any;
 
-    var services = tourData.Services;
+    var services = newTourData.Services;
 
     var servicesLength = services.length;
 
     //delete services from tourdata to append and send it as a array 
 
-    delete tourData.Services;
+    delete newTourData.Services;
 
     var currentImg : any =  currentImgs.files;
 
@@ -184,20 +197,20 @@ public convertDateToString(date){
 
     //converting departureTime and arrivalTime to a string
 
-    var arrivalTime = tourData.ArrivalTime;
+    var arrivalTime = newTourData.ArrivalTime;
 
-    var departureTime = tourData.DepartureTime;
+    var departureTime = newTourData.DepartureTime;
     
-    tourData.ArrivalTime = this.convertDateToString(arrivalTime);
+    newTourData.ArrivalTime = this.convertDateToString(arrivalTime);
     
-    tourData.DepartureTime = this.convertDateToString(departureTime);
+    newTourData.DepartureTime = this.convertDateToString(departureTime);
 
 
 
 
     var sendData = new FormData();
 
-    for (let x in tourData) {
+    for (let x in newTourData) {
 
 
       //images will be sent in the loop below 
@@ -207,7 +220,7 @@ public convertDateToString(date){
 
       }
 
-      sendData.append( x, tourData[x] );
+      sendData.append( x, newTourData[x] );
 
     }
 
@@ -266,6 +279,13 @@ public convertDateToString(date){
   //   return this.http.post( this.apiUrl.sendPrograms , programs , this.sendHeader["sendPrograms"] );
 
   // }
+
+
+
+  public checkLoginStatus(vendorLoginInfo){
+
+    return this.http.post(this.apiUrl.vendorValidate , vendorLoginInfo , this.sendHeader.vendorTokenValidate);
+  }
 
 
   constructor( public http : HttpClient ) { }

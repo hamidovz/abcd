@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener} from '@angular/core';
 import { UserServiceService } from '../ApiServices/user/user-service.service';
 import { SearchTourServiceService } from '../ApiServices/searchTour/search-tour-service.service';
 import { Router } from '@angular/router';
+import { Title }     from '@angular/platform-browser';
 
 @Component({
   selector: 'nav-bar',
@@ -55,6 +56,19 @@ export class NavBarComponent implements OnInit {
   //show search-section and slogan if boolean value of the below variable is true
 
   public isFrontPage = true;
+
+  public activeNavElementValues = {
+
+    "/home" : "home",
+
+    "/localTours" : "localTour",
+
+    "/externalTours" : "foreignTour",
+
+    "/transferPage" : "transfer"
+
+  }
+
 
   //make navbar element activated according the variable below:
 
@@ -230,7 +244,7 @@ export class NavBarComponent implements OnInit {
 
     this.openProfileMenuWeb();
 
-    console.log("ok");
+    this.router.navigate(["home"]);
 
   }
 
@@ -246,7 +260,14 @@ export class NavBarComponent implements OnInit {
 
   public checkRoute(){
 
+    window.scrollTo(0, 0);
+
     var currentRoute = window.location.pathname;
+
+    this.activeNavbarElement = this.activeNavElementValues[currentRoute];
+
+    this.titleService.setTitle(this.activeNavElementValues[currentRoute] + " - Ziqzaq.az")
+
 
     if( this.allowedRoutes.indexOf(currentRoute) > - 1){
       this.mustAppearNavBackground = true;
@@ -330,7 +351,9 @@ export class NavBarComponent implements OnInit {
 
     public searchService : SearchTourServiceService,
 
-    public router : Router
+    public router : Router,
+
+    public titleService : Title
     
     ) { }
 
