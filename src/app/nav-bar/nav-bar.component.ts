@@ -158,6 +158,12 @@ export class NavBarComponent implements OnInit {
   }
 
 
+  public closeProfileMenuWeb(){
+    
+    this.profileMenuOpenedWeb = false;
+  }
+
+
   //API operations start
 
 

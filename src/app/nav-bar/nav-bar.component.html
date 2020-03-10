@@ -21,7 +21,7 @@
         <p class="col-auto navElement py-1" (click)="activateNavElement('foreignTour')" [class.active]="activeNavbarElement == 'foreignTour'" routerLink="/externalTours">Xarici Turlar</p>
         <p class="col-auto navElement py-1" (click)="activateNavElement('transfer')" [class.active]="activeNavbarElement == 'transfer'" routerLink="/transferPage">Transfer Xidməti</p>
         <p class="col-auto navElement py-1" (click)="loginBox()" [class.active]="activeNavbarElement == 'login'" *ngIf="!userIsLogged" id="navLoginButton">Daxil ol</p>
-        <p class="col-auto navElement py-1"  *ngIf="userIsLogged"><img src="assets/icon/avatar.svg" (click)="openProfileMenuWeb()"></p>
+        <p class="col-auto navElement py-1"  *ngIf="userIsLogged"><img src="assets/icon/avatar.svg" (click)="openProfileMenuWeb()" id="userAvatarIcon"></p>
 
         <div class="col-4 col-xl-5 py-2 loginContainer" [class.loginClosed]="loginModalClosed" (clickOutside)="closeLoginBox()" [exclude]="'#navLoginButton'">
 
@@ -53,7 +53,7 @@
         </div>
 
 
-        <div class="col-4 profileMenuWeb px-0 pt-3" [class.profileMenuWebOpen]="profileMenuOpenedWeb">
+        <div class="col-4 profileMenuWeb px-0 pt-3" [class.profileMenuWebOpen]="profileMenuOpenedWeb" (clickOutside)="closeProfileMenuWeb()" [exclude]="'#userAvatarIcon'">
 
           <p class="col-12 px-0" routerLink="/userProfile"> <fa-icon [icon]="['fas','user']" class="mr-3 ml-4" ></fa-icon> Hesabım </p>
           <p class="col-12 px-0" routerLink="/favoriteTours"> <fa-icon [icon]="['far','heart']" class="mr-3 ml-4"></fa-icon> İzlədiyim turlar </p>
