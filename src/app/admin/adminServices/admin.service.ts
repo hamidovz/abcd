@@ -13,7 +13,7 @@ export class AdminService {
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'access-control-allow-origin' : '*'})
-  };
+  }; 
 
   public adminLogin(data) {
     
