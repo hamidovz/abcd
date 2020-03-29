@@ -6,6 +6,9 @@ import { BookingServiceService } from '../ApiServices/booking/booking-service.se
 import { ReviewServiceService } from '../ApiServices/reviewService/review-service.service';
 import { UserServiceService } from '../ApiServices/user/user-service.service';
 
+import { NavbarServiceService } from '../ApiServices/navBar/navbar-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'single-tour-page',
@@ -224,6 +227,10 @@ export class SingleTourPageComponent implements OnInit {
       
 
       this.singleTour = this.singleTour.output;
+
+      //change page title and equal it to the current tour name
+
+      this.changeTitle(this.singleTour.name + " - Ziqzaq.az");
 
       this.tourID = this.singleTour.id;
 
@@ -617,6 +624,15 @@ export class SingleTourPageComponent implements OnInit {
 
   }
 
+  public changeTitle(currentRoute){
+
+    this.navbarService.changeTitle(currentRoute);
+  }
+
+
+
+
+  
 
 
 
@@ -632,9 +648,14 @@ export class SingleTourPageComponent implements OnInit {
 
     public ReviewService : ReviewServiceService,
 
-    public UserService : UserServiceService
+    public UserService : UserServiceService,
+
+    public navbarService : NavbarServiceService,
+
+    public router : Router
 
     ) { }
+
 
 
 
@@ -646,6 +667,7 @@ export class SingleTourPageComponent implements OnInit {
     this.previousCarouselSlide();
 
     this.handleLogin();
+
 
   }
 

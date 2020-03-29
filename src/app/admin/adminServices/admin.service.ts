@@ -8,7 +8,7 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 export class AdminService {
 
   public api = {
-    login: "http://ziqzaq.az/api/admin/login"
+    login: "https://ziqzaq.az/api/admin/login"
   }
 
   httpOptions = {

@@ -2,7 +2,8 @@ import { Component, OnInit, HostListener} from '@angular/core';
 import { UserServiceService } from '../ApiServices/user/user-service.service';
 import { SearchTourServiceService } from '../ApiServices/searchTour/search-tour-service.service';
 import { Router } from '@angular/router';
-import { Title }     from '@angular/platform-browser';
+import { NavbarServiceService } from '../ApiServices/navBar/navbar-service.service';
+
 
 @Component({
   selector: 'nav-bar',
@@ -59,13 +60,13 @@ export class NavBarComponent implements OnInit {
 
   public activeNavElementValues = {
 
-    "/home" : "home",
+    "/home" : "Əsas səhifə - Ziqzaq.az",
 
-    "/localTours" : "localTour",
+    "/localTours" : "Daxili turlar - Ziqzaq.az",
 
-    "/externalTours" : "foreignTour",
+    "/externalTours" : "Xarici turlar - Ziqzaq.az",
 
-    "/transferPage" : "transfer"
+    "/transferPage" : "Transfer xidməti - Ziqzaq.az"
 
   }
 
@@ -264,6 +265,15 @@ export class NavBarComponent implements OnInit {
     "/externalTours"
   ]
 
+
+
+
+
+  public changeTitle(currentRoute){
+
+    this.navbarService.changeTitle(currentRoute);
+  }
+
   public checkRoute(){
 
     window.scrollTo(0, 0);
@@ -272,8 +282,7 @@ export class NavBarComponent implements OnInit {
 
     this.activeNavbarElement = this.activeNavElementValues[currentRoute];
 
-    this.titleService.setTitle(this.activeNavElementValues[currentRoute] + " - Ziqzaq.az")
-
+    this.changeTitle(currentRoute);
 
     if( this.allowedRoutes.indexOf(currentRoute) > - 1){
       this.mustAppearNavBackground = true;
@@ -359,7 +368,7 @@ export class NavBarComponent implements OnInit {
 
     public router : Router,
 
-    public titleService : Title
+    public navbarService : NavbarServiceService
     
     ) { }
 

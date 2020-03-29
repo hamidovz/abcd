@@ -7,6 +7,9 @@ import {MatSnackBarModule } from '@angular/material';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { ClickOutsideModule } from 'ng-click-outside';
 import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -109,6 +112,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     HttpClientModule,
     FormsModule,
     MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatButtonModule,
     NgbDatepickerModule,
     OwlDateTimeModule,
     ClickOutsideModule,

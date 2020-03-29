@@ -14,14 +14,25 @@ export class UserProfileComponent implements OnInit {
 
   public editData = {
 
+    name : "",
+    surname : "",
     phoneNumber : "",
     email : "",
     newPassword: "",
-    currentPassword : "1234Asdf@"
+    currentPassword : "1234Asdf@",
+    birthDate : "",
+    gender : "0"
 
   }
 
 
+  public genders = {
+
+    0 : "kişi",
+
+    1 : "qadın"
+
+  }
   //add data to the 'editData' variable when user types on the specific field
 
   public addNewData(value , field){
@@ -139,6 +150,21 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
 
+    this.userService.getUserById(localStorage.getItem("userId")).subscribe(data => {
+      
+      var retreived : any = data;
+
+      retreived = retreived.output;
+
+      this.editData.name = retreived.name;
+      this.editData.surname = retreived.surname;
+      this.editData.email = retreived.email;
+      this.editData.phoneNumber = retreived.phoneNumber;
+      this.editData.birthDate = retreived.birthday;
+      this.editData.gender = this.genders[retreived.gender];
+
+
+    })
   }
 
 }

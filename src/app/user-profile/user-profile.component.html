@@ -42,7 +42,7 @@
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Ad</mat-label>
                                     <input matInput 
-                                           placeholder="Məs: Əli">
+                                           placeholder="Məs: Əli" [(ngModel)]="editData.name">
                                     <mat-hint>Yeni ad yazın</mat-hint>
                                     <mat-error >
                                       boş buraxmaq  <strong>olmaz</strong>
@@ -61,7 +61,8 @@
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Soyad</mat-label>
                                     <input matInput 
-                                           placeholder="Məs: Vəliyev">
+                                           placeholder="Məs: Vəliyev" [(ngModel)]="editData.surname
+                                           ">
 
                                     <mat-hint>Yeni soyad yazın</mat-hint>
 
@@ -106,7 +107,7 @@
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Şifrə</mat-label>
                                     <input type="password" matInput 
-                                           placeholder="*****" [(ngModel)]="editData.phoneNumber">
+                                           placeholder="*****" [(ngModel)]="editData.newPassword">
                                     <mat-hint>Yeni şifrə yazın</mat-hint>
 
                                     <mat-error >
@@ -139,7 +140,7 @@
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Doğum tarixi</mat-label>
                                     <input matInput 
-                                           placeholder="Məs: 1990-03-02">
+                                           placeholder="Məs: 1990-03-02" [(ngModel)]="editData.birthDate">
                                     <mat-hint>Doğum tarixini dəyişin</mat-hint>
                                     <mat-error >
                                       boş buraxmaq  <strong>olmaz</strong>
@@ -154,16 +155,29 @@
                         <div class="row my-2">
                             <div class="col-md-5 col-3">
 
-                                <mat-form-field class="example-full-width">
+                                <!-- <mat-form-field class="example-full-width">
                                     <mat-label>Cins</mat-label>
                                     <input matInput 
-                                           placeholder="Məs: Kişi">
-                                    <mat-hint>Cinsinizi dəyişin</mat-hint>
+                                           placeholder="Məs: Kişi" [(ngModel)]="editData.gender">
+                                    <mat-hint>Cinsinizi dəyişin</mat-hint> -->
 
-                                    <mat-error >
+                                    <mat-form-field >
+                                        <mat-label>Seçin</mat-label>
+                                        <mat-select [(ngModel)]="editData.gender">
+                                          <mat-option  [value]="0" >
+                                            Kişi
+                                          </mat-option>
+
+                                          <mat-option  [value]="1">
+                                            Qadın
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+
+                                    <!-- <mat-error >
                                      Boş buraxmaq <strong>olmaz</strong>
                                     </mat-error>
-                                  </mat-form-field>
+                                  </mat-form-field> -->
 
                             </div>
                             <!-- <div class="col-md-7 col-9">
@@ -175,7 +189,7 @@
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Email</mat-label>
                                     <input matInput 
-                                           placeholder="Məs: abc@test.az">
+                                           placeholder="Məs: abc@test.az" [(ngModel)]="editData.email">
                                     <mat-hint>Emailinizi dəyişim</mat-hint>
                                     <mat-error >
                                       Boş buraxmaq <strong>olmaz</strong>
@@ -196,6 +210,8 @@
 
                             </div>
                         </div>
+
+                        <button mat-raised-button color="primary" (click)="sendUpdatedData()">Saxla</button> 
                         
 
                     </div>
